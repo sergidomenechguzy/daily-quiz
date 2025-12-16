@@ -1,6 +1,7 @@
 import { useLoaderData } from 'react-router';
 import type { loader } from '~/routes/home';
 import { Typography } from '~/components/ui/typography';
+import { ExactMatchQuiz } from './exact-match-quiz';
 
 export const Quiz = () => {
   const { quizQuestion } = useLoaderData<typeof loader>();
@@ -20,7 +21,7 @@ export const Quiz = () => {
       return <Typography variant="h2">{quizQuestion.questionText}</Typography>;
     }
     case 'exact-match': {
-      return <Typography variant="h2">{quizQuestion.questionText}</Typography>;
+      return <ExactMatchQuiz quizQuestion={quizQuestion} />;
     }
     default: {
       return null;
