@@ -1,7 +1,7 @@
 import { useLoaderData } from 'react-router';
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
-import type { ExactMatchQuestion } from '~/types/quiz-question';
+import type { EstimationQuestion } from '~/types/quiz-question';
 import { Controller, useForm } from 'react-hook-form';
 import { Field } from '~/components/ui/field';
 import { useGetAttempt, useQuizStore } from '~/stores/quiz-store';
@@ -15,11 +15,11 @@ type FormData = {
   answer: string;
 };
 
-interface ExactMatchQuizProps {
-  quizQuestion: ExactMatchQuestion;
+interface EstimationQuizProps {
+  quizQuestion: EstimationQuestion;
 }
 
-export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
+export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
   const { dailyIndex } = useLoaderData<typeof loader>();
   const submitAnswer = useQuizStore(state => state.submitAnswer);
   const dateString = dailyIndex.dateString;
@@ -34,15 +34,21 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
   });
 
   function checkAnswer(userAnswer: string): boolean {
-    const normalized = userAnswer.toLowerCase().trim();
-    const correct = quizQuestion.correctAnswer.toLowerCase().trim();
+    let normalized = Number(userAnswer);
+    const correct = quizQuestion.correctAnswer;
+    if (quizQuestion.precision != null) {
+      normalized = Number(normalized.toFixed(quizQuestion.precision));
+    }
 
     if (normalized === correct) return true;
 
-    if (quizQuestion.acceptedVariations) {
-      return quizQuestion.acceptedVariations.some(
-        variation => variation.toLowerCase().trim() === normalized
-      );
+    if (quizQuestion.tolerance != null) {
+      let floor = correct - quizQuestion.tolerance;
+      floor = Number(floor.toFixed(quizQuestion.precision));
+      let ceil = correct + quizQuestion.tolerance;
+      ceil = Number(ceil.toFixed(quizQuestion.precision));
+
+      return normalized >= floor && normalized <= ceil;
     }
 
     return false;
@@ -65,6 +71,7 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
               <div className="flex flex-col gap-2">
                 <Typography variant="large">
                   {quizQuestion.correctAnswer}
+                  {quizQuestion.unit ? ` ${quizQuestion.unit}` : ''}
                 </Typography>
                 <Typography variant="small">
                   {quizQuestion.explanation}
@@ -83,7 +90,7 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
                       <Input
                         {...field}
                         id={field.name}
-                        type="text"
+                        type="number"
                         placeholder="Enter your guess..."
                         required
                       />

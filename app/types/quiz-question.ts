@@ -9,8 +9,8 @@ interface BaseQuestion {
   type: QuestionType;
   questionText: string;
   category: string;
-  hint?: string;
   explanation?: string;
+  hints?: string[];
 }
 
 export interface MultipleChoiceQuestion extends BaseQuestion {
@@ -22,9 +22,10 @@ export interface MultipleChoiceQuestion extends BaseQuestion {
 export interface EstimationQuestion extends BaseQuestion {
   type: 'estimation';
   correctAnswer: number;
-  unit: string;
+  unit?: string;
   // Optional: Allow answers within 10% to be considered "perfect"
   tolerance?: number;
+  precision?: number;
   // Optional: Min/Max for a slider UI
   range?: { min: number; max: number };
 }
@@ -42,6 +43,7 @@ export interface TopFiveQuestion extends BaseQuestion {
   // Optional: Allow variations (e.g. "USA", "United States", "U.S.")
   acceptedVariations?: [string[], string[], string[], string[], string[]];
   correctValues?: [string, string, string, string, string];
+  options?: string[];
 }
 
 export type QuizQuestion =

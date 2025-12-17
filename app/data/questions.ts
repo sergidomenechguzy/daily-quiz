@@ -1,5 +1,4 @@
-import type { QuizQuestion } from '~/types/quizQuestion'; // Adjust path as needed
-// Adjust path as needed
+import type { QuizQuestion } from '~/types/quiz-question';
 
 export const quizQuestions: QuizQuestion[] = [
   {
@@ -12,7 +11,10 @@ export const quizQuestions: QuizQuestion[] = [
       'Hyper Text Transfer Protocol',
       'Hypertext Transfer Protocol Secure',
     ],
-    hint: 'It is the foundation of data communication for the World Wide Web.',
+    hints: [
+      'It is the foundation of data communication for the World Wide Web.',
+      'The first word is "Hypertext" and the last is "Protocol".',
+    ],
     explanation:
       'Tim Berners-Lee initiated development of HTTP at CERN in 1989.',
   },
@@ -22,15 +24,13 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'Geography',
     questionText: 'Name the top 5 largest countries by land area.',
     correctAnswers: ['Russia', 'Canada', 'China', 'United States', 'Brazil'],
-    // Strict Tuple of 5 string arrays
     acceptedVariations: [
       ['Russian Federation'],
-      [], // No variations for Canada needed
+      [],
       ['PRC', 'Peoples Republic of China'],
       ['USA', 'America', 'US', 'The US'],
       ['Brasil'],
     ],
-    // Optional display values (e.g. Area in million sq km)
     correctValues: [
       '17.1M km²',
       '9.98M km²',
@@ -38,7 +38,7 @@ export const quizQuestions: QuizQuestion[] = [
       '9.5M km²',
       '8.5M km²',
     ],
-    hint: 'The largest spans 11 time zones.',
+    hints: ['The largest spans 11 time zones.'],
     explanation:
       'Russia is almost twice the size of the second-largest country, Canada.',
   },
@@ -48,8 +48,8 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'Science',
     questionText: 'Which element has the chemical symbol "Fe"?',
     options: ['Gold', 'Silver', 'Iron', 'Lead'],
-    correctAnswer: 2, // Index for 'Iron'
-    hint: 'This metal is commonly used in construction and machinery.',
+    correctAnswer: 2,
+    hints: ['This metal is commonly used in construction and machinery.'],
     explanation: 'The symbol "Fe" comes from the Latin word "Ferrum".',
   },
   {
@@ -58,10 +58,8 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'History',
     questionText: 'In what year did the Titanic sink?',
     correctAnswer: 1912,
-    unit: 'year',
-    tolerance: 0, // Strict exact year required
     range: { min: 1900, max: 1930 },
-    hint: 'It was early in the 20th century, two years before WWI began.',
+    hints: ['It was early in the 20th century, two years before WWI began.'],
     explanation: 'The Titanic hit an iceberg on April 14, 1912.',
   },
   {
@@ -85,7 +83,7 @@ export const quizQuestions: QuizQuestion[] = [
       ['Star Wars Ep 7', 'Force Awakens', 'Episode VII'],
     ],
     correctValues: ['$2.92B', '$2.79B', '$2.32B', '$2.26B', '$2.07B'],
-    hint: 'James Cameron directed 3 of the top 5.',
+    hints: ['James Cameron directed 3 of the top 5.'],
     explanation:
       'Avatar (2009) remains the highest-grossing film almost 15 years later.',
   },
@@ -96,7 +94,7 @@ export const quizQuestions: QuizQuestion[] = [
     questionText: 'Who is the mascot of Nintendo?',
     options: ['Link', 'Kirby', 'Mario', 'Donkey Kong'],
     correctAnswer: 2,
-    hint: 'He is an Italian plumber.',
+    hints: ['He is an Italian plumber.'],
     explanation:
       'Mario first appeared in 1981 as "Jumpman" in the Donkey Kong arcade game.',
   },
@@ -106,11 +104,12 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'Space',
     questionText:
       'How many minutes does it take for light from the Sun to reach Earth?',
-    correctAnswer: 8.3, // 8 minutes 20 seconds
+    correctAnswer: 8.3,
     unit: 'minutes',
-    tolerance: 0.5, // Allow 7.8 to 8.8
+    tolerance: 0.3,
+    precision: 1,
     range: { min: 0, max: 20 },
-    hint: 'It is less than 10 minutes.',
+    hints: ['It is less than 10 minutes.'],
     explanation:
       'Light travels at roughly 300,000 km/s, and the sun is 150 million km away.',
   },
@@ -121,7 +120,10 @@ export const quizQuestions: QuizQuestion[] = [
     questionText: 'Who wrote "Romeo and Juliet"?',
     correctAnswer: 'William Shakespeare',
     acceptedVariations: ['Shakespeare', 'Bard of Avon'],
-    hint: 'He is arguably the most famous playwright in history.',
+    hints: [
+      'He is arguably the most famous playwright in history.',
+      'His initials are W.S.',
+    ],
     explanation:
       'It was written early in his career about two young star-crossed lovers.',
   },
@@ -132,9 +134,9 @@ export const quizQuestions: QuizQuestion[] = [
     questionText: 'What is the diameter of the Earth at the equator?',
     correctAnswer: 12742,
     unit: 'km',
-    tolerance: 200, // Allow 12542 to 12942
+    tolerance: 200,
     range: { min: 0, max: 20000 },
-    hint: 'It is roughly 40,000 km in circumference.',
+    hints: ['It is roughly 40,000 km in circumference.'],
     explanation:
       'Earth is not a perfect sphere; it bulges at the equator due to rotation.',
   },
@@ -145,7 +147,10 @@ export const quizQuestions: QuizQuestion[] = [
     questionText: 'What is the programming language that runs in web browsers?',
     correctAnswer: 'JavaScript',
     acceptedVariations: ['JS', 'EcmaScript'],
-    hint: 'It is often abbreviated as two letters.',
+    hints: [
+      'It is often abbreviated as two letters.',
+      'Despite the name, it is not related to the Java language.',
+    ],
     explanation: 'JavaScript was created in just 10 days in 1995.',
   },
   {
@@ -154,9 +159,93 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'History',
     questionText: 'In what year was the first iPhone released?',
     correctAnswer: 2007,
-    unit: 'year',
     range: { min: 1990, max: 2025 },
-    hint: 'It was introduced by Steve Jobs in January.',
+    hints: ['It was introduced by Steve Jobs in January.'],
     explanation: 'The original iPhone was a GSM-only phone and lacked 3G.',
+  },
+  {
+    id: 'q-012',
+    type: 'multiple-choice',
+    category: 'Geography',
+    questionText: 'What is the capital city of Australia?',
+    options: ['Sydney', 'Melbourne', 'Canberra', 'Brisbane'],
+    correctAnswer: 2, // Canberra
+    hints: [
+      'It is an inland city, chosen as a compromise between the two largest cities.',
+    ],
+    explanation:
+      'Canberra was selected as the capital in 1908 as a compromise between rivals Sydney and Melbourne.',
+  },
+  {
+    id: 'q-013',
+    type: 'exact-match',
+    category: 'Science',
+    questionText: 'What is the hardest natural substance on Earth?',
+    correctAnswer: 'Diamond',
+    acceptedVariations: ['Diamonds'],
+    hints: [
+      'It is a solid form of the element carbon.',
+      'It is commonly found in engagement rings.',
+    ],
+    explanation:
+      'Diamonds are formed deep within the Earth under extreme heat and pressure.',
+  },
+  {
+    id: 'q-014',
+    type: 'top-five',
+    category: 'Nature',
+    questionText: 'Name the 5 "Big Cats" of the genus Panthera.',
+    correctAnswers: ['Tiger', 'Lion', 'Jaguar', 'Leopard', 'Snow Leopard'],
+    acceptedVariations: [
+      [],
+      [],
+      [],
+      [],
+      ['Ounce'], // Alternative name for Snow Leopard
+    ],
+    hints: ['One is known as the "King of the Jungle".'],
+    explanation:
+      'These are the only cats capable of roaring (except the Snow Leopard).',
+  },
+  {
+    id: 'q-015',
+    type: 'estimation',
+    category: 'Sports',
+    questionText: 'What is the height of a regulation NBA basketball hoop?',
+    correctAnswer: 10,
+    unit: 'feet',
+    tolerance: 0, // Strict
+    range: { min: 5, max: 15 },
+    hints: ['It is exactly 3.048 meters.'],
+    explanation:
+      'The 10-foot standard was established by James Naismith in 1891 simply because that was the height of the gym railing.',
+  },
+  {
+    id: 'q-016',
+    type: 'exact-match',
+    category: 'Pop Culture',
+    questionText: 'Which fictional city is Batman’s home?',
+    correctAnswer: 'Gotham City',
+    acceptedVariations: ['Gotham'],
+    hints: [
+      'It is typically depicted as a dark, gritty version of New York City.',
+      'It shares its name with a style of typeface.',
+    ],
+    explanation:
+      "Gotham City was first identified as Batman's home in Batman #4 (1940).",
+  },
+  {
+    id: 'q-017',
+    type: 'multiple-choice',
+    category: 'Food',
+    questionText:
+      'Which fruit is known as the "King of Fruits" and is famous for its strong smell?',
+    options: ['Mango', 'Durian', 'Jackfruit', 'Papaya'],
+    correctAnswer: 1, // Durian
+    hints: [
+      'It is banned in many hotels and public transport in Southeast Asia due to its odor.',
+    ],
+    explanation:
+      'The Durian has a thorn-covered rind and a distinctively potent odor that some compare to rotting onions.',
   },
 ];

@@ -2,6 +2,7 @@ import { useLoaderData } from 'react-router';
 import type { loader } from '~/routes/home';
 import { Typography } from '~/components/ui/typography';
 import { ExactMatchQuiz } from './exact-match-quiz';
+import { EstimationQuiz } from './estimation-quiz';
 
 export const Quiz = () => {
   const { quizQuestion } = useLoaderData<typeof loader>();
@@ -12,7 +13,7 @@ export const Quiz = () => {
 
   switch (quizQuestion.type) {
     case 'estimation': {
-      return <Typography variant="h2">{quizQuestion.questionText}</Typography>;
+      return <EstimationQuiz quizQuestion={quizQuestion} />;
     }
     case 'top-five': {
       return <Typography variant="h2">{quizQuestion.questionText}</Typography>;

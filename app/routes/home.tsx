@@ -7,6 +7,7 @@ import { quizQuestions } from '~/data/questions';
 import { Layout } from '~/components/layout/layout';
 import { Quiz } from '~/components/quiz/quiz';
 import { Health } from '~/components/health';
+import { Result } from '~/components/result';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -32,7 +33,10 @@ export default function Home({}: Route.ComponentProps) {
 
   return (
     <Layout>
-      <Health />
+      <div className="flex items-center justify-between">
+        <Result />
+        <Health />
+      </div>
       <Quiz />
     </Layout>
   );

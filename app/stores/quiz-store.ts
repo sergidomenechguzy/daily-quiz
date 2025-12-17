@@ -1,18 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-
-export interface QuizAnswer {
-  answer: string;
-  isCorrect: boolean;
-}
-
-export interface QuizAttempt {
-  answers: QuizAnswer[];
-  isCompleted: boolean;
-  startedAt: string;
-  completedAt?: string;
-}
+import type { QuizAttempt } from '~/types/quiz-attempt';
 
 interface QuizState {
   attempts: Record<string, QuizAttempt>;
@@ -24,15 +13,13 @@ interface QuizActions {
     answer: string,
     isCorrect: boolean
   ) => void;
-  getAttempt: (dateString: string) => QuizAttempt | undefined;
-  hasCompletedQuiz: (dateString: string) => boolean;
 }
 
 const MAX_ATTEMPTS = 5;
 
 export const useQuizStore = create<QuizState & QuizActions>()(
   persist(
-    immer((set, get) => ({
+    immer(set => ({
       attempts: {},
 
       submitAnswer: (dateString, answer, isCorrect) => {
@@ -67,15 +54,6 @@ export const useQuizStore = create<QuizState & QuizActions>()(
           }
         });
       },
-
-      getAttempt: dateString => {
-        return get().attempts[dateString];
-      },
-
-      hasCompletedQuiz: dateString => {
-        const attempt = get().attempts[dateString];
-        return attempt?.isCompleted ?? false;
-      },
     })),
     {
       name: 'daily-quiz-storage',
@@ -83,11 +61,25 @@ export const useQuizStore = create<QuizState & QuizActions>()(
   )
 );
 
-/**
- * Hook to get remaining attempts for a given date.
- * Subscribes to state changes and triggers re-renders when attempts change.
- */
-export function useRemainingAttempts(dateString: string | undefined): number {
+export function useGetAttempt(dateString: string | undefined) {
+  const attempt = useQuizStore(state =>
+    dateString ? state.attempts[dateString] : undefined
+  );
+
+  if (!attempt) return undefined;
+
+  return attempt;
+}
+
+export function useHasCompletedQuiz(dateString: string | undefined) {
+  const attempt = useQuizStore(state =>
+    dateString ? state.attempts[dateString] : undefined
+  );
+
+  return attempt?.isCompleted ?? false;
+}
+
+export function useRemainingAttempts(dateString: string | undefined) {
   const attempt = useQuizStore(state =>
     dateString ? state.attempts[dateString] : undefined
   );
