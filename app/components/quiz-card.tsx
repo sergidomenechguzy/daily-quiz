@@ -6,17 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from '~/components/ui/card';
-import type { QuizQuestion } from '~/types/quiz-question';
 import { Badge } from '~/components/ui/badge';
+import { useQuizQuestion } from '~/hooks/useQuizQuestion';
 
-interface QuizCardProps {
-  quizQuestion: QuizQuestion;
-}
+export function QuizCard({ children }: PropsWithChildren) {
+  const quizQuestion = useQuizQuestion();
 
-export function QuizCard({
-  quizQuestion,
-  children,
-}: PropsWithChildren<QuizCardProps>) {
   return (
     <Card className="w-full">
       <CardHeader>

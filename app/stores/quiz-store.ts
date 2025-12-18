@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import type { QuizAttempt } from '~/types/quiz-attempt';
+import type { QuestionType } from '~/types/quiz-question';
 
 interface QuizState {
   attempts: Record<string, QuizAttempt>;
@@ -11,18 +12,24 @@ interface QuizActions {
   submitAnswer: (
     dateString: string,
     answer: string,
-    isCorrect: boolean
+    isCorrect: boolean,
+    type: QuestionType
   ) => void;
 }
 
-const MAX_ATTEMPTS = 5;
+const MAX_ATTEMPTS = {
+  'multiple-choice': 2,
+  estimation: 5,
+  'exact-match': 5,
+  'top-five': 5,
+};
 
 export const useQuizStore = create<QuizState & QuizActions>()(
   persist(
     immer(set => ({
       attempts: {},
 
-      submitAnswer: (dateString, answer, isCorrect) => {
+      submitAnswer: (dateString, answer, isCorrect, type) => {
         set(state => {
           const existing = state.attempts[dateString];
 
@@ -30,7 +37,7 @@ export const useQuizStore = create<QuizState & QuizActions>()(
             // Don't allow more answers if already completed or max attempts reached
             if (
               existing.isCompleted ||
-              existing.answers.length >= MAX_ATTEMPTS
+              existing.answers.length >= MAX_ATTEMPTS[type]
             ) {
               return;
             }
@@ -38,7 +45,7 @@ export const useQuizStore = create<QuizState & QuizActions>()(
             existing.answers.push({ answer, isCorrect });
 
             // Mark as completed if correct or max attempts reached
-            if (isCorrect || existing.answers.length >= MAX_ATTEMPTS) {
+            if (isCorrect || existing.answers.length >= MAX_ATTEMPTS[type]) {
               existing.isCompleted = true;
               existing.completedAt = new Date().toISOString();
             }
@@ -79,18 +86,21 @@ export function useHasCompletedQuiz(dateString: string | undefined) {
   return attempt?.isCompleted ?? false;
 }
 
-export function useRemainingAttempts(dateString: string | undefined) {
+export function useRemainingAttempts(
+  dateString: string | undefined,
+  type: QuestionType
+) {
   const attempt = useQuizStore(state =>
     dateString ? state.attempts[dateString] : undefined
   );
 
-  if (!attempt) return MAX_ATTEMPTS;
+  if (!attempt) return MAX_ATTEMPTS[type];
 
   // Don't count the correct answer against remaining attempts
   const hasWon = attempt.answers.some(a => a.isCorrect);
   const wrongAnswers = attempt.answers.filter(a => !a.isCorrect).length;
 
   return hasWon
-    ? MAX_ATTEMPTS - wrongAnswers
-    : MAX_ATTEMPTS - attempt.answers.length;
+    ? MAX_ATTEMPTS[type] - wrongAnswers
+    : MAX_ATTEMPTS[type] - attempt.answers.length;
 }

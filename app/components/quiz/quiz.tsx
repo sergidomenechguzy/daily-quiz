@@ -1,15 +1,11 @@
-import { useLoaderData } from 'react-router';
-import type { loader } from '~/routes/home';
 import { Typography } from '~/components/ui/typography';
 import { ExactMatchQuiz } from './exact-match-quiz';
 import { EstimationQuiz } from './estimation-quiz';
+import { useQuizQuestion } from '~/hooks/useQuizQuestion';
+import { MultipleChoiceQuiz } from './multiple-choice-quiz';
 
 export const Quiz = () => {
-  const { quizQuestion } = useLoaderData<typeof loader>();
-
-  if (!quizQuestion) {
-    return null;
-  }
+  const quizQuestion = useQuizQuestion();
 
   switch (quizQuestion.type) {
     case 'estimation': {
@@ -19,7 +15,7 @@ export const Quiz = () => {
       return <Typography variant="h2">{quizQuestion.questionText}</Typography>;
     }
     case 'multiple-choice': {
-      return <Typography variant="h2">{quizQuestion.questionText}</Typography>;
+      return <MultipleChoiceQuiz quizQuestion={quizQuestion} />;
     }
     case 'exact-match': {
       return <ExactMatchQuiz quizQuestion={quizQuestion} />;

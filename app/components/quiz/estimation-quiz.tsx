@@ -58,13 +58,13 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
     if (!dateString || isCompleted) return;
 
     const isCorrect = checkAnswer(data.answer);
-    submitAnswer(dateString, data.answer, isCorrect);
+    submitAnswer(dateString, data.answer, isCorrect, quizQuestion.type);
     form.reset();
   }
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)}>
-      <QuizCard quizQuestion={quizQuestion}>
+      <QuizCard>
         <div className="flex flex-col gap-8">
           {isCompleted && (
             <>
@@ -80,7 +80,7 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
             </>
           )}
           {!isCompleted && (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               <div className="flex gap-2">
                 <Controller
                   name="answer"
@@ -99,16 +99,10 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
                 />
                 <Button type="submit">Submit</Button>
               </div>
-              <Hint
-                quizQuestion={quizQuestion}
-                hintIndex={0}
-                remainingAttemptsToShow={3}
-              />
-              <Hint
-                quizQuestion={quizQuestion}
-                hintIndex={1}
-                remainingAttemptsToShow={1}
-              />
+              <div className="flex flex-col gap-2">
+                <Hint hintIndex={0} remainingAttemptsToShow={3} />
+                <Hint hintIndex={1} remainingAttemptsToShow={1} />
+              </div>
             </div>
           )}
           <Answers />
