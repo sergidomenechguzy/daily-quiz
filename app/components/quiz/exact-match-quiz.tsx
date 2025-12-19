@@ -1,8 +1,9 @@
 import { useLoaderData } from 'react-router';
+import { Controller, useForm } from 'react-hook-form';
+import { ArrowBigRight } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
 import type { ExactMatchQuestion } from '~/types/quiz-question';
-import { Controller, useForm } from 'react-hook-form';
 import { Field } from '~/components/ui/field';
 import { useGetAttempt, useQuizStore } from '~/stores/quiz-store';
 import type { loader } from '~/routes/home';
@@ -90,7 +91,9 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
                     </Field>
                   )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit">
+                  <ArrowBigRight />
+                </Button>
               </div>
               <div className="flex flex-col gap-2">
                 <Hint hintIndex={0} remainingAttemptsToShow={3} />

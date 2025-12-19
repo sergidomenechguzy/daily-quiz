@@ -1,8 +1,8 @@
 import { useLoaderData } from 'react-router';
 import { Button } from '~/components/ui/button';
-import { Input } from '~/components/ui/input';
 import type { EstimationQuestion } from '~/types/quiz-question';
 import { Controller, useForm } from 'react-hook-form';
+import { ArrowBigRight } from 'lucide-react';
 import { Field } from '~/components/ui/field';
 import { useGetAttempt, useQuizStore } from '~/stores/quiz-store';
 import type { loader } from '~/routes/home';
@@ -10,6 +10,11 @@ import { Typography } from '~/components/ui/typography';
 import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '~/components/ui/input-group';
 
 type FormData = {
   answer: string;
@@ -87,17 +92,26 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
                   control={form.control}
                   render={({ field }) => (
                     <Field>
-                      <Input
-                        {...field}
-                        id={field.name}
-                        type="number"
-                        placeholder="Enter your guess..."
-                        required
-                      />
+                      <InputGroup>
+                        <InputGroupInput
+                          {...field}
+                          id={field.name}
+                          type="number"
+                          placeholder="Enter your guess..."
+                          required
+                        />
+                        {quizQuestion.unit && (
+                          <InputGroupAddon align="inline-end">
+                            {quizQuestion.unit}
+                          </InputGroupAddon>
+                        )}
+                      </InputGroup>
                     </Field>
                   )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit">
+                  <ArrowBigRight />
+                </Button>
               </div>
               <div className="flex flex-col gap-2">
                 <Hint hintIndex={0} remainingAttemptsToShow={3} />

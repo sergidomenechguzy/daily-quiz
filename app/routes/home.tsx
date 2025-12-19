@@ -20,7 +20,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home({ loaderData }: Route.ComponentProps) {
   if (!loaderData.dailyIndex.isValid || !loaderData.quizQuestion) {
     return (
-      <Layout>
+      <Layout gameDate={loaderData.dailyIndex.gameDate}>
         <Typography variant="h4" className="text-center">
           Sorry there is no quiz question available for this day.
         </Typography>
@@ -29,7 +29,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         </Typography>
         <div className="flex justify-center gap-2 pt-8">
           <Button asChild>
-            <Link to="/">Today</Link>
+            <Link to="/">Today’s Quiz</Link>
           </Button>
         </div>
       </Layout>
