@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.2](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.1...v0.1.2) (2025-12-20)
+
+
+### Bug Fixes
+
+* remove use-client to fix build source map errors ([1b1f69d](https://github.com/sergidomenechguzy/daily-quiz/commit/1b1f69de435365ebeb1272e4b6be0b69a6cac491))
+
 ## [0.1.1](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.0...v0.1.1) (2025-12-20)
 
 
