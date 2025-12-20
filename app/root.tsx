@@ -26,7 +26,9 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning is the recommended approach to prevent the hydration warning caused by next-themes
+    // suppressHydrationWarning applies only one level deep, so other hydration warnings won't be suppressed
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
