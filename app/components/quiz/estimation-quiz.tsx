@@ -1,11 +1,9 @@
-import { useLoaderData } from 'react-router';
 import { Button } from '~/components/ui/button';
 import type { EstimationQuestion } from '~/types/quiz-question';
 import { Controller, useForm } from 'react-hook-form';
 import { ArrowBigRight } from 'lucide-react';
 import { Field } from '~/components/ui/field';
-import { useGetAttempt, useQuizStore } from '~/stores/quiz-store';
-import type { loader } from '~/routes/home';
+import { useGetQuizResult, useQuizStore } from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
 import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
@@ -15,6 +13,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from '~/components/ui/input-group';
+import { useDailyIndex } from '~/hooks/useDailyIndex';
 
 type FormData = {
   answer: string;
@@ -25,12 +24,9 @@ interface EstimationQuizProps {
 }
 
 export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
-  const { dailyIndex } = useLoaderData<typeof loader>();
+  const { dateString } = useDailyIndex();
   const submitAnswer = useQuizStore(state => state.submitAnswer);
-  const dateString = dailyIndex.dateString;
-  const attempt = useGetAttempt(dateString);
-
-  const isCompleted = attempt?.isCompleted ?? false;
+  const { isCompleted } = useGetQuizResult(dateString);
 
   const form = useForm<FormData>({
     defaultValues: {
@@ -38,32 +34,8 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
     },
   });
 
-  function checkAnswer(userAnswer: string): boolean {
-    let normalized = Number(userAnswer);
-    const correct = quizQuestion.correctAnswer;
-    if (quizQuestion.precision != null) {
-      normalized = Number(normalized.toFixed(quizQuestion.precision));
-    }
-
-    if (normalized === correct) return true;
-
-    if (quizQuestion.tolerance != null) {
-      let floor = correct - quizQuestion.tolerance;
-      floor = Number(floor.toFixed(quizQuestion.precision));
-      let ceil = correct + quizQuestion.tolerance;
-      ceil = Number(ceil.toFixed(quizQuestion.precision));
-
-      return normalized >= floor && normalized <= ceil;
-    }
-
-    return false;
-  }
-
   function onSubmit(data: FormData) {
-    if (!dateString || isCompleted) return;
-
-    const isCorrect = checkAnswer(data.answer);
-    submitAnswer(dateString, data.answer, isCorrect, quizQuestion.type);
+    submitAnswer(dateString, data.answer, quizQuestion);
     form.reset();
   }
 

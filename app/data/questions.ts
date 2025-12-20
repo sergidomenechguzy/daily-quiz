@@ -23,20 +23,31 @@ export const quizQuestions: QuizQuestion[] = [
     type: 'top-five',
     category: 'Geography',
     questionText: 'Name the top 5 largest countries by land area.',
-    correctAnswers: ['Russia', 'Canada', 'China', 'United States', 'Brazil'],
-    acceptedVariations: [
-      ['Russian Federation'],
-      [],
-      ['PRC', 'Peoples Republic of China'],
-      ['USA', 'America', 'US', 'The US'],
-      ['Brasil'],
-    ],
-    correctValues: [
-      '17.1M km²',
-      '9.98M km²',
-      '9.6M km²',
-      '9.5M km²',
-      '8.5M km²',
+    correctAnswers: [
+      {
+        answer: 'Russia',
+        acceptedVariations: ['Russian Federation'],
+        value: '17.1M km²',
+      },
+      {
+        answer: 'Canada',
+        value: '9.98M km²',
+      },
+      {
+        answer: 'China',
+        acceptedVariations: ['PRC', 'Peoples Republic of China'],
+        value: '9.6M km²',
+      },
+      {
+        answer: 'United States',
+        acceptedVariations: ['USA', 'America', 'US', 'The US'],
+        value: '9.5M km²',
+      },
+      {
+        answer: 'Brazil',
+        acceptedVariations: ['Brasil'],
+        value: '8.5M km²',
+      },
     ],
     hints: [
       'The largest spans 11 time zones.',
@@ -81,20 +92,31 @@ export const quizQuestions: QuizQuestion[] = [
     questionText:
       'Name the 5 highest-grossing movies of all time (Global Box Office).',
     correctAnswers: [
-      'Avatar',
-      'Avengers: Endgame',
-      'Avatar: The Way of Water',
-      'Titanic',
-      'Star Wars: The Force Awakens',
+      {
+        answer: 'Avatar',
+        acceptedVariations: ['Avatar 1'],
+        value: '$2.92B',
+      },
+      {
+        answer: 'Avengers: Endgame',
+        acceptedVariations: ['Avengers 4', 'Endgame'],
+        value: '$2.79B',
+      },
+      {
+        answer: 'Avatar: The Way of Water',
+        acceptedVariations: ['Avatar 2', 'The Way of Water'],
+        value: '$2.32B',
+      },
+      {
+        answer: 'Titanic',
+        value: '$2.26B',
+      },
+      {
+        answer: 'Star Wars: The Force Awakens',
+        acceptedVariations: ['Star Wars Ep 7', 'Force Awakens', 'Episode VII'],
+        value: '$2.07B',
+      },
     ],
-    acceptedVariations: [
-      ['Avatar 1'],
-      ['Avengers 4', 'Endgame'],
-      ['Avatar 2', 'The Way of Water'],
-      [],
-      ['Star Wars Ep 7', 'Force Awakens', 'Episode VII'],
-    ],
-    correctValues: ['$2.92B', '$2.79B', '$2.32B', '$2.26B', '$2.07B'],
     hints: [
       'James Cameron directed 3 of the top 5.',
       'The top movie features blue aliens.',
@@ -222,13 +244,23 @@ export const quizQuestions: QuizQuestion[] = [
     type: 'top-five',
     category: 'Nature',
     questionText: 'Name the 5 "Big Cats" of the genus Panthera.',
-    correctAnswers: ['Tiger', 'Lion', 'Jaguar', 'Leopard', 'Snow Leopard'],
-    acceptedVariations: [
-      [],
-      [],
-      [],
-      [],
-      ['Ounce'], // Alternative name for Snow Leopard
+    correctAnswers: [
+      {
+        answer: 'Tiger',
+      },
+      {
+        answer: 'Lion',
+      },
+      {
+        answer: 'Jaguar',
+      },
+      {
+        answer: 'Leopard',
+      },
+      {
+        answer: 'Snow Leopard',
+        acceptedVariations: ['Ounce'], // Alternative name for Snow Leopard
+      },
     ],
     hints: [
       'One is known as the "King of the Jungle".',
@@ -332,9 +364,29 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'Space',
     questionText:
       'Name the 5 largest planets in our Solar System (by diameter).',
-    correctAnswers: ['Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Earth'],
-    acceptedVariations: [[], [], [], [], ['Terra']],
-    correctValues: ['139k km', '116k km', '50k km', '49k km', '12k km'],
+    correctAnswers: [
+      {
+        answer: 'Jupiter',
+        value: '139k km',
+      },
+      {
+        answer: 'Saturn',
+        value: '116k km',
+      },
+      {
+        answer: 'Uranus',
+        value: '50k km',
+      },
+      {
+        answer: 'Neptune',
+        value: '49k km',
+      },
+      {
+        answer: 'Earth',
+        acceptedVariations: ['Terra'],
+        value: '12k km',
+      },
+    ],
     hints: [
       'The top four are all Gas Giants or Ice Giants.',
       'Earth is the largest of the rocky planets, ranking 5th overall.',
@@ -393,18 +445,26 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'Geography',
     questionText: 'Name the 5 oceans of the world.',
     correctAnswers: [
-      'Pacific Ocean',
-      'Atlantic Ocean',
-      'Indian Ocean',
-      'Southern Ocean',
-      'Arctic Ocean',
-    ],
-    acceptedVariations: [
-      ['Pacific'],
-      ['Atlantic'],
-      ['Indian'],
-      ['Southern', 'Antarctic Ocean'],
-      ['Arctic'],
+      {
+        answer: 'Pacific Ocean',
+        acceptedVariations: ['Pacific'],
+      },
+      {
+        answer: 'Atlantic Ocean',
+        acceptedVariations: ['Atlantic'],
+      },
+      {
+        answer: 'Indian Ocean',
+        acceptedVariations: ['Indian'],
+      },
+      {
+        answer: 'Southern Ocean',
+        acceptedVariations: ['Southern', 'Antarctic Ocean'],
+      },
+      {
+        answer: 'Arctic Ocean',
+        acceptedVariations: ['Arctic'],
+      },
     ],
     hints: [
       'The Pacific is the largest.',
@@ -449,15 +509,33 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'Chemistry',
     questionText:
       'Name the 5 most abundant elements in Earth’s crust (by percentage).',
-    correctAnswers: ['Oxygen', 'Silicon', 'Aluminum', 'Iron', 'Calcium'],
-    acceptedVariations: [
-      ['O', 'O2'],
-      ['Si'],
-      ['Al', 'Aluminium'],
-      ['Fe'],
-      ['Ca'],
+    correctAnswers: [
+      {
+        answer: 'Oxygen',
+        acceptedVariations: ['O', 'O2'],
+        value: '46.6%',
+      },
+      {
+        answer: 'Silicon',
+        acceptedVariations: ['Si'],
+        value: '27.7%',
+      },
+      {
+        answer: 'Aluminum',
+        acceptedVariations: ['Al', 'Aluminium'],
+        value: '8.1%',
+      },
+      {
+        answer: 'Iron',
+        acceptedVariations: ['Fe'],
+        value: '5.0%',
+      },
+      {
+        answer: 'Calcium',
+        acceptedVariations: ['Ca'],
+        value: '3.6%',
+      },
     ],
-    correctValues: ['46.6%', '27.7%', '8.1%', '5.0%', '3.6%'],
     hints: [
       'The top one is essential for human respiration.',
       'The second is the main component of sand and glass.',
@@ -528,20 +606,32 @@ export const quizQuestions: QuizQuestion[] = [
     questionText:
       'Name the top 5 best-selling video game consoles of all time.',
     correctAnswers: [
-      'PlayStation 2',
-      'Nintendo DS',
-      'Nintendo Switch',
-      'Game Boy',
-      'PlayStation 4',
+      {
+        answer: 'PlayStation 2',
+        acceptedVariations: ['PS2', 'Sony PlayStation 2'],
+        value: '~155M',
+      },
+      {
+        answer: 'Nintendo DS',
+        acceptedVariations: ['DS', 'NDS'],
+        value: '154M',
+      },
+      {
+        answer: 'Nintendo Switch',
+        acceptedVariations: ['Switch'],
+        value: '~143M',
+      },
+      {
+        answer: 'Game Boy',
+        acceptedVariations: ['GB', 'Game Boy Color'],
+        value: '118M',
+      },
+      {
+        answer: 'PlayStation 4',
+        acceptedVariations: ['PS4'],
+        value: '117M',
+      },
     ],
-    acceptedVariations: [
-      ['PS2', 'Sony PlayStation 2'],
-      ['DS', 'NDS'],
-      ['Switch'],
-      ['GB', 'Game Boy Color'],
-      ['PS4'],
-    ],
-    correctValues: ['~155M', '154M', '~143M', '118M', '117M'],
     hints: [
       'Sony and Nintendo dominate this list exclusively.',
       'The #1 spot belongs to a Sony console released in 2000.',

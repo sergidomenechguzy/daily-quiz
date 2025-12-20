@@ -1,8 +1,8 @@
-import { Typography } from '~/components/ui/typography';
-import { ExactMatchQuiz } from './exact-match-quiz';
-import { EstimationQuiz } from './estimation-quiz';
 import { useQuizQuestion } from '~/hooks/useQuizQuestion';
+import { EstimationQuiz } from './estimation-quiz';
+import { TopFiveQuiz } from './top-five-quiz';
 import { MultipleChoiceQuiz } from './multiple-choice-quiz';
+import { ExactMatchQuiz } from './exact-match-quiz';
 
 export const Quiz = () => {
   const quizQuestion = useQuizQuestion();
@@ -12,7 +12,7 @@ export const Quiz = () => {
       return <EstimationQuiz quizQuestion={quizQuestion} />;
     }
     case 'top-five': {
-      return <Typography variant="h2">{quizQuestion.questionText}</Typography>;
+      return <TopFiveQuiz quizQuestion={quizQuestion} />;
     }
     case 'multiple-choice': {
       return <MultipleChoiceQuiz quizQuestion={quizQuestion} />;

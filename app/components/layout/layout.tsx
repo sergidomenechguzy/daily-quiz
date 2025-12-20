@@ -22,14 +22,13 @@ export function Layout({
   const [open, setOpen] = useState(false);
 
   return (
-    <main className="flex items-start justify-center p-4 h-screen">
+    <main className="flex items-start justify-center p-4 min-h-screen">
       <div className="flex-1 flex flex-col items-center gap-10 min-h-0">
         <header className="flex flex-row items-center justify-start gap-2 w-full">
           <Typography variant="h3">
             Daily Quiz{dayNumber ? ` #${dayNumber}` : ''}
           </Typography>
           {gameDate ? (
-            // <Badge className="ml-2">{format(gameDate, 'yyyy-MM-dd')}</Badge>
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>
                 <Badge className="ml-2 cursor-default">

@@ -6,9 +6,11 @@ const serverEnvSchema = z.looseObject({
   NODE_ENV: z
     .enum(['development', 'test', 'production'])
     .default('development'),
-  // Example of a shared public URL (available both server- and client-side)
-  // VITE_API_BASE_URL: z.url(),
   START_DATE: z.iso.date(),
+  VITE_MAX_ATTEMPTS_MULTIPLE_CHOICE: z.number().min(1).default(2),
+  VITE_MAX_ATTEMPTS_ESTIMATION: z.number().min(1).default(5),
+  VITE_MAX_ATTEMPTS_EXACT_MATCH: z.number().min(1).default(5),
+  VITE_MAX_ATTEMPTS_TOP_FIVE: z.number().min(1).default(5),
 });
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>;

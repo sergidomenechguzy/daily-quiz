@@ -3,7 +3,7 @@ import { getServerEnv } from './env.server';
 import { quizQuestions } from '~/data/questions';
 import { z } from 'zod';
 
-interface ValidDailyIndexResult {
+export interface ValidDailyIndexResult {
   isValid: true;
   index: number; // The array index to fetch (e.g., questions[5])
   dateString: string; // The date this index corresponds to (YYYY-MM-DD format)
@@ -11,7 +11,7 @@ interface ValidDailyIndexResult {
   dayNumber: number; // Human readable "Day #45"
 }
 
-interface InvalidDailyIndexResult {
+export interface InvalidDailyIndexResult {
   isValid: false;
   dateString?: string; // The date this index corresponds to (YYYY-MM-DD format)
   gameDate?: Date; // The date this index corresponds to (normalized)
@@ -20,7 +20,7 @@ interface InvalidDailyIndexResult {
   dayNumber?: number; // Human readable "Day #45"
 }
 
-type DailyIndexResult = ValidDailyIndexResult | InvalidDailyIndexResult;
+export type DailyIndexResult = ValidDailyIndexResult | InvalidDailyIndexResult;
 
 const dateStringSchema = z.iso.date();
 

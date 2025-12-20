@@ -1,38 +1,28 @@
-import { useLoaderData } from 'react-router';
 import { Button } from '~/components/ui/button';
 import type { MultipleChoiceQuestion } from '~/types/quiz-question';
-import { useGetAttempt, useQuizStore } from '~/stores/quiz-store';
-import type { loader } from '~/routes/home';
+import {
+  useGetAnswers,
+  useGetQuizResult,
+  useQuizStore,
+} from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
 import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
+import { useDailyIndex } from '~/hooks/useDailyIndex';
 
 interface MultipleChoiceQuizProps {
   quizQuestion: MultipleChoiceQuestion;
 }
 
 export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
-  const { dailyIndex } = useLoaderData<typeof loader>();
+  const { dateString } = useDailyIndex();
   const submitAnswer = useQuizStore(state => state.submitAnswer);
-  const dateString = dailyIndex.dateString;
-  const attempt = useGetAttempt(dateString);
-
-  const isCompleted = attempt?.isCompleted ?? false;
-
-  function checkAnswer(selected: number): boolean {
-    const correct = quizQuestion.correctAnswer;
-
-    if (selected === correct) return true;
-
-    return false;
-  }
+  const answers = useGetAnswers(dateString);
+  const { isCompleted } = useGetQuizResult(dateString);
 
   function onSelect(selected: number) {
-    if (!dateString || isCompleted) return;
-
-    const isCorrect = checkAnswer(selected);
-    submitAnswer(dateString, selected.toString(), isCorrect, quizQuestion.type);
+    submitAnswer(dateString, selected.toString(), quizQuestion);
   }
 
   return (
@@ -55,10 +45,8 @@ export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
           <div className="flex flex-col gap-2">
             {quizQuestion.options.map((option, index) => {
               const selected =
-                attempt &&
-                attempt.answers.findIndex(
-                  answer => Number(answer.answer) === index
-                ) !== -1;
+                answers &&
+                answers.findIndex(answer => Number(answer) === index) !== -1;
               const correct = quizQuestion.correctAnswer === index;
 
               return (

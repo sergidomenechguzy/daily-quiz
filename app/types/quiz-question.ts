@@ -37,13 +37,23 @@ export interface ExactMatchQuestion extends BaseQuestion {
   acceptedVariations?: string[];
 }
 
+interface TopFiveAnswerData {
+  answer: string;
+  // Optional: Allow variations (e.g. "USA", "United States", "U.S.")
+  acceptedVariations?: string[];
+  value?: string;
+}
+
 export interface TopFiveQuestion extends BaseQuestion {
   type: 'top-five';
-  correctAnswers: [string, string, string, string, string];
-  // Optional: Allow variations (e.g. "USA", "United States", "U.S.")
-  acceptedVariations?: [string[], string[], string[], string[], string[]];
-  correctValues?: [string, string, string, string, string];
-  options?: string[];
+  correctAnswers: [
+    TopFiveAnswerData,
+    TopFiveAnswerData,
+    TopFiveAnswerData,
+    TopFiveAnswerData,
+    TopFiveAnswerData,
+  ];
+  otherOptions?: TopFiveAnswerData[];
 }
 
 export type QuizQuestion =

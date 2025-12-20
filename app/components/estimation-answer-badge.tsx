@@ -1,20 +1,21 @@
 import { ArrowDown, ArrowUp } from 'lucide-react';
 import { Badge } from '~/components/ui/badge';
 import type { EstimationQuestion } from '~/types/quiz-question';
-import type { QuizAnswer } from '~/types/quiz-attempt';
 
 interface EstimationAnswerBadgeProps {
   quizQuestion: EstimationQuestion;
-  answer: QuizAnswer;
+  answer: string;
+  isCorrect: boolean;
 }
 
 export function EstimationAnswerBadge({
   quizQuestion,
   answer,
+  isCorrect,
 }: EstimationAnswerBadgeProps) {
-  if (answer.isCorrect) return null;
+  if (isCorrect) return null;
 
-  let normalized = Number(answer.answer);
+  let normalized = Number(answer);
   if (quizQuestion.precision != null) {
     normalized = Number(normalized.toFixed(quizQuestion.precision));
   }

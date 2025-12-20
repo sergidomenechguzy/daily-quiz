@@ -1,63 +1,90 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-import type { QuizAttempt } from '~/types/quiz-attempt';
-import type { QuestionType } from '~/types/quiz-question';
+import { useQuizQuestion } from '~/hooks/useQuizQuestion';
+import { getClientEnv } from '~/lib/env';
+import {
+  validateAnswer,
+  validateTopFiveAnswerWithIndex,
+} from '~/lib/validateAnswer';
+import { validateQuiz, validateTopFiveQuizWithIndex } from '~/lib/validateQuiz';
+// import type { QuizAttempt } from '~/types/quiz-attempt';
+import type { QuizQuestion, TopFiveQuestion } from '~/types/quiz-question';
 
 interface QuizState {
-  attempts: Record<string, QuizAttempt>;
+  answers: Record<string, string[]>;
 }
 
 interface QuizActions {
   submitAnswer: (
     dateString: string,
     answer: string,
-    isCorrect: boolean,
-    type: QuestionType
+    quizQuestion: QuizQuestion
+  ) => void;
+  submitTopFiveAnswer: (
+    dateString: string,
+    answer: string,
+    quizQuestion: TopFiveQuestion
   ) => void;
 }
 
-const MAX_ATTEMPTS = {
-  'multiple-choice': 2,
-  estimation: 5,
-  'exact-match': 5,
-  'top-five': 5,
+export const MAX_ATTEMPTS = {
+  'multiple-choice': getClientEnv().VITE_MAX_ATTEMPTS_MULTIPLE_CHOICE,
+  estimation: getClientEnv().VITE_MAX_ATTEMPTS_ESTIMATION,
+  'exact-match': getClientEnv().VITE_MAX_ATTEMPTS_EXACT_MATCH,
+  'top-five': getClientEnv().VITE_MAX_ATTEMPTS_TOP_FIVE,
 };
 
 export const useQuizStore = create<QuizState & QuizActions>()(
   persist(
     immer(set => ({
-      attempts: {},
+      answers: {},
 
-      submitAnswer: (dateString, answer, isCorrect, type) => {
+      submitAnswer: (dateString, answer, quizQuestion) => {
         set(state => {
-          const existing = state.attempts[dateString];
+          const existing = state.answers[dateString];
 
           if (existing) {
-            // Don't allow more answers if already completed or max attempts reached
+            const { isCompleted } = validateQuiz(existing, quizQuestion);
+            if (isCompleted) {
+              return;
+            }
+
+            existing.push(answer);
+          } else {
+            // First attempt for this date
+            state.answers[dateString] = [answer];
+          }
+        });
+      },
+
+      submitTopFiveAnswer: (dateString, answer, quizQuestion) => {
+        set(state => {
+          const existing = state.answers[dateString];
+
+          if (existing) {
+            const { isCompleted, results } = validateTopFiveQuizWithIndex(
+              existing,
+              quizQuestion
+            );
+            if (isCompleted) {
+              return;
+            }
+
+            const result = validateTopFiveAnswerWithIndex(answer, quizQuestion);
             if (
-              existing.isCompleted ||
-              existing.answers.length >= MAX_ATTEMPTS[type]
+              result.isCorrect &&
+              results.some(
+                existingResult => existingResult.index === result.index
+              )
             ) {
               return;
             }
 
-            existing.answers.push({ answer, isCorrect });
-
-            // Mark as completed if correct or max attempts reached
-            if (isCorrect || existing.answers.length >= MAX_ATTEMPTS[type]) {
-              existing.isCompleted = true;
-              existing.completedAt = new Date().toISOString();
-            }
+            existing.push(answer);
           } else {
             // First attempt for this date
-            const isCompleted = isCorrect;
-            state.attempts[dateString] = {
-              answers: [{ answer, isCorrect }],
-              isCompleted,
-              startedAt: new Date().toISOString(),
-              completedAt: isCompleted ? new Date().toISOString() : undefined,
-            };
+            state.answers[dateString] = [answer];
           }
         });
       },
@@ -68,39 +95,58 @@ export const useQuizStore = create<QuizState & QuizActions>()(
   )
 );
 
-export function useGetAttempt(dateString: string | undefined) {
-  const attempt = useQuizStore(state =>
-    dateString ? state.attempts[dateString] : undefined
+export function useGetAnswers(dateString: string | undefined) {
+  const answers = useQuizStore(state =>
+    dateString ? state.answers[dateString] : undefined
   );
 
-  if (!attempt) return undefined;
-
-  return attempt;
+  return answers;
 }
 
-export function useHasCompletedQuiz(dateString: string | undefined) {
-  const attempt = useQuizStore(state =>
-    dateString ? state.attempts[dateString] : undefined
+export function useGetQuizResult(dateString: string | undefined) {
+  const quizQuestion = useQuizQuestion();
+  const answers = useQuizStore(state =>
+    dateString ? state.answers[dateString] : undefined
   );
 
-  return attempt?.isCompleted ?? false;
+  return validateQuiz(answers, quizQuestion);
 }
 
-export function useRemainingAttempts(
-  dateString: string | undefined,
-  type: QuestionType
-) {
-  const attempt = useQuizStore(state =>
-    dateString ? state.attempts[dateString] : undefined
+export function useGetTopFiveQuizResultWithIndex(dateString: string | undefined) {
+  const quizQuestion = useQuizQuestion();
+
+  const answers = useQuizStore(state =>
+    dateString ? state.answers[dateString] : undefined
+  );
+  if (quizQuestion.type !== 'top-five' || !answers) {
+    return {
+      results: [],
+      isCorrect: false,
+      isCompleted: false,
+    };
+  }
+
+  return validateTopFiveQuizWithIndex(answers, quizQuestion);
+}
+
+export function useRemainingAttempts(dateString: string | undefined) {
+  const quizQuestion = useQuizQuestion();
+  const answers = useQuizStore(state =>
+    dateString ? state.answers[dateString] : undefined
   );
 
-  if (!attempt) return MAX_ATTEMPTS[type];
+  if (!answers) {
+    return MAX_ATTEMPTS[quizQuestion.type];
+  }
 
   // Don't count the correct answer against remaining attempts
-  const hasWon = attempt.answers.some(a => a.isCorrect);
-  const wrongAnswers = attempt.answers.filter(a => !a.isCorrect).length;
+  const [, wrongAnswers] = answers.reduce(
+    (acc, answer) =>
+      validateAnswer(answer, quizQuestion)
+        ? [acc[0] + 1, acc[1]]
+        : [acc[0], acc[1] + 1],
+    [0, 0]
+  );
 
-  return hasWon
-    ? MAX_ATTEMPTS[type] - wrongAnswers
-    : MAX_ATTEMPTS[type] - attempt.answers.length;
+  return MAX_ATTEMPTS[quizQuestion.type] - wrongAnswers;
 }

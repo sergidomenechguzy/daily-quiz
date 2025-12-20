@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useLoaderData } from 'react-router';
 import { Button } from '~/components/ui/button';
 import { useRemainingAttempts } from '~/stores/quiz-store';
-import type { loader } from '~/routes/home';
 import { Typography } from '~/components/ui/typography';
 import { useQuizQuestion } from '~/hooks/useQuizQuestion';
+import { useDailyIndex } from '~/hooks/useDailyIndex';
 
 interface HintProps {
   hintIndex: number;
@@ -12,10 +11,9 @@ interface HintProps {
 }
 
 export function Hint({ hintIndex, remainingAttemptsToShow }: HintProps) {
-  const { dailyIndex } = useLoaderData<typeof loader>();
+  const { dateString } = useDailyIndex();
   const quizQuestion = useQuizQuestion();
-  const dateString = dailyIndex.dateString;
-  const remainingAttempts = useRemainingAttempts(dateString, quizQuestion.type);
+  const remainingAttempts = useRemainingAttempts(dateString);
   const [showHint, setShowHint] = useState(false);
 
   return (

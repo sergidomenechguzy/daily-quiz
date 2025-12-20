@@ -3,9 +3,10 @@ import { z } from 'zod';
 // Only expose VITE_-prefixed variables to the client.
 // Keep this list small and intentional.
 const clientEnvSchema = z.looseObject({
-  VITE_API_BASE_URL: z.url(),
-  // Add more public variables here, all must start with VITE_
-  // VITE_SOME_FLAG: z.string().optional(),
+  VITE_MAX_ATTEMPTS_MULTIPLE_CHOICE: z.number().min(1).default(2),
+  VITE_MAX_ATTEMPTS_ESTIMATION: z.number().min(1).default(5),
+  VITE_MAX_ATTEMPTS_EXACT_MATCH: z.number().min(1).default(5),
+  VITE_MAX_ATTEMPTS_TOP_FIVE: z.number().min(1).default(5),
 });
 
 export type ClientEnv = z.infer<typeof clientEnvSchema>;

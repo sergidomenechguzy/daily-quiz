@@ -1,16 +1,15 @@
-import { useLoaderData } from 'react-router';
 import { Controller, useForm } from 'react-hook-form';
 import { ArrowBigRight } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
 import type { ExactMatchQuestion } from '~/types/quiz-question';
 import { Field } from '~/components/ui/field';
-import { useGetAttempt, useQuizStore } from '~/stores/quiz-store';
-import type { loader } from '~/routes/home';
+import { useGetQuizResult, useQuizStore } from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
 import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
+import { useDailyIndex } from '~/hooks/useDailyIndex';
 
 type FormData = {
   answer: string;
@@ -21,12 +20,9 @@ interface ExactMatchQuizProps {
 }
 
 export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
-  const { dailyIndex } = useLoaderData<typeof loader>();
+  const { dateString } = useDailyIndex();
   const submitAnswer = useQuizStore(state => state.submitAnswer);
-  const dateString = dailyIndex.dateString;
-  const attempt = useGetAttempt(dateString);
-
-  const isCompleted = attempt?.isCompleted ?? false;
+  const { isCompleted } = useGetQuizResult(dateString);
 
   const form = useForm<FormData>({
     defaultValues: {
@@ -34,26 +30,8 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
     },
   });
 
-  function checkAnswer(userAnswer: string): boolean {
-    const normalized = userAnswer.toLowerCase().trim();
-    const correct = quizQuestion.correctAnswer.toLowerCase().trim();
-
-    if (normalized === correct) return true;
-
-    if (quizQuestion.acceptedVariations) {
-      return quizQuestion.acceptedVariations.some(
-        variation => variation.toLowerCase().trim() === normalized
-      );
-    }
-
-    return false;
-  }
-
   function onSubmit(data: FormData) {
-    if (!dateString || isCompleted) return;
-
-    const isCorrect = checkAnswer(data.answer);
-    submitAnswer(dateString, data.answer, isCorrect, quizQuestion.type);
+    submitAnswer(dateString, data.answer, quizQuestion);
     form.reset();
   }
 
