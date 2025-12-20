@@ -7,19 +7,36 @@ import { Popover } from '~/components/ui/popover';
 import { PopoverContent, PopoverTrigger } from '~/components/ui/popover';
 import { Calendar } from '~/components/ui/calendar';
 import { useSearchParams } from 'react-router';
+import type { Matcher } from 'react-day-picker';
 
 interface LayoutProps {
   dayNumber?: number;
   gameDate?: Date;
+  firstDate?: Date;
+  lastDate?: Date;
 }
 
 export function Layout({
   children,
   dayNumber,
   gameDate,
+  firstDate,
+  lastDate,
 }: PropsWithChildren<LayoutProps>) {
   const [, setSearchParams] = useSearchParams();
   const [open, setOpen] = useState(false);
+
+  const dateRange: Matcher[] = [];
+  if (firstDate) {
+    dateRange.push({
+      before: firstDate,
+    });
+  }
+  if (lastDate) {
+    dateRange.push({
+      after: lastDate,
+    });
+  }
 
   return (
     <main className="flex items-start justify-center p-4 min-h-screen">
@@ -44,6 +61,20 @@ export function Layout({
                   mode="single"
                   selected={gameDate}
                   captionLayout="dropdown"
+                  weekStartsOn={1}
+                  reverseYears
+                  disabled={dateRange}
+                  modifiers={{
+                    // TODO: create server side stats route that returns this data
+                    completedCorrect: [],
+                    completedWrong: [],
+                  }}
+                  modifiersClassNames={{
+                    completedCorrect:
+                      'bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-200',
+                    completedWrong:
+                      'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200',
+                  }}
                   onSelect={date => {
                     if (date) {
                       setSearchParams(searchParams => {

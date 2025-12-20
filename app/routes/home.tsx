@@ -2,7 +2,7 @@ import type { Route } from './+types/home';
 import { Link, redirect } from 'react-router';
 import { format } from 'date-fns';
 import { getDailyIndex } from '~/lib/getDailyIndex.server';
-import { quizQuestions } from '~/data/questions';
+import { quizQuestions } from '~/data/questions.server';
 import { Layout } from '~/components/layout/layout';
 import { Quiz } from '~/components/quiz/quiz';
 import { Health } from '~/components/health';
@@ -20,7 +20,11 @@ export function meta({}: Route.MetaArgs) {
 export default function Home({ loaderData }: Route.ComponentProps) {
   if (!loaderData.dailyIndex.isValid || !loaderData.quizQuestion) {
     return (
-      <Layout gameDate={loaderData.dailyIndex.gameDate}>
+      <Layout
+        gameDate={loaderData.dailyIndex.gameDate}
+        firstDate={loaderData.dailyIndex.firstDate}
+        lastDate={loaderData.dailyIndex.lastDate}
+      >
         <Typography variant="h4" className="text-center">
           Sorry there is no quiz question available for this day.
         </Typography>
@@ -40,6 +44,8 @@ export default function Home({ loaderData }: Route.ComponentProps) {
     <Layout
       dayNumber={loaderData.dailyIndex.dayNumber}
       gameDate={loaderData.dailyIndex.gameDate}
+      firstDate={loaderData.dailyIndex.firstDate}
+      lastDate={loaderData.dailyIndex.lastDate}
     >
       <div className="flex items-center justify-between">
         <Result />

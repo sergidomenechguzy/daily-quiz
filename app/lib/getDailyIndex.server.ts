@@ -1,6 +1,6 @@
-import { differenceInCalendarDays, startOfDay } from 'date-fns';
+import { differenceInCalendarDays, startOfDay, addDays } from 'date-fns';
 import { getServerEnv } from './env.server';
-import { quizQuestions } from '~/data/questions';
+import { quizQuestions } from '~/data/questions.server';
 import { z } from 'zod';
 
 export interface ValidDailyIndexResult {
@@ -9,6 +9,8 @@ export interface ValidDailyIndexResult {
   dateString: string; // The date this index corresponds to (YYYY-MM-DD format)
   gameDate: Date; // The date this index corresponds to (normalized)
   dayNumber: number; // Human readable "Day #45"
+  firstDate: Date;
+  lastDate: Date;
 }
 
 export interface InvalidDailyIndexResult {
@@ -18,6 +20,8 @@ export interface InvalidDailyIndexResult {
   isFuture: boolean; // If the user tries to access a future date
   isPreLaunch: boolean; // If the user tries to access a past date before app launch
   dayNumber?: number; // Human readable "Day #45"
+  firstDate: Date;
+  lastDate: Date;
 }
 
 export type DailyIndexResult = ValidDailyIndexResult | InvalidDailyIndexResult;
@@ -30,11 +34,18 @@ const dateStringSchema = z.iso.date();
  * @returns Object containing the calculated index and metadata.
  */
 export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
+  const startMidnight = startOfDay(new Date(getServerEnv().START_DATE));
+
+  const firstDate = startMidnight;
+  const lastDate = addDays(firstDate, quizQuestions.length - 1);
+
   if (!dateString) {
     return {
       isValid: false,
       isFuture: false,
       isPreLaunch: false,
+      firstDate,
+      lastDate,
     };
   }
   const dateParsed = dateStringSchema.safeParse(dateString);
@@ -43,6 +54,8 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
       isValid: false,
       isFuture: false,
       isPreLaunch: false,
+      firstDate,
+      lastDate,
     };
   }
 
@@ -54,7 +67,6 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
   // This strips hours/minutes so we strictly compare calendar dates.
   // Using date-fns `startOfDay` is safer than manual math for edge cases.
   const currentMidnight = startOfDay(new Date(dateParsed.data));
-  const startMidnight = startOfDay(new Date(getServerEnv().START_DATE));
 
   // 3. Calculate the Difference
   // differenceInCalendarDays handles DST (Daylight Savings) anomalies automatically.
@@ -71,6 +83,8 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
       gameDate: currentMidnight,
       isFuture: false,
       isPreLaunch: true,
+      firstDate,
+      lastDate,
     };
   }
 
@@ -83,6 +97,8 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
       isFuture: false,
       isPreLaunch: false,
       dayNumber: daysPassed + 1,
+      firstDate,
+      lastDate,
     };
   }
 
@@ -98,6 +114,8 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
       isFuture: true,
       isPreLaunch: false,
       dayNumber: daysPassed + 1,
+      firstDate,
+      lastDate,
     };
   }
 
@@ -107,5 +125,7 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
     dateString: dateParsed.data,
     gameDate: currentMidnight,
     dayNumber: daysPassed + 1,
+    firstDate,
+    lastDate,
   };
 };
