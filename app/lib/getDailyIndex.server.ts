@@ -61,7 +61,7 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
 
   // 1. Determine "Now" vs "Requested Date"
   // If no date is passed, use the user's current system time.
-  const now = new Date();
+  const today = startOfDay(new Date());
 
   // 2. Normalize to Midnight (Local Time)
   // This strips hours/minutes so we strictly compare calendar dates.
@@ -104,8 +104,7 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
 
   // Case C: User tries to access a future date via URL manipulation
   // We compare the requested date against the *real* current time.
-  const isFuture =
-    differenceInCalendarDays(currentMidnight, startOfDay(now)) > 0;
+  const isFuture = differenceInCalendarDays(currentMidnight, today) > 0;
   if (isFuture) {
     return {
       isValid: false,

@@ -1,5 +1,5 @@
 import { useState, type PropsWithChildren } from 'react';
-import { format } from 'date-fns';
+import { differenceInCalendarDays, format, startOfDay } from 'date-fns';
 import { ChevronDown } from 'lucide-react';
 import { Typography } from '~/components/ui/typography';
 import { Badge } from '~/components/ui/badge';
@@ -33,8 +33,10 @@ export function Layout({
     });
   }
   if (lastDate) {
+    const today = startOfDay(new Date());
+    const isAfterToday = differenceInCalendarDays(lastDate, today) > 0;
     dateRange.push({
-      after: lastDate,
+      after: isAfterToday ? today : lastDate,
     });
   }
 
