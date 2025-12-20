@@ -27,26 +27,26 @@ export const quizQuestions: QuizQuestion[] = [
       {
         answer: 'Russia',
         acceptedVariations: ['Russian Federation'],
-        value: '17.1M km²',
+        value: '17,1M km²',
       },
       {
         answer: 'Canada',
-        value: '9.98M km²',
+        value: '9,98M km²',
       },
       {
         answer: 'China',
         acceptedVariations: ['PRC', 'Peoples Republic of China'],
-        value: '9.6M km²',
+        value: '9,6M km²',
       },
       {
         answer: 'United States',
         acceptedVariations: ['USA', 'America', 'US', 'The US'],
-        value: '9.5M km²',
+        value: '9,5M km²',
       },
       {
         answer: 'Brazil',
         acceptedVariations: ['Brasil'],
-        value: '8.5M km²',
+        value: '8,5M km²',
       },
     ],
     hints: [
@@ -148,7 +148,7 @@ export const quizQuestions: QuizQuestion[] = [
     range: { min: 0, max: 20 },
     hints: [
       'It is less than 10 minutes.',
-      'Speed of light is approx 300,000 km/s.',
+      'Speed of light is approx 300.000 km/s.',
     ],
     explanation:
       'Light takes 8 minutes and 20 seconds to travel the 150 million km to Earth. This means if the Sun suddenly vanished, we wouldn’t know for over 8 minutes.',
@@ -356,7 +356,7 @@ export const quizQuestions: QuizQuestion[] = [
       'The exact height was updated slightly in 2020 by Nepal and China.',
     ],
     explanation:
-      'The official height is 8,848.86 meters. The mountain continues to grow roughly 4mm per year due to the collision of the Indian and Eurasian tectonic plates.',
+      'The official height is 8.848,86 meters. The mountain continues to grow roughly 4mm per year due to the collision of the Indian and Eurasian tectonic plates.',
   },
   {
     id: 'q-021',
@@ -433,7 +433,7 @@ export const quizQuestions: QuizQuestion[] = [
     tolerance: 15,
     range: { min: 200, max: 500 },
     hints: [
-      'It is roughly 1,235 km/h.',
+      'It is roughly 1.235 km/h.',
       'It is much slower than the speed of light.',
     ],
     explanation:
@@ -583,7 +583,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Pure capsaicin tops this scale at 16 million.',
     ],
     explanation:
-      'The Scoville scale measures the concentration of capsaicinoids. For context, a Jalapeño is 2,500–8,000 SHU, while the Carolina Reaper is over 1.6 million SHU.',
+      'The Scoville scale measures the concentration of capsaicinoids. For context, a Jalapeño is 2.500–8.000 SHU, while the Carolina Reaper is over 1,6 million SHU.',
   },
   {
     id: 'q-032',
