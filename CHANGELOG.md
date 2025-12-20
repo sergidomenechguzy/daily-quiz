@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.1](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.0...v0.1.1) (2025-12-20)
+
+
+### Bug Fixes
+
+* allow pnpm post install scripts for necessary packages ([13ee798](https://github.com/sergidomenechguzy/daily-quiz/commit/13ee798849cec7617f0c403b93bd4f9fae449fcd))
+
 ## 0.1.0 (2025-12-20)
 
 
