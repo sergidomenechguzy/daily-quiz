@@ -1,7 +1,10 @@
 import type { Route } from './+types/home';
 import { Link, redirect } from 'react-router';
-import { format } from 'date-fns';
-import { getDailyIndex } from '~/lib/getDailyIndex.server';
+import { format, isAfter, startOfDay } from 'date-fns';
+import {
+  getDailyIndex,
+  type InvalidDailyIndexResult,
+} from '~/lib/getDailyIndex.server';
 import { quizQuestions } from '~/data/questions.server';
 import { Layout } from '~/components/layout/layout';
 import { Quiz } from '~/components/quiz/quiz';
@@ -56,7 +59,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   );
 }
 
-export async function clientLoader({
+export async function clientLoader2({
   serverLoader,
   request,
 }: Route.ClientLoaderArgs) {
@@ -68,6 +71,50 @@ export async function clientLoader({
     return redirect(`/?date=${today}`);
   }
   const serverData = await serverLoader();
+  return serverData;
+}
+
+export async function clientLoader({
+  serverLoader,
+  request,
+}: Route.ClientLoaderArgs) {
+  const url = new URL(request.url);
+  const dateParam = url.searchParams.get('date');
+  const todayDate = new Date();
+  const todayString = format(todayDate, 'yyyy-MM-dd');
+
+  if (!dateParam) {
+    return redirect(`/?date=${todayString}`);
+  }
+
+  const serverData = await serverLoader();
+
+  // LOCAL TIME GUARD
+  // If the user tries to visit a date that is in the future *for them*,
+  // prevent quiz question from being passed and make result invalid.
+  // (The server might allow it because it's valid in at least one timezone,
+  // but we block it here).
+  const requestedDate = startOfDay(new Date(dateParam));
+  const clientToday = startOfDay(todayDate);
+
+  if (isAfter(requestedDate, clientToday)) {
+    const guardDailyIndex: InvalidDailyIndexResult = {
+      isValid: false,
+      dateString: serverData.dailyIndex.dateString,
+      gameDate: serverData.dailyIndex.gameDate,
+      isFuture: true,
+      isPreLaunch: false,
+      dayNumber: serverData.dailyIndex.dayNumber,
+      firstDate: serverData.dailyIndex.firstDate,
+      lastDate: serverData.dailyIndex.lastDate,
+    };
+
+    return {
+      dailyIndex: guardDailyIndex,
+      quizQuestion: null,
+    };
+  }
+
   return serverData;
 }
 
