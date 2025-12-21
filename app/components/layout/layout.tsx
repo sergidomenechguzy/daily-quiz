@@ -62,6 +62,7 @@ export function Layout({
                 <Calendar
                   mode="single"
                   selected={gameDate}
+                  defaultMonth={gameDate}
                   captionLayout="dropdown"
                   weekStartsOn={1}
                   reverseYears
