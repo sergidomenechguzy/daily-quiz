@@ -10,7 +10,7 @@ import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
-import { QuizMedia } from '../quiz-media';
+import { QuizMedia } from '~/components/quiz-media';
 
 interface MultipleChoiceQuizProps {
   quizQuestion: MultipleChoiceQuestion;

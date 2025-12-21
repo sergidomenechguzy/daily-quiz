@@ -20,7 +20,7 @@ import {
 } from '~/components/ui/item';
 import { Typography } from '~/components/ui/typography';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
-import { QuizMedia } from '../quiz-media';
+import { QuizMedia } from '~/components/quiz-media';
 
 type FormData = {
   answer: string;

@@ -65,7 +65,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2,
     hints: [
       'This metal is commonly used in construction and machinery.',
-      'It is the primary ingredient in steel.',
+      // 'It is the primary ingredient in steel.',
     ],
     explanation:
       'The symbol "Fe" comes from the Latin word "Ferrum". Iron is the most common element on Earth by mass, as it forms much of the planets outer and inner core.',
@@ -138,7 +138,10 @@ export const quizQuestions: QuizQuestion[] = [
     questionText: 'Who is the mascot of Nintendo?',
     options: ['Link', 'Kirby', 'Mario', 'Donkey Kong'],
     correctAnswer: 2,
-    hints: ['He is an Italian plumber.', 'He has a brother named Luigi.'],
+    hints: [
+      'He is an Italian plumber.',
+      // 'He has a brother named Luigi.'
+    ],
     explanation:
       'Mario first appeared in 1981 as "Jumpman" in the Donkey Kong arcade game. He was originally a carpenter before becoming a plumber in the 1983 arcade game Mario Bros.',
   },
@@ -248,7 +251,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // Canberra
     hints: [
       'It is an inland city, chosen as a compromise between the two largest cities.',
-      'The name is thought to mean "meeting place" in the local Indigenous language.',
+      // 'The name is thought to mean "meeting place" in the local Indigenous language.',
     ],
     explanation:
       'Canberra was selected as the capital in 1908 as a compromise between rivals Sydney and Melbourne. American architect Walter Burley Griffin won the competition to design the city.',
@@ -351,7 +354,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 1, // Durian
     hints: [
       'It is banned in many hotels and public transport in Southeast Asia due to its odor.',
-      'It has a spiky, thorn-covered rind.',
+      // 'It has a spiky, thorn-covered rind.',
     ],
     explanation:
       'The Durian has a distinctively potent odor that some compare to rotting onions or gym socks. Despite the smell, the flesh is rich and creamy, making it a delicacy.',
@@ -392,7 +395,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['Nose', 'Pinky Finger', 'Ear', 'Toe'],
     correctAnswer: 2, // Ear (Stapes)
     hints: [
-      'It is essential for hearing.',
+      // 'It is essential for hearing.',
       'The bone is called the "stapes" or "stirrup".',
     ],
     explanation:
@@ -473,7 +476,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // Ohm
     hints: [
       'The symbol is the Greek letter Omega (Ω).',
-      'Named after a German physicist named Georg.',
+      // 'Named after a German physicist named Georg.',
     ],
     explanation:
       "Ohm's Law states that Current (I) equals Voltage (V) divided by Resistance (R). The Ohm is named after Georg Ohm, who formulated this relationship in 1827.",
@@ -503,8 +506,8 @@ export const quizQuestions: QuizQuestion[] = [
     tolerance: 15,
     range: { min: 200, max: 500 },
     hints: [
-      'It is roughly 1.235 km/h.',
       'It is much slower than the speed of light.',
+      'It is roughly 1.235 km/h.',
     ],
     explanation:
       'The speed of sound varies with temperature and medium. In water, sound travels over 4 times faster than it does in air.',
@@ -560,7 +563,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // Gryffindor
     hints: [
       'Harry Potter himself belongs to this house.',
-      'Its symbol is a lion.',
+      // 'Its symbol is a lion.',
     ],
     explanation:
       'Gryffindor was founded by Godric Gryffindor. Its house colors are scarlet and gold, and its ghost is Sir Nicholas de Mimsy-Porpington (Nearly Headless Nick).',
@@ -678,7 +681,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 1, // Scoville
     hints: [
       'Named after an American pharmacist named Wilbur.',
-      'Pure capsaicin tops this scale at 16 million.',
+      // 'Pure capsaicin tops this scale at 16 million.',
     ],
     explanation:
       'The Scoville scale measures the concentration of capsaicinoids. For context, a Jalapeño is 2.500–8.000 SHU, while the Carolina Reaper is over 1,6 million SHU.',
@@ -781,7 +784,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // O Negative
     hints: [
       'Red blood cells of this type lack A, B, and Rh antigens.',
-      "It is often used in emergency situations when the patient's blood type is unknown.",
+      // "It is often used in emergency situations when the patient's blood type is unknown.",
     ],
     explanation:
       'O Negative blood can be given to patients of any blood type. However, O Negative individuals can only receive O Negative blood themselves.',
