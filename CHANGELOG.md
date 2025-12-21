@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.3](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.2...v0.1.3) (2025-12-21)
+
+
+### Features
+
+* add QuizMedia component and integrate media support in quiz questions ([ee4fa4e](https://github.com/sergidomenechguzy/daily-quiz/commit/ee4fa4e5619e7ff0898c79256f0bc12068c019d1))
+* enhance quiz functionality with hint tracking ([2c2afd7](https://github.com/sergidomenechguzy/daily-quiz/commit/2c2afd7cfd3f7b772e6e4927e7ae2c175af15428))
+
+
+### Bug Fixes
+
+* calendar now always opening in month of selected date instead of today ([a404bc1](https://github.com/sergidomenechguzy/daily-quiz/commit/a404bc1b5df874a41adf1fa23c31cf98a9dfadab))
+
 ## [0.1.2](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.1...v0.1.2) (2025-12-20)
 
 
