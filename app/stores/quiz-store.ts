@@ -13,6 +13,7 @@ import type { QuizQuestion, TopFiveQuestion } from '~/types/quiz-question';
 
 interface QuizState {
   answers: Record<string, string[]>;
+  hintCounts: Record<string, number[]>;
 }
 
 interface QuizActions {
@@ -26,6 +27,7 @@ interface QuizActions {
     answer: string,
     quizQuestion: TopFiveQuestion
   ) => void;
+  revealHint: (dateString: string) => void;
 }
 
 export const MAX_ATTEMPTS = {
@@ -39,6 +41,7 @@ export const useQuizStore = create<QuizState & QuizActions>()(
   persist(
     immer(set => ({
       answers: {},
+      hintCounts: {},
 
       submitAnswer: (dateString, answer, quizQuestion) => {
         set(state => {
@@ -52,7 +55,6 @@ export const useQuizStore = create<QuizState & QuizActions>()(
 
             existing.push(answer);
           } else {
-            // First attempt for this date
             state.answers[dateString] = [answer];
           }
         });
@@ -83,9 +85,29 @@ export const useQuizStore = create<QuizState & QuizActions>()(
 
             existing.push(answer);
           } else {
-            // First attempt for this date
             state.answers[dateString] = [answer];
           }
+        });
+      },
+
+      revealHint: (dateString: string) => {
+        set(state => {
+          const currentAttemptIndex = state.answers[dateString]?.length ?? 0;
+
+          if (!state.hintCounts[dateString]) {
+            state.hintCounts[dateString] = [];
+          }
+
+          const counts = state.hintCounts[dateString];
+
+          // Fill any missing slots with 0 so index accesses are safe and explicit
+          for (let i = counts.length; i <= currentAttemptIndex; i++) {
+            if (counts[i] == null) {
+              counts[i] = 0;
+            }
+          }
+
+          counts[currentAttemptIndex] = (counts[currentAttemptIndex] ?? 0) + 1;
         });
       },
     })),
@@ -95,29 +117,35 @@ export const useQuizStore = create<QuizState & QuizActions>()(
   )
 );
 
-export function useGetAnswers(dateString: string | undefined) {
-  const answers = useQuizStore(state =>
-    dateString ? state.answers[dateString] : undefined
-  );
+export function useGetAnswers(dateString: string) {
+  const answers = useQuizStore(state => state.answers[dateString]);
 
   return answers;
 }
 
-export function useGetQuizResult(dateString: string | undefined) {
+export function useGetHintCounts(dateString: string) {
+  const hintCounts = useQuizStore(state => state.hintCounts[dateString]);
+
+  return hintCounts;
+}
+
+export function useGetTotalHintCount(dateString: string) {
+  const hintCounts = useQuizStore(state => state.hintCounts[dateString]);
+
+  return hintCounts?.reduce((a, b) => a + b, 0) || 0;
+}
+
+export function useGetQuizResult(dateString: string) {
   const quizQuestion = useQuizQuestion();
-  const answers = useQuizStore(state =>
-    dateString ? state.answers[dateString] : undefined
-  );
+  const answers = useQuizStore(state => state.answers[dateString]);
 
   return validateQuiz(answers, quizQuestion);
 }
 
-export function useGetTopFiveQuizResultWithIndex(dateString: string | undefined) {
+export function useGetTopFiveQuizResultWithIndex(dateString: string) {
   const quizQuestion = useQuizQuestion();
+  const answers = useQuizStore(state => state.answers[dateString]);
 
-  const answers = useQuizStore(state =>
-    dateString ? state.answers[dateString] : undefined
-  );
   if (quizQuestion.type !== 'top-five' || !answers) {
     return {
       results: [],
@@ -129,11 +157,9 @@ export function useGetTopFiveQuizResultWithIndex(dateString: string | undefined)
   return validateTopFiveQuizWithIndex(answers, quizQuestion);
 }
 
-export function useRemainingAttempts(dateString: string | undefined) {
+export function useRemainingAttempts(dateString: string) {
   const quizQuestion = useQuizQuestion();
-  const answers = useQuizStore(state =>
-    dateString ? state.answers[dateString] : undefined
-  );
+  const answers = useQuizStore(state => state.answers[dateString]);
 
   if (!answers) {
     return MAX_ATTEMPTS[quizQuestion.type];

@@ -14,6 +14,7 @@ import {
   InputGroupInput,
 } from '~/components/ui/input-group';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
+import { QuizMedia } from '~/components/quiz-media';
 
 type FormData = {
   answer: string;
@@ -45,6 +46,7 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
         <div className="flex flex-col gap-8">
           {isCompleted && (
             <>
+              <QuizMedia media={quizQuestion.media} />
               <div className="flex flex-col gap-2">
                 <Typography variant="large">
                   {quizQuestion.correctAnswer}

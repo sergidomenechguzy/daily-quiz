@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from '~/components/ui/button';
-import { useRemainingAttempts } from '~/stores/quiz-store';
+import { useQuizStore, useRemainingAttempts } from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
 import { useQuizQuestion } from '~/hooks/useQuizQuestion';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
@@ -14,7 +14,13 @@ export function Hint({ hintIndex, remainingAttemptsToShow }: HintProps) {
   const { dateString } = useDailyIndex();
   const quizQuestion = useQuizQuestion();
   const remainingAttempts = useRemainingAttempts(dateString);
+  const revealHint = useQuizStore(state => state.revealHint);
   const [showHint, setShowHint] = useState(false);
+
+  const handleShowHintClick = () => {
+    setShowHint(true);
+    revealHint(dateString);
+  };
 
   return (
     remainingAttempts <= remainingAttemptsToShow &&
@@ -27,7 +33,7 @@ export function Hint({ hintIndex, remainingAttemptsToShow }: HintProps) {
             type="button"
             variant="ghost"
             size="sm"
-            onClick={() => setShowHint(!showHint)}
+            onClick={handleShowHintClick}
             className="h-6"
           >
             Reveal hint

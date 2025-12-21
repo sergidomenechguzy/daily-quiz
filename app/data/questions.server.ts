@@ -65,7 +65,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2,
     hints: [
       'This metal is commonly used in construction and machinery.',
-      'It is the primary ingredient in steel.',
+      // 'It is the primary ingredient in steel.',
     ],
     explanation:
       'The symbol "Fe" comes from the Latin word "Ferrum". Iron is the most common element on Earth by mass, as it forms much of the planets outer and inner core.',
@@ -84,6 +84,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'The Titanic hit an iceberg on April 14, 1912, and sank early the next morning. It was one of three Olympic-class ocean liners built by Harland and Wolff; its sisters were the Olympic and the Britannic.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Titanic_the_sinking.jpg?width=600',
+      altText: 'Illustration of the Titanic sinking',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
   },
   {
     id: 'q-005',
@@ -131,7 +138,10 @@ export const quizQuestions: QuizQuestion[] = [
     questionText: 'Who is the mascot of Nintendo?',
     options: ['Link', 'Kirby', 'Mario', 'Donkey Kong'],
     correctAnswer: 2,
-    hints: ['He is an Italian plumber.', 'He has a brother named Luigi.'],
+    hints: [
+      'He is an Italian plumber.',
+      // 'He has a brother named Luigi.'
+    ],
     explanation:
       'Mario first appeared in 1981 as "Jumpman" in the Donkey Kong arcade game. He was originally a carpenter before becoming a plumber in the 1983 arcade game Mario Bros.',
   },
@@ -166,6 +176,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'Written early in his career (c. 1597), the play was based on an Italian tale. It has been adapted into more films and plays than almost any other story in history.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/William_Shakespeare_by_John_Taylor,_edited.jpg?width=600',
+      altText: 'The Chandos portrait of William Shakespeare',
+      source: 'Wikimedia Commons',
+      attribution: 'John Taylor / Public Domain',
+    },
   },
   {
     id: 'q-009',
@@ -182,6 +199,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'Earth is not a perfect sphere; it is an "oblate spheroid." This means the diameter at the equator (12.742 km) is slightly larger than the diameter from pole to pole (12.714 km).',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/The_Blue_Marble.jpg?width=600',
+      altText: 'The Blue Marble photo of Earth',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA/Apollo 17 Crew / Public Domain',
+    },
   },
   {
     id: 'q-010',
@@ -210,6 +234,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'The original iPhone was a GSM-only phone and lacked 3G. When it launched, it did not support third-party apps, copy-paste, or video recording.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/IPhone_First_Generation.jpg?width=600',
+      altText: 'The first generation iPhone',
+      source: 'Wikimedia Commons',
+      attribution: 'Carl Berkeley / CC BY-SA 2.0',
+    },
   },
   {
     id: 'q-012',
@@ -220,10 +251,17 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // Canberra
     hints: [
       'It is an inland city, chosen as a compromise between the two largest cities.',
-      'The name is thought to mean "meeting place" in the local Indigenous language.',
+      // 'The name is thought to mean "meeting place" in the local Indigenous language.',
     ],
     explanation:
       'Canberra was selected as the capital in 1908 as a compromise between rivals Sydney and Melbourne. American architect Walter Burley Griffin won the competition to design the city.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Parliament_House_at_dusk,_Canberra_ACT.jpg?width=600',
+      altText: 'Parliament House in Canberra',
+      source: 'Wikimedia Commons',
+      attribution: 'Thennicke / CC BY-SA 4.0',
+    },
   },
   {
     id: 'q-013',
@@ -259,7 +297,7 @@ export const quizQuestions: QuizQuestion[] = [
       },
       {
         answer: 'Snow Leopard',
-        acceptedVariations: ['Ounce'], // Alternative name for Snow Leopard
+        acceptedVariations: ['Ounce'],
       },
     ],
     hints: [
@@ -268,6 +306,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'These are the only cats capable of roaring (except the Snow Leopard). This ability comes from the specialized structure of their hyoid bone.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sibirischer tiger de edit02.jpg?width=600',
+      altText: 'Siberian Tiger',
+      source: 'Wikimedia Commons',
+      attribution: 'S. Taheri / CC BY-SA 2.5',
+    },
   },
   {
     id: 'q-015',
@@ -309,10 +354,17 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 1, // Durian
     hints: [
       'It is banned in many hotels and public transport in Southeast Asia due to its odor.',
-      'It has a spiky, thorn-covered rind.',
+      // 'It has a spiky, thorn-covered rind.',
     ],
     explanation:
       'The Durian has a distinctively potent odor that some compare to rotting onions or gym socks. Despite the smell, the flesh is rich and creamy, making it a delicacy.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Durian_fruit_and_seeds_0495.JPG?width=600',
+      altText: 'Open Durian fruit showing seeds',
+      source: 'Wikimedia Commons',
+      attribution: 'Btcpg / CC BY-SA 4.0',
+    },
   },
   {
     id: 'q-018',
@@ -327,6 +379,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'Painted in the early 16th century, the Mona Lisa is famous for her enigmatic smile. It holds the Guinness World Record for the highest known insurance valuation in history.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg?width=600',
+      altText: 'The Mona Lisa painting',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
   },
   {
     id: 'q-019',
@@ -336,7 +395,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['Nose', 'Pinky Finger', 'Ear', 'Toe'],
     correctAnswer: 2, // Ear (Stapes)
     hints: [
-      'It is essential for hearing.',
+      // 'It is essential for hearing.',
       'The bone is called the "stapes" or "stirrup".',
     ],
     explanation:
@@ -357,6 +416,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'The official height is 8.848,86 meters. The mountain continues to grow roughly 4mm per year due to the collision of the Indian and Eurasian tectonic plates.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Everest, Himalayas.jpg?width=600',
+      altText: 'Mount Everest, Nepal, Himalayas',
+      source: 'Wikimedia Commons',
+      attribution: 'Vyacheslav Argenberg / CC BY 4.0',
+    },
   },
   {
     id: 'q-021',
@@ -393,6 +459,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'Jupiter is so large that over 1,300 Earths could fit inside it. The four gas giants make up 99% of the mass orbiting the Sun.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Portrait_of_Jupiter_from_Cassini.jpg?width=600',
+      altText: 'True color portrait of Jupiter',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA/JPL / Public Domain',
+    },
   },
   {
     id: 'q-022',
@@ -403,7 +476,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // Ohm
     hints: [
       'The symbol is the Greek letter Omega (Ω).',
-      'Named after a German physicist named Georg.',
+      // 'Named after a German physicist named Georg.',
     ],
     explanation:
       "Ohm's Law states that Current (I) equals Voltage (V) divided by Resistance (R). The Ohm is named after Georg Ohm, who formulated this relationship in 1827.",
@@ -433,11 +506,18 @@ export const quizQuestions: QuizQuestion[] = [
     tolerance: 15,
     range: { min: 200, max: 500 },
     hints: [
-      'It is roughly 1.235 km/h.',
       'It is much slower than the speed of light.',
+      'It is roughly 1.235 km/h.',
     ],
     explanation:
       'The speed of sound varies with temperature and medium. In water, sound travels over 4 times faster than it does in air.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/FA-18_Hornet_breaking_sound_barrier_(7_July_1999).jpg?width=600',
+      altText: 'An F-18 Hornet breaking the sound barrier',
+      source: 'Wikimedia Commons',
+      attribution: 'U.S. Navy / Public Domain',
+    },
   },
   {
     id: 'q-025',
@@ -483,7 +563,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // Gryffindor
     hints: [
       'Harry Potter himself belongs to this house.',
-      'Its symbol is a lion.',
+      // 'Its symbol is a lion.',
     ],
     explanation:
       'Gryffindor was founded by Godric Gryffindor. Its house colors are scarlet and gold, and its ghost is Sir Nicholas de Mimsy-Porpington (Nearly Headless Nick).',
@@ -502,6 +582,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'The 88-key standard (A0 to C8) became popularized by Steinway in the late 1880s. Before that, pianos often had only 85 keys.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pianoforte_Klaviatur-wIKI_4.jpg?width=600',
+      altText: 'Standard piano keyboard layout',
+      source: 'Wikimedia Commons',
+      attribution: 'Olebrandt / Public Domain',
+    },
   },
   {
     id: 'q-028',
@@ -553,6 +640,13 @@ export const quizQuestions: QuizQuestion[] = [
     hints: ['He was a Soviet cosmonaut.', 'His flight took place in 1961.'],
     explanation:
       'On April 12, 1961, Gagarin completed one orbit of Earth aboard the Vostok 1 capsule. His flight lasted just 108 minutes.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cosmonaut_Yuri_Gagarin_(13403704893).jpg?width=600',
+      altText: 'Portrait of Yuri Gagarin',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / Public Domain',
+    },
   },
   {
     id: 'q-030',
@@ -569,6 +663,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds, faster than many sports cars. However, they can only maintain this speed for about 30 seconds before overheating.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest animal.jpg?width=600',
+      altText: 'A cheetah running at full speed',
+      source: 'Wikimedia Commons',
+      attribution: 'Srivath / CC BY-SA 4.0',
+    },
   },
   {
     id: 'q-031',
@@ -580,7 +681,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 1, // Scoville
     hints: [
       'Named after an American pharmacist named Wilbur.',
-      'Pure capsaicin tops this scale at 16 million.',
+      // 'Pure capsaicin tops this scale at 16 million.',
     ],
     explanation:
       'The Scoville scale measures the concentration of capsaicinoids. For context, a Jalapeño is 2.500–8.000 SHU, while the Carolina Reaper is over 1,6 million SHU.',
@@ -623,7 +724,7 @@ export const quizQuestions: QuizQuestion[] = [
       },
       {
         answer: 'Game Boy',
-        acceptedVariations: ['GB', 'Game Boy Color'],
+        acceptedVariations: ['GB', 'Game Boy Color', 'GameBoy'],
         value: '118M',
       },
       {
@@ -638,6 +739,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'The PlayStation 2 remains the champion largely due to its long lifespan and ability to play DVDs. The Nintendo Switch is currently the only active console in the top 5 and may eventually take the #1 spot.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sony-PlayStation-2-70001-Console-BR.jpg?width=600',
+      altText: 'The PlayStation 2 Console',
+      source: 'Wikimedia Commons',
+      attribution: 'Evan-Amos / Public Domain',
+    },
   },
   {
     id: 'q-034',
@@ -654,6 +762,13 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'The Nile flows through 11 countries. While there is an ongoing debate about whether the Amazon River might be slightly longer, the Nile is traditionally recognized as the longest at approx 6,650 km.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nile_River_(MODIS_2022-01-26).jpg?width=600',
+      altText: 'Satellite view of the Nile River',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / Public Domain',
+    },
   },
   {
     id: 'q-035',
@@ -669,7 +784,7 @@ export const quizQuestions: QuizQuestion[] = [
     correctAnswer: 2, // O Negative
     hints: [
       'Red blood cells of this type lack A, B, and Rh antigens.',
-      "It is often used in emergency situations when the patient's blood type is unknown.",
+      // "It is often used in emergency situations when the patient's blood type is unknown.",
     ],
     explanation:
       'O Negative blood can be given to patients of any blood type. However, O Negative individuals can only receive O Negative blood themselves.',

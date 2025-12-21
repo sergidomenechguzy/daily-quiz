@@ -10,6 +10,7 @@ import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
+import { QuizMedia } from '~/components/quiz-media';
 
 interface MultipleChoiceQuizProps {
   quizQuestion: MultipleChoiceQuestion;
@@ -30,6 +31,7 @@ export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
       <div className="flex flex-col gap-8">
         {isCompleted && (
           <>
+            <QuizMedia media={quizQuestion.media} />
             <div className="flex flex-col gap-2">
               <Typography variant="large">
                 {quizQuestion.options[quizQuestion.correctAnswer]}
@@ -40,7 +42,6 @@ export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
             </div>
           </>
         )}
-
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             {quizQuestion.options.map((option, index) => {

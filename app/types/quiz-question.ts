@@ -4,6 +4,16 @@ export type QuestionType =
   | 'exact-match' // "What is the capital of Peru?" (Text input)
   | 'top-five'; // "Name the top 5 largest oceans" (Family Feud style)
 
+export type MediaType = 'image'; // | 'video'; // disabled for now
+
+export type QuizMedia = {
+  type: MediaType;
+  url: string;
+  altText: string;
+  source?: string;
+  attribution?: string;
+};
+
 interface BaseQuestion {
   id: string;
   type: QuestionType;
@@ -11,6 +21,7 @@ interface BaseQuestion {
   category: string;
   explanation?: string;
   hints?: string[];
+  media?: QuizMedia;
 }
 
 export interface MultipleChoiceQuestion extends BaseQuestion {
