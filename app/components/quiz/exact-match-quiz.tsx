@@ -10,6 +10,7 @@ import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
+import { QuizMedia } from '~/components/quiz-media';
 
 type FormData = {
   answer: string;
@@ -41,6 +42,7 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
         <div className="flex flex-col gap-8">
           {isCompleted && (
             <>
+              <QuizMedia media={quizQuestion.media} />
               <div className="flex flex-col gap-2">
                 <Typography variant="large">
                   {quizQuestion.correctAnswer}
