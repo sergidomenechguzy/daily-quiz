@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
+import { useQuizQuestion } from '~/hooks/useQuizQuestion';
 import { getClientEnv } from '~/lib/env';
 import { validateQuiz } from '~/lib/validateQuiz';
 import type { QuizData } from '~/types/quiz-data';
@@ -103,11 +104,11 @@ export const useQuizStore = create<QuizState & QuizActions>()(
 );
 
 export function useRemainingAttempts(dateString: string) {
+  const quizQuestion = useQuizQuestion();
   const results = useQuizStore(state => state.quizState[dateString]?.results);
-  const type = useQuizStore(state => state.quizState[dateString]?.type);
 
   if (!results) {
-    return MAX_ATTEMPTS[type];
+    return MAX_ATTEMPTS[quizQuestion.type];
   }
 
   // Don't count the correct answer against remaining attempts
@@ -116,5 +117,5 @@ export function useRemainingAttempts(dateString: string) {
     [0, 0]
   );
 
-  return MAX_ATTEMPTS[type] - wrongAnswers;
+  return MAX_ATTEMPTS[quizQuestion.type] - wrongAnswers;
 }
