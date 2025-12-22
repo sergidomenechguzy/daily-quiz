@@ -51,7 +51,7 @@ export function Answers() {
                     <Item
                       key={`result-hint-${index}-${hintIndex}`}
                       variant="muted"
-                      className=" border-0"
+                      className="border-0"
                     >
                       <ItemMedia>
                         <Eye className="size-5" />
@@ -103,7 +103,7 @@ export function Answers() {
               <Item
                 key={`result-hint-no-revealed-${hintIndex}`}
                 variant="muted"
-                className=" border-0"
+                className="border-0"
               >
                 <ItemMedia>
                   <EyeOff className="size-5" />

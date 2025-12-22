@@ -1,4 +1,9 @@
-import { differenceInCalendarDays, startOfDay, addDays } from 'date-fns';
+import {
+  differenceInCalendarDays,
+  startOfDay,
+  addDays,
+  addHours,
+} from 'date-fns';
 import { getServerEnv } from './env.server';
 import { quizQuestions } from '~/data/questions.server';
 import { z } from 'zod';
@@ -59,19 +64,19 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
     };
   }
 
-  // 1. Determine "Now" vs "Requested Date"
-  // If no date is passed, use the user's current system time.
-  const today = startOfDay(new Date());
+  // 1. Calculate Earth's frthest timezone (UTC+14).
+  const serverNow = new Date();
+  const maxAllowedDate = startOfDay(addHours(serverNow, 14));
 
-  // 2. Normalize to Midnight (Local Time)
-  // This strips hours/minutes so we strictly compare calendar dates.
-  // Using date-fns `startOfDay` is safer than manual math for edge cases.
-  const currentMidnight = startOfDay(new Date(dateParsed.data));
+  // 2. Normalize Requested Date
+  const requestedDate = startOfDay(new Date(dateParsed.data));
 
-  // 3. Calculate the Difference
-  // differenceInCalendarDays handles DST (Daylight Savings) anomalies automatically.
-  // If we just did (date1 - date2) / 86400000, DST switches could return 14.9 days, breaking logic.
-  const daysPassed = differenceInCalendarDays(currentMidnight, startMidnight);
+  // 3. Calculate Days Passed (Relative to Start Date)
+  const daysPassed = differenceInCalendarDays(requestedDate, startMidnight);
+
+  // 4. Check for Future (Global Guard)
+  // We check against maxAllowedDate instead of server local time
+  const isFuture = differenceInCalendarDays(requestedDate, maxAllowedDate) > 0;
 
   // 4. Handle Edge Cases
 
@@ -80,7 +85,7 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
     return {
       isValid: false,
       dateString: dateParsed.data,
-      gameDate: currentMidnight,
+      gameDate: requestedDate,
       isFuture: false,
       isPreLaunch: true,
       firstDate,
@@ -93,7 +98,7 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
     return {
       isValid: false,
       dateString: dateParsed.data,
-      gameDate: currentMidnight,
+      gameDate: requestedDate,
       isFuture: false,
       isPreLaunch: false,
       dayNumber: daysPassed + 1,
@@ -103,13 +108,11 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
   }
 
   // Case C: User tries to access a future date via URL manipulation
-  // We compare the requested date against the *real* current time.
-  const isFuture = differenceInCalendarDays(currentMidnight, today) > 0;
   if (isFuture) {
     return {
       isValid: false,
       dateString: dateParsed.data,
-      gameDate: currentMidnight,
+      gameDate: requestedDate,
       isFuture: true,
       isPreLaunch: false,
       dayNumber: daysPassed + 1,
@@ -122,7 +125,7 @@ export const getDailyIndex = (dateString?: string | null): DailyIndexResult => {
     isValid: true,
     index: daysPassed,
     dateString: dateParsed.data,
-    gameDate: currentMidnight,
+    gameDate: requestedDate,
     dayNumber: daysPassed + 1,
     firstDate,
     lastDate,

@@ -6,11 +6,11 @@ import type { ExactMatchQuestion } from '~/types/quiz-question';
 import { Field } from '~/components/ui/field';
 import { useGetQuizResult, useQuizStore } from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
-import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
 import { QuizMedia } from '~/components/quiz-media';
+import { Hints } from '~/components/hints';
 
 type FormData = {
   answer: string;
@@ -75,10 +75,7 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
                   <ArrowBigRight />
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
-                <Hint hintIndex={0} remainingAttemptsToShow={3} />
-                <Hint hintIndex={1} remainingAttemptsToShow={1} />
-              </div>
+              <Hints />
             </div>
           )}
           <Answers />
