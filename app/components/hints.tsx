@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import {
-  useGetTotalHintCount,
-  useQuizStore,
-  useRemainingAttempts,
-} from '~/stores/quiz-store';
+import { useQuizStore, useRemainingAttempts } from '~/stores/quiz-store';
 import { useQuizQuestion } from '~/hooks/useQuizQuestion';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
 import { Item, ItemContent, ItemMedia, ItemTitle } from '~/components/ui/item';
@@ -64,7 +60,9 @@ const remainingAttemptsToShowHint: Record<QuestionType, number[]> = {
 export function Hints() {
   const { dateString } = useDailyIndex();
   const quizQuestion = useQuizQuestion();
-  const totalHintCount = useGetTotalHintCount(dateString);
+  const hintsUsed = useQuizStore(
+    state => state.quizState[dateString]?.hintsUsed
+  );
   const remainingAttempts = useRemainingAttempts(dateString);
 
   return (
@@ -72,10 +70,14 @@ export function Hints() {
       <div className="flex flex-col gap-2">
         {quizQuestion.hints.map(
           (hint, index) =>
-            index <= totalHintCount &&
+            index <= hintsUsed &&
             remainingAttempts <=
               remainingAttemptsToShowHint[quizQuestion.type][index] && (
-              <HintItem hint={hint} open={index < totalHintCount} />
+              <HintItem
+                key={`hint-${index}`}
+                hint={hint}
+                open={index < hintsUsed}
+              />
             )
         )}
       </div>

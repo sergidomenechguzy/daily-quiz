@@ -1,10 +1,6 @@
 import { Button } from '~/components/ui/button';
 import type { MultipleChoiceQuestion } from '~/types/quiz-question';
-import {
-  useGetAnswers,
-  useGetQuizResult,
-  useQuizStore,
-} from '~/stores/quiz-store';
+import { useQuizStore } from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
@@ -19,8 +15,10 @@ interface MultipleChoiceQuizProps {
 export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
   const { dateString } = useDailyIndex();
   const submitAnswer = useQuizStore(state => state.submitAnswer);
-  const answers = useGetAnswers(dateString);
-  const { isCompleted } = useGetQuizResult(dateString);
+  const answers = useQuizStore(state => state.quizState[dateString]?.answers);
+  const isCompleted = useQuizStore(
+    state => state.quizState[dateString]?.isCompleted
+  );
 
   function onSelect(selected: number) {
     submitAnswer(dateString, selected.toString(), quizQuestion);

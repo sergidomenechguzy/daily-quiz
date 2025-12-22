@@ -1,24 +1,26 @@
 import { CircleCheck, CircleX, Eye, EyeOff } from 'lucide-react';
-import {
-  useGetAnswers,
-  useGetHintCounts,
-  useGetQuizResult,
-  useGetTotalHintCount,
-} from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
 import { EstimationAnswerBadge } from '~/components/estimation-answer-badge';
 import { useQuizQuestion } from '~/hooks/useQuizQuestion';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
 import { Item, ItemContent, ItemMedia, ItemTitle } from './ui/item';
 import { Fragment } from 'react/jsx-runtime';
+import { useQuizStore } from '~/stores/quiz-store';
 
 export function Answers() {
   const { dateString } = useDailyIndex();
   const quizQuestion = useQuizQuestion();
-  const answers = useGetAnswers(dateString);
-  const totalHintCount = useGetTotalHintCount(dateString);
-  const hintCounts = useGetHintCounts(dateString);
-  const { results, isCompleted } = useGetQuizResult(dateString);
+  const answers = useQuizStore(state => state.quizState[dateString]?.answers);
+  const hintsUsed = useQuizStore(
+    state => state.quizState[dateString]?.hintsUsed
+  );
+  const hintCounts = useQuizStore(
+    state => state.quizState[dateString]?.hintCounts
+  );
+  const results = useQuizStore(state => state.quizState[dateString]?.results);
+  const isCompleted = useQuizStore(
+    state => state.quizState[dateString]?.isCompleted
+  );
 
   const isEstimation = quizQuestion.type === 'estimation';
   const isMultipleChoice = quizQuestion.type === 'multiple-choice';
@@ -31,7 +33,7 @@ export function Answers() {
           <Typography variant="muted">Your answers</Typography>
           {isCompleted && (
             <Typography variant="muted">
-              {totalHintCount} hint{totalHintCount !== 1 ? 's' : ''} revealed
+              {hintsUsed} hint{hintsUsed !== 1 ? 's' : ''} revealed
             </Typography>
           )}
         </div>
@@ -98,7 +100,7 @@ export function Answers() {
         ))}
         {isCompleted &&
           (quizQuestion.hints ?? [])
-            .slice(totalHintCount, (quizQuestion.hints ?? []).length)
+            .slice(hintsUsed, (quizQuestion.hints ?? []).length)
             .map((hint, hintIndex) => (
               <Item
                 key={`result-hint-no-revealed-${hintIndex}`}

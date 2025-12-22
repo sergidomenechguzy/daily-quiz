@@ -4,10 +4,7 @@ import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
 import type { TopFiveQuestion } from '~/types/quiz-question';
 import { Field } from '~/components/ui/field';
-import {
-  useGetTopFiveQuizResultWithIndex,
-  useQuizStore,
-} from '~/stores/quiz-store';
+import { useQuizStore } from '~/stores/quiz-store';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import {
@@ -32,8 +29,13 @@ interface TopFiveQuizProps {
 
 export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
   const { dateString } = useDailyIndex();
-  const submitTopFiveAnswer = useQuizStore(state => state.submitTopFiveAnswer);
-  const { isCompleted, results } = useGetTopFiveQuizResultWithIndex(dateString);
+  const submitAnswer = useQuizStore(state => state.submitAnswer);
+  const isCompleted = useQuizStore(
+    state => state.quizState[dateString]?.isCompleted
+  );
+  const resultIndices = useQuizStore(
+    state => state.quizState[dateString]?.resultIndices
+  );
 
   const form = useForm<FormData>({
     defaultValues: {
@@ -42,7 +44,7 @@ export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
   });
 
   function onSubmit(data: FormData) {
-    submitTopFiveAnswer(dateString, data.answer, quizQuestion);
+    submitAnswer(dateString, data.answer, quizQuestion);
     form.reset();
   }
 
@@ -88,7 +90,10 @@ export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
           <div className="flex flex-col gap-2">
             {quizQuestion.correctAnswers.map((correctAnswer, index) => {
               const guessed =
-                results.findIndex(result => result.index === index) !== -1;
+                resultIndices &&
+                resultIndices.findIndex(
+                  resultIndex => resultIndex === index
+                ) !== -1;
               return (
                 <Item
                   key={`answer-${index}`}

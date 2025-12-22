@@ -20,12 +20,16 @@ export function validateExactMatchQuiz(
   const results = answers.map(answer =>
     validateExactMatchAnswer(answer, quizQuestion)
   );
-  const isCorrect = results.some(Boolean);
+  const isCorrect = results.some(result => result.isCorrect);
+  const scorePercent = results
+    .map(result => result.scorePercent)
+    .sort((a, b) => b - a)[0];
   const isCompleted =
     isCorrect || answers.length >= MAX_ATTEMPTS[quizQuestion.type];
 
   return {
-    results,
+    results: results.map(result => result.isCorrect),
+    scorePercent,
     isCorrect,
     isCompleted,
   };
@@ -38,12 +42,16 @@ export function validateEstimationQuiz(
   const results = answers.map(answer =>
     validateEstimationAnswer(answer, quizQuestion)
   );
-  const isCorrect = results.some(Boolean);
+  const isCorrect = results.some(result => result.isCorrect);
+  const scorePercent = results
+    .map(result => result.scorePercent)
+    .sort((a, b) => b - a)[0];
   const isCompleted =
     isCorrect || answers.length >= MAX_ATTEMPTS[quizQuestion.type];
 
   return {
-    results,
+    results: results.map(result => result.isCorrect),
+    scorePercent,
     isCorrect,
     isCompleted,
   };
@@ -56,32 +64,16 @@ export function validateMultipleChoiceQuiz(
   const results = answers.map(answer =>
     validateMultipleChoiceAnswer(answer, quizQuestion)
   );
-  const isCorrect = results.some(Boolean);
+  const isCorrect = results.some(result => result.isCorrect);
+  const scorePercent = results
+    .map(result => result.scorePercent)
+    .sort((a, b) => b - a)[0];
   const isCompleted =
     isCorrect || answers.length >= MAX_ATTEMPTS[quizQuestion.type];
 
   return {
-    results,
-    isCorrect,
-    isCompleted,
-  };
-}
-
-export function validateTopFiveQuizWithIndex(
-  answers: string[],
-  quizQuestion: TopFiveQuestion
-) {
-  const results = answers.map(answer =>
-    validateTopFiveAnswerWithIndex(answer, quizQuestion)
-  );
-  const correctAnswerCount = results.filter(result => result.isCorrect).length;
-  const isCorrect = correctAnswerCount >= 5;
-  const isCompleted =
-    isCorrect ||
-    answers.length - correctAnswerCount >= MAX_ATTEMPTS[quizQuestion.type];
-
-  return {
-    results,
+    results: results.map(result => result.isCorrect),
+    scorePercent,
     isCorrect,
     isCompleted,
   };
@@ -91,13 +83,23 @@ export function validateTopFiveQuiz(
   answers: string[],
   quizQuestion: TopFiveQuestion
 ) {
-  const { results, isCorrect, isCompleted } = validateTopFiveQuizWithIndex(
-    answers,
-    quizQuestion
+  const results = answers.map(answer =>
+    validateTopFiveAnswerWithIndex(answer, quizQuestion)
+  );
+  const correctAnswerCount = results.filter(result => result.isCorrect).length;
+  const isCorrect = correctAnswerCount >= quizQuestion.correctAnswers.length;
+  const isCompleted =
+    isCorrect ||
+    answers.length - correctAnswerCount >= MAX_ATTEMPTS[quizQuestion.type];
+  const scorePercent = Math.round(
+    results.reduce((sum, result) => sum + result.scorePercent, 0) /
+      quizQuestion.correctAnswers.length
   );
 
   return {
     results: results.map(result => result.isCorrect),
+    resultIndices: results.map(result => result.index),
+    scorePercent,
     isCorrect,
     isCompleted,
   };
@@ -106,7 +108,13 @@ export function validateTopFiveQuiz(
 export function validateQuiz(
   answers: string[] | undefined,
   quizQuestion: QuizQuestion
-) {
+): {
+  results: boolean[];
+  resultIndices?: (number | undefined)[];
+  scorePercent?: number;
+  isCorrect: boolean;
+  isCompleted: boolean;
+} {
   if (!answers) {
     return {
       results: [],

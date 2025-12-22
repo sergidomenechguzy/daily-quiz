@@ -4,7 +4,7 @@ import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
 import type { ExactMatchQuestion } from '~/types/quiz-question';
 import { Field } from '~/components/ui/field';
-import { useGetQuizResult, useQuizStore } from '~/stores/quiz-store';
+import { useQuizStore } from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
@@ -23,7 +23,9 @@ interface ExactMatchQuizProps {
 export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
   const { dateString } = useDailyIndex();
   const submitAnswer = useQuizStore(state => state.submitAnswer);
-  const { isCompleted } = useGetQuizResult(dateString);
+  const isCompleted = useQuizStore(
+    state => state.quizState[dateString]?.isCompleted
+  );
 
   const form = useForm<FormData>({
     defaultValues: {

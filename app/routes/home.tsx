@@ -59,21 +59,6 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   );
 }
 
-export async function clientLoader2({
-  serverLoader,
-  request,
-}: Route.ClientLoaderArgs) {
-  const url = new URL(request.url);
-  const dateString = url.searchParams.get('date');
-
-  if (!dateString) {
-    const today = format(new Date(), 'yyyy-MM-dd');
-    return redirect(`/?date=${today}`);
-  }
-  const serverData = await serverLoader();
-  return serverData;
-}
-
 export async function clientLoader({
   serverLoader,
   request,
