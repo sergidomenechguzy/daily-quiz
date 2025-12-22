@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.4](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.3...v0.1.4) (2025-12-22)
+
+
+### Features
+
+* enhance date handling in daily quiz logic with future date guard ([5417d92](https://github.com/sergidomenechguzy/daily-quiz/commit/5417d92f39cb2b628c0efd826d675a68a0961f35))
+* new hint reveal logic and styling ([c10fef9](https://github.com/sergidomenechguzy/daily-quiz/commit/c10fef91c97446bb542c413116abc51165a3c205))
+
 ## [0.1.3](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.2...v0.1.3) (2025-12-21)
 
 
