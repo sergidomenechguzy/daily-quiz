@@ -148,20 +148,25 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: 'q-007',
     type: 'estimation',
-    category: 'Space',
-    questionText:
-      'How many minutes does it take for light from the Sun to reach Earth?',
-    correctAnswer: 8.3,
-    unit: 'minutes',
-    tolerance: 0.3,
-    precision: 1,
-    range: { min: 0, max: 20 },
+    category: 'Animals',
+    questionText: 'What is the top speed (in km/h) of a cheetah?',
+    correctAnswer: 120,
+    unit: 'km/h',
+    tolerance: 10,
+    range: { min: 50, max: 160 },
     hints: [
-      'It is less than 10 minutes.',
-      'Speed of light is approx 300.000 km/s.',
+      'They are the fastest land animal.',
+      'That is roughly 75 miles per hour.',
     ],
     explanation:
-      'Light takes 8 minutes and 20 seconds to travel the 150 million km to Earth. This means if the Sun suddenly vanished, we wouldn’t know for over 8 minutes.',
+      'Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds, faster than many sports cars. However, they can only maintain this speed for about 30 seconds before overheating.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest animal.jpg?width=600',
+      altText: 'A cheetah running at full speed',
+      source: 'Wikimedia Commons',
+      attribution: 'Srivath / CC BY-SA 4.0',
+    },
   },
   {
     id: 'q-008',
@@ -651,25 +656,20 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: 'q-030',
     type: 'estimation',
-    category: 'Animals',
-    questionText: 'What is the top speed (in km/h) of a cheetah?',
-    correctAnswer: 120,
-    unit: 'km/h',
-    tolerance: 15,
-    range: { min: 50, max: 160 },
+    category: 'Space',
+    questionText:
+      'How many minutes does it take for light from the Sun to reach Earth?',
+    correctAnswer: 8.3,
+    unit: 'minutes',
+    tolerance: 0.3,
+    precision: 1,
+    range: { min: 0, max: 20 },
     hints: [
-      'They are the fastest land animal.',
-      'That is roughly 75 miles per hour.',
+      'It is less than 10 minutes.',
+      'Speed of light is approx 300.000 km/s.',
     ],
     explanation:
-      'Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds, faster than many sports cars. However, they can only maintain this speed for about 30 seconds before overheating.',
-    media: {
-      type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest animal.jpg?width=600',
-      altText: 'A cheetah running at full speed',
-      source: 'Wikimedia Commons',
-      attribution: 'Srivath / CC BY-SA 4.0',
-    },
+      'Light takes 8 minutes and 20 seconds to travel the 150 million km to Earth. This means if the Sun suddenly vanished, we wouldn’t know for over 8 minutes.',
   },
   {
     id: 'q-031',
