@@ -6,11 +6,11 @@ import {
   useQuizStore,
 } from '~/stores/quiz-store';
 import { Typography } from '~/components/ui/typography';
-import { Hint } from '~/components/hint';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
 import { QuizMedia } from '~/components/quiz-media';
+import { Hints } from '~/components/hints';
 
 interface MultipleChoiceQuizProps {
   quizQuestion: MultipleChoiceQuestion;
@@ -68,7 +68,7 @@ export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
               );
             })}
           </div>
-          {!isCompleted && <Hint hintIndex={0} remainingAttemptsToShow={1} />}
+          {!isCompleted && <Hints />}
         </div>
         {isCompleted && <Answers />}
       </div>
