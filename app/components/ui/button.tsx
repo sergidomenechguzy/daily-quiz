@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
+import { motion, type MotionProps } from 'motion/react';
 
 import { cn } from '~/lib/utils';
 
@@ -48,10 +49,11 @@ function Button({
   asChild = false,
   ...props
 }: React.ComponentProps<'button'> &
+  MotionProps &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot.Root : 'button';
+  const Comp = asChild ? Slot.Root : motion.button;
 
   return (
     <Comp

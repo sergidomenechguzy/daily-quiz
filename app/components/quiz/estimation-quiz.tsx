@@ -3,8 +3,7 @@ import type { EstimationQuestion } from '~/types/quiz-question';
 import { Controller, useForm } from 'react-hook-form';
 import { ArrowBigRight } from 'lucide-react';
 import { Field } from '~/components/ui/field';
-import { useGetQuizResult, useQuizStore } from '~/stores/quiz-store';
-import { Typography } from '~/components/ui/typography';
+import { useQuizStore } from '~/stores/quiz-store';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import {
@@ -13,8 +12,8 @@ import {
   InputGroupInput,
 } from '~/components/ui/input-group';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
-import { QuizMedia } from '~/components/quiz-media';
 import { Hints } from '~/components/hints';
+import { QuizSolution } from '../quiz-solution';
 
 type FormData = {
   answer: string;
@@ -27,7 +26,9 @@ interface EstimationQuizProps {
 export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
   const { dateString } = useDailyIndex();
   const submitAnswer = useQuizStore(state => state.submitAnswer);
-  const { isCompleted } = useGetQuizResult(dateString);
+  const isCompleted = useQuizStore(
+    state => state.quizState[dateString]?.isCompleted
+  );
 
   const form = useForm<FormData>({
     defaultValues: {
@@ -41,25 +42,12 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)}>
-      <QuizCard>
-        <div className="flex flex-col gap-8">
-          {isCompleted && (
-            <>
-              <QuizMedia media={quizQuestion.media} />
-              <div className="flex flex-col gap-2">
-                <Typography variant="large">
-                  {quizQuestion.correctAnswer}
-                  {quizQuestion.unit ? ` ${quizQuestion.unit}` : ''}
-                </Typography>
-                <Typography variant="small">
-                  {quizQuestion.explanation}
-                </Typography>
-              </div>
-            </>
-          )}
-          {!isCompleted && (
-            <div className="flex flex-col gap-4">
+    <QuizCard>
+      <div className="flex flex-col gap-8">
+        <QuizSolution quizQuestion={quizQuestion} />
+        {!isCompleted && (
+          <div className="flex flex-col gap-4">
+            <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="flex gap-2">
                 <Controller
                   name="answer"
@@ -87,12 +75,12 @@ export function EstimationQuiz({ quizQuestion }: EstimationQuizProps) {
                   <ArrowBigRight />
                 </Button>
               </div>
-              <Hints />
-            </div>
-          )}
-          <Answers />
-        </div>
-      </QuizCard>
-    </form>
+            </form>
+            <Hints />
+          </div>
+        )}
+        <Answers />
+      </div>
+    </QuizCard>
   );
 }

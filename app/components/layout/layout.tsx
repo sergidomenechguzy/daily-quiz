@@ -6,7 +6,7 @@ import { Badge } from '~/components/ui/badge';
 import { Popover } from '~/components/ui/popover';
 import { PopoverContent, PopoverTrigger } from '~/components/ui/popover';
 import { Calendar } from '~/components/ui/calendar';
-import { useSearchParams } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import type { Matcher } from 'react-day-picker';
 
 interface LayoutProps {
@@ -44,9 +44,10 @@ export function Layout({
     <main className="flex items-start justify-center p-4 min-h-screen">
       <div className="flex-1 flex flex-col items-center gap-10 min-h-0">
         <header className="flex flex-row items-center justify-start gap-2 w-full">
-          <Typography variant="h3">
-            Daily Quiz{dayNumber ? ` #${dayNumber}` : ''}
-          </Typography>
+          <Link to="/" className="cursor-default">
+            <Typography variant="h3">Daily Quiz</Typography>
+          </Link>
+          {dayNumber && <Typography variant="h3">#{dayNumber}</Typography>}
           {gameDate ? (
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>

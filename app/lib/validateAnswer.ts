@@ -14,16 +14,27 @@ export function validateExactMatchAnswer(
   const correct = quizQuestion.correctAnswer.toLowerCase().trim();
 
   if (normalized === correct) {
-    return true;
+    return {
+      scorePercent: 100,
+      isCorrect: true,
+    };
   }
 
   if (quizQuestion.acceptedVariations) {
-    return quizQuestion.acceptedVariations.some(
+    const matchedVariation = quizQuestion.acceptedVariations.some(
       variation => variation.toLowerCase().trim() === normalized
     );
+
+    return {
+      scorePercent: matchedVariation ? 100 : 0,
+      isCorrect: matchedVariation,
+    };
   }
 
-  return false;
+  return {
+    scorePercent: 0,
+    isCorrect: false,
+  };
 }
 
 export function validateEstimationAnswer(
@@ -37,7 +48,10 @@ export function validateEstimationAnswer(
   }
 
   if (normalized === correct) {
-    return true;
+    return {
+      scorePercent: 100,
+      isCorrect: true,
+    };
   }
 
   if (quizQuestion.tolerance != null) {
@@ -46,10 +60,18 @@ export function validateEstimationAnswer(
     let ceil = correct + quizQuestion.tolerance;
     ceil = Number(ceil.toFixed(quizQuestion.precision));
 
-    return normalized >= floor && normalized <= ceil;
+    const withinTolerance = normalized >= floor && normalized <= ceil;
+
+    return {
+      scorePercent: withinTolerance ? 75 : 0,
+      isCorrect: withinTolerance,
+    };
   }
 
-  return false;
+  return {
+    scorePercent: 0,
+    isCorrect: false,
+  };
 }
 
 export function validateMultipleChoiceAnswer(
@@ -59,10 +81,16 @@ export function validateMultipleChoiceAnswer(
   const correct = quizQuestion.correctAnswer;
 
   if (Number(answer) === correct) {
-    return true;
+    return {
+      scorePercent: 100,
+      isCorrect: true,
+    };
   }
 
-  return false;
+  return {
+    scorePercent: 0,
+    isCorrect: false,
+  };
 }
 
 export function validateTopFiveAnswerWithIndex(
@@ -76,7 +104,11 @@ export function validateTopFiveAnswerWithIndex(
     const correctAnswer = correctAnswerData.answer.toLowerCase().trim();
 
     if (normalized === correctAnswer) {
-      return { isCorrect: true, index: i };
+      return {
+        scorePercent: 100,
+        isCorrect: true,
+        index: i,
+      };
     }
 
     if (correctAnswerData.acceptedVariations) {
@@ -84,12 +116,19 @@ export function validateTopFiveAnswerWithIndex(
         variation => variation.toLowerCase().trim() === normalized
       );
       if (matchesVariation) {
-        return { isCorrect: true, index: i };
+        return {
+          scorePercent: 100,
+          isCorrect: true,
+          index: i,
+        };
       }
     }
   }
 
-  return { isCorrect: false };
+  return {
+    scorePercent: 0,
+    isCorrect: false,
+  };
 }
 
 export function validateTopFiveAnswer(
