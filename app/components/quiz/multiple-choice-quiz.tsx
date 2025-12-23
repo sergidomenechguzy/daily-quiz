@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '~/components/ui/button';
 import type { MultipleChoiceQuestion } from '~/types/quiz-question';
 import { useQuizStore } from '~/stores/quiz-store';
@@ -49,26 +50,50 @@ export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
               const correct = quizQuestion.correctAnswer === index;
 
               return (
-                <Button
-                  key={`answer-${index}-${option}`}
-                  onClick={isCompleted ? undefined : () => onSelect(index)}
-                  disabled={isCompleted || selected}
-                  className={`py-7 ${
-                    !isCompleted && !selected
-                      ? ''
-                      : correct
-                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 disabled:opacity-100'
-                        : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                  }`}
-                >
-                  {option}
-                </Button>
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={`answer-button-${isCompleted || selected ? 'revealed' : 'default'}-${index}`}
+                    initial={
+                      isCompleted || selected
+                        ? {
+                            opacity: 0,
+                            rotateX: 90,
+                          }
+                        : undefined
+                    }
+                    animate={{
+                      opacity: 1,
+                      rotateX: 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      rotateX: -90,
+                    }}
+                    transition={{
+                      duration: 0.15,
+                    }}
+                  >
+                    <Button
+                      onClick={isCompleted ? undefined : () => onSelect(index)}
+                      disabled={isCompleted || selected}
+                      className={`py-7 w-full ${
+                        !isCompleted && !selected
+                          ? ''
+                          : correct
+                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 disabled:opacity-100'
+                            : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                      }`}
+                    >
+                      {option}
+                    </Button>
+                  </motion.span>
+                </AnimatePresence>
               );
             })}
           </div>
           {!isCompleted && <Hints />}
         </div>
-        {isCompleted && <Answers />}
+        <Answers />
       </div>
     </QuizCard>
   );

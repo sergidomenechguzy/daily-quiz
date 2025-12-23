@@ -18,6 +18,7 @@ import { Typography } from '~/components/ui/typography';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
 import { QuizMedia } from '~/components/quiz-media';
 import { Hints } from '~/components/hints';
+import { AnimatePresence } from 'motion/react';
 
 type FormData = {
   answer: string;
@@ -49,21 +50,21 @@ export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)}>
-      <QuizCard>
-        <div className="flex flex-col gap-8">
-          {isCompleted && (
-            <>
-              <QuizMedia media={quizQuestion.media} />
-              <div className="flex flex-col gap-2">
-                <Typography variant="small">
-                  {quizQuestion.explanation}
-                </Typography>
-              </div>
-            </>
-          )}
-          {!isCompleted && (
-            <div className="flex flex-col gap-4">
+    <QuizCard>
+      <div className="flex flex-col gap-8">
+        {isCompleted && (
+          <>
+            <QuizMedia media={quizQuestion.media} />
+            <div className="flex flex-col gap-2">
+              <Typography variant="small">
+                {quizQuestion.explanation}
+              </Typography>
+            </div>
+          </>
+        )}
+        {!isCompleted && (
+          <div className="flex flex-col gap-4">
+            <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="flex gap-2">
                 <Controller
                   name="answer"
@@ -84,20 +85,40 @@ export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
                   <ArrowBigRight />
                 </Button>
               </div>
-              <Hints />
-            </div>
-          )}
-          <div className="flex flex-col gap-2">
-            {quizQuestion.correctAnswers.map((correctAnswer, index) => {
-              const guessed =
-                resultIndices &&
-                resultIndices.findIndex(
-                  resultIndex => resultIndex === index
-                ) !== -1;
-              return (
+            </form>
+            <Hints />
+          </div>
+        )}
+        <div className="flex flex-col gap-2">
+          {quizQuestion.correctAnswers.map((correctAnswer, index) => {
+            const guessed =
+              resultIndices &&
+              resultIndices.findIndex(resultIndex => resultIndex === index) !==
+                -1;
+            return (
+              <AnimatePresence mode="wait" initial={false}>
                 <Item
-                  key={`answer-${index}`}
+                  key={`answer-${guessed ? 'revealed' : 'hidden'}-${index}`}
                   variant={guessed ? 'muted' : 'outline'}
+                  initial={
+                    guessed
+                      ? {
+                          opacity: 0,
+                          rotateX: 90,
+                        }
+                      : undefined
+                  }
+                  animate={{
+                    opacity: 1,
+                    rotateX: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    rotateX: -90,
+                  }}
+                  transition={{
+                    duration: 0.15,
+                  }}
                 >
                   <ItemMedia
                     variant="image"
@@ -117,12 +138,12 @@ export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
                     </ItemContent>
                   )}
                 </Item>
-              );
-            })}
-          </div>
-          <Answers />
+              </AnimatePresence>
+            );
+          })}
         </div>
-      </QuizCard>
-    </form>
+        <Answers />
+      </div>
+    </QuizCard>
   );
 }

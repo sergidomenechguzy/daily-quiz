@@ -39,24 +39,24 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)}>
-      <QuizCard>
-        <div className="flex flex-col gap-8">
-          {isCompleted && (
-            <>
-              <QuizMedia media={quizQuestion.media} />
-              <div className="flex flex-col gap-2">
-                <Typography variant="large">
-                  {quizQuestion.correctAnswer}
-                </Typography>
-                <Typography variant="small">
-                  {quizQuestion.explanation}
-                </Typography>
-              </div>
-            </>
-          )}
-          {!isCompleted && (
-            <div className="flex flex-col gap-4">
+    <QuizCard>
+      <div className="flex flex-col gap-8">
+        {isCompleted && (
+          <>
+            <QuizMedia media={quizQuestion.media} />
+            <div className="flex flex-col gap-2">
+              <Typography variant="large">
+                {quizQuestion.correctAnswer}
+              </Typography>
+              <Typography variant="small">
+                {quizQuestion.explanation}
+              </Typography>
+            </div>
+          </>
+        )}
+        {!isCompleted && (
+          <div className="flex flex-col gap-4">
+            <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="flex gap-2">
                 <Controller
                   name="answer"
@@ -77,12 +77,12 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
                   <ArrowBigRight />
                 </Button>
               </div>
-              <Hints />
-            </div>
-          )}
-          <Answers />
-        </div>
-      </QuizCard>
-    </form>
+            </form>
+            <Hints />
+          </div>
+        )}
+        <Answers />
+      </div>
+    </QuizCard>
   );
 }

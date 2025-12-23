@@ -12,6 +12,7 @@ import { Health } from '~/components/health';
 import { Result } from '~/components/result';
 import { Typography } from '~/components/ui/typography';
 import { Button } from '~/components/ui/button';
+import { ResultOverlay } from '~/components/result-overlay';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -50,6 +51,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       firstDate={loaderData.dailyIndex.firstDate}
       lastDate={loaderData.dailyIndex.lastDate}
     >
+      <ResultOverlay />
       <div className="flex items-center justify-between">
         <Result />
         <Health />

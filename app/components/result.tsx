@@ -36,7 +36,7 @@ export function Result() {
     }
 
     if (quizQuestion.type === 'estimation' && scorePercent === 75) {
-      return `🎯 So Close!`;
+      return `🎯 Close enough!`;
     }
 
     if (quizQuestion.type === 'top-five' && scorePercent != null) {

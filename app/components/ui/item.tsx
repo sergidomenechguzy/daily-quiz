@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
+import { motion, type MotionProps } from 'motion/react';
 
 import { cn } from '~/lib/utils';
 import { Separator } from '~/components/ui/separator';
@@ -62,8 +63,9 @@ function Item({
   asChild = false,
   ...props
 }: React.ComponentProps<'div'> &
+  MotionProps &
   VariantProps<typeof itemVariants> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot.Root : 'div';
+  const Comp = asChild ? Slot.Root : motion.div;
   return (
     <Comp
       data-slot="item"
