@@ -96,7 +96,11 @@ export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
               resultIndices.findIndex(resultIndex => resultIndex === index) !==
                 -1;
             return (
-              <AnimatePresence mode="wait" initial={false}>
+              <AnimatePresence
+                key={`answer-wrapper-${index}`}
+                mode="wait"
+                initial={false}
+              >
                 <Item
                   key={`answer-${guessed ? 'revealed' : 'hidden'}-${index}`}
                   variant={guessed ? 'muted' : 'outline'}

@@ -50,7 +50,11 @@ export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
               const correct = quizQuestion.correctAnswer === index;
 
               return (
-                <AnimatePresence mode="wait" initial={false}>
+                <AnimatePresence
+                  key={`answer-button-wrapper-${index}`}
+                  mode="wait"
+                  initial={false}
+                >
                   <motion.span
                     key={`answer-button-${isCompleted || selected ? 'revealed' : 'default'}-${index}`}
                     initial={
