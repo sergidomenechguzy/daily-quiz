@@ -147,25 +147,23 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 'q-007',
-    type: 'estimation',
-    category: 'Animals',
-    questionText: 'What is the top speed (in km/h) of a cheetah?',
-    correctAnswer: 120,
-    unit: 'km/h',
-    tolerance: 10,
-    range: { min: 50, max: 160 },
+    type: 'multiple-choice',
+    category: 'Technology',
+    questionText: 'Who co-founded Microsoft alongside Bill Gates?',
+    options: ['Steve Jobs', 'Steve Wozniak', 'Paul Allen', 'Tim Berners-Lee'],
+    correctAnswer: 2, // Paul Allen
     hints: [
-      'They are the fastest land animal.',
-      'That is roughly 75 miles per hour.',
+      'He was a childhood friend of Gates.',
+      'He owned the Seattle Seahawks and Portland Trail Blazers.',
     ],
     explanation:
-      'Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds, faster than many sports cars. However, they can only maintain this speed for about 30 seconds before overheating.',
+      'Paul Allen and Bill Gates founded Microsoft in 1975 in Albuquerque, New Mexico. Allen coined the original name "Micro-Soft" (a combination of microcomputer and software).',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest animal.jpg?width=600',
-      altText: 'A cheetah running at full speed',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Paul_Allen_in_2011_at_the_Computer_History_Museum.jpg?width=600',
+      altText: 'Paul Allen',
       source: 'Wikimedia Commons',
-      attribution: 'Srivath / CC BY-SA 4.0',
+      attribution: 'Miles Harris / CC BY-SA 3.0',
     },
   },
   {
@@ -503,6 +501,73 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 'q-024',
+    type: 'multiple-choice',
+    category: 'Music',
+    questionText:
+      'For which holiday was the classic song "Jingle Bells" originally written?',
+    options: ['Christmas', 'New Year’s Eve', 'Thanksgiving', 'Easter'],
+    correctAnswer: 2, // Thanksgiving
+    hints: [
+      'It was originally titled "The One Horse Open Sleigh".',
+      'It was intended for a Sunday school choir in autumn.',
+    ],
+    explanation:
+      'James Lord Pierpont published the song in 1857 for Thanksgiving. The lyrics mention snow and sleigh rides, which led to it becoming associated with Christmas over time.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jingle_Bells_sheet_music_cover.jpg?width=600',
+      altText: 'Original sheet music cover for "The One Horse Open Sleigh"',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-025',
+    type: 'multiple-choice',
+    category: 'History',
+    questionText:
+      'Which modern country is credited with starting the tradition of the Christmas tree?',
+    options: ['England', 'United States', 'Germany', 'Norway'],
+    correctAnswer: 2, // Germany
+    hints: [
+      'The tradition began in the 16th century.',
+      'Devout Christians brought decorated trees into their homes.',
+    ],
+    explanation:
+      'Germany is credited with starting the Christmas tree tradition as we know it in the 16th century when devout Christians brought decorated trees into their homes. It is said that Martin Luther was the first to add lighted candles to a tree.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Christmas_Tree_at_Rockefeller_Center_2017.jpg?width=600',
+      altText: 'The Rockefeller Center Christmas Tree',
+      source: 'Wikimedia Commons',
+      attribution: 'Wb8555 / CC0',
+    },
+  },
+  {
+    id: 'q-026',
+    type: 'estimation',
+    category: 'Animals',
+    questionText: 'What is the top speed (in km/h) of a cheetah?',
+    correctAnswer: 120,
+    unit: 'km/h',
+    tolerance: 10,
+    range: { min: 50, max: 160 },
+    hints: [
+      'They are the fastest land animal.',
+      'That is roughly 75 miles per hour.',
+    ],
+    explanation:
+      'Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds, faster than many sports cars. However, they can only maintain this speed for about 30 seconds before overheating.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest animal.jpg?width=600',
+      altText: 'A cheetah running at full speed',
+      source: 'Wikimedia Commons',
+      attribution: 'Srivath / CC BY-SA 4.0',
+    },
+  },
+  {
+    id: 'q-027',
     type: 'estimation',
     category: 'Physics',
     questionText: 'What is the speed of sound in dry air at 20°C?',
@@ -525,7 +590,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
   },
   {
-    id: 'q-025',
+    id: 'q-028',
     type: 'top-five',
     category: 'Geography',
     questionText: 'Name the 5 oceans of the world.',
@@ -559,7 +624,7 @@ export const quizQuestions: QuizQuestion[] = [
       "The Pacific Ocean alone covers more area than all of the Earth's landmass combined. The Arctic Ocean is the smallest and shallowest.",
   },
   {
-    id: 'q-026',
+    id: 'q-029',
     type: 'multiple-choice',
     category: 'Literature',
     questionText:
@@ -574,7 +639,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Gryffindor was founded by Godric Gryffindor. Its house colors are scarlet and gold, and its ghost is Sir Nicholas de Mimsy-Porpington (Nearly Headless Nick).',
   },
   {
-    id: 'q-027',
+    id: 'q-030',
     type: 'estimation',
     category: 'Music',
     questionText: 'How many keys are there on a standard full-sized piano?',
@@ -596,7 +661,29 @@ export const quizQuestions: QuizQuestion[] = [
     },
   },
   {
-    id: 'q-028',
+    id: 'q-031',
+    type: 'estimation',
+    category: 'History',
+    questionText:
+      'In what year did the first "Ball Drop" occur in Times Square on New Year’s Eve?',
+    correctAnswer: 1907,
+    range: { min: 1850, max: 1950 },
+    hints: [
+      'It was shortly after the turn of the 20th century.',
+      'The ball was made of iron and wood.',
+    ],
+    explanation:
+      'The first ball drop happened in 1907 to welcome 1908. The ball was designed by Artkraft Strauss, weighed 700 pounds, and was lowered from the flagpole of One Times Square.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Times_Square_Ball_2011.jpg?width=600',
+      altText: 'The Times Square Ball',
+      source: 'Wikimedia Commons',
+      attribution: 'Cencored / CC BY 2.0',
+    },
+  },
+  {
+    id: 'q-032',
     type: 'top-five',
     category: 'Chemistry',
     questionText:
@@ -636,7 +723,7 @@ export const quizQuestions: QuizQuestion[] = [
       "While the Earth's core is mostly Iron, the crust we live on is dominated by Oxygen and Silicon, which combine to form silicates (rocks).",
   },
   {
-    id: 'q-029',
+    id: 'q-033',
     type: 'exact-match',
     category: 'History',
     questionText: 'Who was the first human to travel into space?',
@@ -654,7 +741,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
   },
   {
-    id: 'q-030',
+    id: 'q-034',
     type: 'estimation',
     category: 'Space',
     questionText:
@@ -672,7 +759,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Light takes 8 minutes and 20 seconds to travel the 150 million km to Earth. This means if the Sun suddenly vanished, we wouldn’t know for over 8 minutes.',
   },
   {
-    id: 'q-031',
+    id: 'q-035',
     type: 'multiple-choice',
     category: 'Food',
     questionText:
@@ -687,7 +774,7 @@ export const quizQuestions: QuizQuestion[] = [
       'The Scoville scale measures the concentration of capsaicinoids. For context, a Jalapeño is 2.500–8.000 SHU, while the Carolina Reaper is over 1,6 million SHU.',
   },
   {
-    id: 'q-032',
+    id: 'q-036',
     type: 'exact-match',
     category: 'Movies',
     questionText: 'In "The Matrix", which pill does Neo take to see the truth?',
@@ -701,7 +788,7 @@ export const quizQuestions: QuizQuestion[] = [
       'The concept of the "Red Pill" has become a cultural metaphor for learning a potentially unsettling truth rather than remaining in blissful ignorance.',
   },
   {
-    id: 'q-033',
+    id: 'q-037',
     type: 'top-five',
     category: 'Gaming',
     questionText:
@@ -748,7 +835,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
   },
   {
-    id: 'q-034',
+    id: 'q-038',
     type: 'estimation',
     category: 'Geography',
     questionText: 'How long is the Nile River?',
@@ -771,7 +858,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
   },
   {
-    id: 'q-035',
+    id: 'q-039',
     type: 'multiple-choice',
     category: 'Anatomy',
     questionText: 'Which blood type is known as the "Universal Donor"?',
@@ -788,5 +875,453 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'O Negative blood can be given to patients of any blood type. However, O Negative individuals can only receive O Negative blood themselves.',
+  },
+  {
+    id: 'q-040',
+    type: 'exact-match',
+    category: 'Nature',
+    questionText:
+      'What is the largest animal known to have ever lived on Earth?',
+    correctAnswer: 'Blue Whale',
+    acceptedVariations: ['The Blue Whale', 'Whale'],
+    hints: [
+      'It lives in the ocean.',
+      'Its tongue alone can weigh as much as an elephant.',
+    ],
+    explanation:
+      'The Blue Whale can reach lengths of up to 30 meters (98 ft) and weigh upwards of 170 tonnes. It is larger than any known dinosaur.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Blue_Whale_001_body_bw.jpg?width=600',
+      altText: 'A Blue Whale surfacing',
+      source: 'Wikimedia Commons',
+      attribution: 'NOAA Photo Library / Public Domain',
+    },
+  },
+  {
+    id: 'q-041',
+    type: 'estimation',
+    category: 'History',
+    questionText: 'How many years did the "Hundred Years’ War" actually last?',
+    correctAnswer: 116,
+    tolerance: 5,
+    range: { min: 90, max: 130 },
+    hints: [
+      'It lasted slightly longer than its name suggests.',
+      'It was fought between England and France.',
+    ],
+    explanation:
+      'The conflict between the House of Plantagenet (England) and the House of Valois (France) lasted from 1337 to 1453, totaling 116 years.',
+  },
+  {
+    id: 'q-042',
+    type: 'top-five',
+    category: 'Science',
+    questionText:
+      'Name the 5 "Noble Gases" closest to the top of the Periodic Table.',
+    correctAnswers: [
+      { answer: 'Helium', acceptedVariations: ['He'] },
+      { answer: 'Neon', acceptedVariations: ['Ne'] },
+      { answer: 'Argon', acceptedVariations: ['Ar'] },
+      { answer: 'Krypton', acceptedVariations: ['Kr'] },
+      { answer: 'Xenon', acceptedVariations: ['Xe'] },
+    ],
+    otherOptions: [{ answer: 'Radon', acceptedVariations: ['Rn'] }],
+    hints: [
+      'They are in Group 18 and are odorless and colorless.',
+      'The first is used in balloons, the second in glowing signs.',
+    ],
+    explanation:
+      'Noble gases are chemically inert, meaning they rarely react with other elements. This makes them useful for applications like lighting and welding.',
+  },
+  {
+    id: 'q-043',
+    type: 'exact-match',
+    category: 'Geography',
+    questionText: 'What is the capital city of Japan?',
+    correctAnswer: 'Tokyo',
+    hints: [
+      'It is the most populous metropolitan area in the world.',
+      'It was formerly known as Edo.',
+    ],
+    explanation:
+      'Tokyo became the capital in 1868 when the Emperor moved his residence there from Kyoto.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Skyscrapers_of_Shinjuku_2009_January.jpg?width=600',
+      altText: 'Skyline of Shinjuku, Tokyo',
+      source: 'Wikimedia Commons',
+      attribution: 'Morio / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-044',
+    type: 'multiple-choice',
+    category: 'Movies',
+    questionText: 'Who directed the original 1993 film "Jurassic Park"?',
+    options: [
+      'George Lucas',
+      'James Cameron',
+      'Steven Spielberg',
+      'Christopher Nolan',
+    ],
+    correctAnswer: 2, // Spielberg
+    hints: [
+      'He also directed "E.T." and "Jaws".',
+      'He is one of the most commercially successful directors in history.',
+    ],
+    explanation:
+      'Steven Spielberg directed the film based on Michael Crichton’s novel. It was a landmark in the use of computer-generated imagery (CGI).',
+  },
+  {
+    id: 'q-045',
+    type: 'exact-match',
+    category: 'Literature',
+    questionText: 'Who wrote the dystopian novel "1984"?',
+    correctAnswer: 'George Orwell',
+    acceptedVariations: ['Orwell', 'Eric Arthur Blair'],
+    hints: ['He also wrote "Animal Farm".', 'Big Brother is watching you.'],
+    explanation:
+      'Published in 1949, "1984" introduced terms like "Big Brother," "Doublethink," and "Newspeak" into common usage.',
+  },
+  {
+    id: 'q-046',
+    type: 'estimation',
+    category: 'Sports',
+    questionText: 'How long is a standard marathon race in kilometers?',
+    correctAnswer: 42.195,
+    unit: 'km',
+    tolerance: 0.5,
+    precision: 1,
+    range: { min: 20, max: 60 },
+    hints: [
+      'It is roughly 26.2 miles.',
+      'The distance was standardized at the 1908 London Olympics.',
+    ],
+    explanation:
+      'The exact distance of 42.195 km reflects the route from Windsor Castle to the White City Stadium at the 1908 Olympics, finishing right in front of the Royal Box.',
+  },
+  {
+    id: 'q-047',
+    type: 'top-five',
+    category: 'Geography',
+    questionText: 'Name 5 countries that share a land border with Germany.',
+    correctAnswers: [
+      { answer: 'France' },
+      { answer: 'Poland' },
+      { answer: 'Austria' },
+      { answer: 'Switzerland' },
+      { answer: 'Netherlands' },
+    ],
+    otherOptions: [
+      { answer: 'Denmark' },
+      { answer: 'Czech Republic', acceptedVariations: ['Czechia'] },
+      { answer: 'Luxembourg' },
+      { answer: 'Belgium' },
+    ],
+    hints: [
+      'Germany has 9 neighbors in total.',
+      'One is famous for cheese and tulips, another for the Alps.',
+    ],
+    explanation:
+      'Germany shares borders with Denmark to the north, Poland and the Czech Republic to the east, Austria and Switzerland to the south, and France, Luxembourg, Belgium, and the Netherlands to the west.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Europe_map_de.png?width=600',
+      altText: 'Map of Germany in Europe',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-048',
+    type: 'multiple-choice',
+    category: 'Food',
+    questionText: 'What is the primary ingredient in the dip Hummus?',
+    options: ['Lentils', 'Chickpeas', 'White Beans', 'Soybeans'],
+    correctAnswer: 1, // Chickpeas
+    hints: [
+      'They are also known as Garbanzo beans.',
+      'It is blended with tahini, lemon juice, and garlic.',
+    ],
+    explanation:
+      'Hummus comes from the Arabic word for "chickpeas". It has been eaten in the Middle East for centuries.',
+  },
+  {
+    id: 'q-049',
+    type: 'exact-match',
+    category: 'Art',
+    questionText: 'Who painted "The Starry Night"?',
+    correctAnswer: 'Vincent van Gogh',
+    acceptedVariations: ['Van Gogh', 'Vincent Van Gogh'],
+    hints: [
+      'He was a Dutch Post-Impressionist painter.',
+      'He famously cut off part of his own ear.',
+    ],
+    explanation:
+      'Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg?width=600',
+      altText: 'The Starry Night painting',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-050',
+    type: 'estimation',
+    category: 'Space',
+    questionText: 'How many moons does the planet Mars have?',
+    correctAnswer: 2,
+    range: { min: 0, max: 10 },
+    hints: [
+      'Their names are Phobos and Deimos.',
+      'It is the same number as the amount of eyes on a human face.',
+    ],
+    explanation:
+      'Mars has two small, irregularly shaped moons, Phobos (fear) and Deimos (panic), named after the horses that pulled the chariot of the Greek war god Ares.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/OSIRIS_Mars_true_color.jpg?width=600',
+      altText: 'Planet Mars',
+      source: 'Wikimedia Commons',
+      attribution: 'ESA / CC BY-SA 3.0 IGO',
+    },
+  },
+  {
+    id: 'q-051',
+    type: 'top-five',
+    category: 'History',
+    questionText: 'Name the first 5 Presidents of the United States.',
+    correctAnswers: [
+      { answer: 'George Washington', acceptedVariations: ['Washington'] },
+      { answer: 'John Adams', acceptedVariations: ['Adams'] },
+      { answer: 'Thomas Jefferson', acceptedVariations: ['Jefferson'] },
+      { answer: 'James Madison', acceptedVariations: ['Madison'] },
+      { answer: 'James Monroe', acceptedVariations: ['Monroe'] },
+    ],
+    hints: [
+      'Washington was the very first.',
+      'One of them wrote the Declaration of Independence.',
+    ],
+    explanation:
+      'These five Founding Fathers served consecutive terms from 1789 to 1825. Four of the five were from Virginia (Adams was from Massachusetts).',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg?width=600',
+      altText: 'Portrait of George Washington',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-052',
+    type: 'multiple-choice',
+    category: 'Biology',
+    questionText:
+      'Which type of blood cell is primarily responsible for fighting infections?',
+    options: ['Red Blood Cells', 'Platelets', 'White Blood Cells', 'Plasma'],
+    correctAnswer: 2, // White
+    hints: [
+      'They are also called leukocytes.',
+      'They are a key part of the immune system.',
+    ],
+    explanation:
+      'White blood cells account for only about 1% of your blood, but their impact is significant. They flow through your bloodstream to battle viruses, bacteria, and other foreign invaders.',
+  },
+  {
+    id: 'q-053',
+    type: 'exact-match',
+    category: 'Geography',
+    questionText: 'Which country has the most islands in the world?',
+    correctAnswer: 'Sweden',
+    hints: ['It is a Scandinavian country.', 'It has over 260,000 islands.'],
+    explanation:
+      'Sweden has an estimated 267,570 islands. However, fewer than 1,000 of them are inhabited. Norway and Finland follow closely behind.',
+  },
+  {
+    id: 'q-054',
+    type: 'estimation',
+    category: 'Pop Culture',
+    questionText: 'How many episodes of the TV sitcom "Friends" were aired?',
+    correctAnswer: 236,
+    range: { min: 100, max: 400 },
+    tolerance: 10,
+    hints: ['The show ran for 10 seasons.', 'It is between 200 and 250.'],
+    explanation:
+      'Friends aired from 1994 to 2004. The 236 episodes became a cultural phenomenon, launching the careers of Jennifer Aniston, Courteney Cox, Lisa Kudrow, Matt LeBlanc, Matthew Perry, and David Schwimmer.',
+  },
+  {
+    id: 'q-055',
+    type: 'multiple-choice',
+    category: 'Technology',
+    questionText: 'In the web address "HTTPS", what does the "S" stand for?',
+    options: ['Standard', 'Secure', 'System', 'Simple'],
+    correctAnswer: 1, // Secure
+    hints: [
+      'It means the connection is encrypted.',
+      'It uses TLS/SSL protocols.',
+    ],
+    explanation:
+      'HTTPS stands for Hypertext Transfer Protocol Secure. It uses encryption to increase the security of data transfer, which is essential for protecting sensitive information like passwords and credit card numbers.',
+  },
+  {
+    id: 'q-056',
+    type: 'estimation',
+    category: 'Space',
+    questionText:
+      'How many Earth years does it take for Pluto to complete one orbit around the Sun?',
+    correctAnswer: 248,
+    unit: 'years',
+    tolerance: 10,
+    range: { min: 100, max: 400 },
+    hints: [
+      'It is much longer than a human lifetime.',
+      'Since its discovery in 1930, it has not yet completed a full orbit.',
+    ],
+    explanation:
+      'Pluto takes roughly 248 Earth years to orbit the Sun. It will complete its first full orbit since its discovery on Monday, March 23, 2178.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pluto-01_Stern_03_Pluto_Color_TXT.jpg?width=600',
+      altText: 'High-resolution color photo of Pluto',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / JHUAPL / SwRI / Public Domain',
+    },
+  },
+  {
+    id: 'q-057',
+    type: 'multiple-choice',
+    category: 'History',
+    questionText:
+      'Where did Martin Luther King Jr. deliver his famous "I Have a Dream" speech?',
+    options: [
+      'The White House',
+      'Lincoln Memorial',
+      'Statue of Liberty',
+      'US Capitol Building',
+    ],
+    correctAnswer: 1, // Lincoln Memorial
+    hints: [
+      'It took place during the March on Washington in 1963.',
+      'He spoke from the steps of the monument dedicated to the President who issued the Emancipation Proclamation.',
+    ],
+    explanation:
+      'On August 28, 1963, Dr. King delivered the speech to over 250,000 supporters. It is considered one of the defining moments of the civil rights movement.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Martin_Luther_King_-_March_on_Washington.jpg?width=600',
+      altText: 'Martin Luther King Jr. waving to the crowd',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-058',
+    type: 'top-five',
+    category: 'Geography',
+    questionText: 'Name the 5 "Great Lakes" of North America.',
+    correctAnswers: [
+      { answer: 'Superior' },
+      { answer: 'Michigan' },
+      { answer: 'Huron' },
+      { answer: 'Erie' },
+      { answer: 'Ontario' },
+    ],
+    hints: [
+      'They form the largest group of freshwater lakes on Earth.',
+      'A common mnemonic to remember them is "HOMES".',
+    ],
+    explanation:
+      "Located on the Canada–United States border, they hold 21% of the world's surface fresh water. Lake Superior is the largest by volume and area.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Great_Lakes_from_space_crop_labeled.jpg?width=600',
+      altText: 'Satellite view of the Great Lakes',
+      source: 'Wikimedia Commons',
+      attribution: 'SeaWiFS Project / NASA / Public Domain',
+    },
+  },
+  {
+    id: 'q-059',
+    type: 'estimation',
+    category: 'Architecture',
+    questionText:
+      'What is the total height of the Eiffel Tower (including the tip)?',
+    correctAnswer: 330,
+    unit: 'meters',
+    tolerance: 15,
+    range: { min: 200, max: 500 },
+    hints: [
+      'It is roughly 1,083 feet.',
+      'It was the tallest man-made structure in the world for 41 years.',
+    ],
+    explanation:
+      "Completed in 1889 for the World's Fair, it was originally 300 meters tall. Several antennas added over the years have increased its height to 330 meters.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tour_Eiffel_Wikimedia_Commons.jpg?width=600',
+      altText: 'The Eiffel Tower in Paris',
+      source: 'Wikimedia Commons',
+      attribution: 'Benh LIEU SONG / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-060',
+    type: 'exact-match',
+    category: 'Science',
+    questionText: 'Who is credited with the discovery of Penicillin?',
+    correctAnswer: 'Alexander Fleming',
+    acceptedVariations: ['Fleming', 'Sir Alexander Fleming'],
+    hints: [
+      'He was a Scottish physician and microbiologist.',
+      'He discovered it by accident in a petri dish of Staphylococcus bacteria.',
+    ],
+    explanation:
+      "In 1928, Fleming returned from a holiday to find mold growing on a culture plate. He noticed the mold killed the surrounding bacteria, leading to the world's first antibiotic.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Alexander_Fleming_1945.jpg?width=600',
+      altText: 'Sir Alexander Fleming in his lab',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-061',
+    type: 'multiple-choice',
+    category: 'Nature',
+    questionText:
+      'Which bird is capable of the fastest diving speed (over 300 km/h)?',
+    options: ['Golden Eagle', 'Peregrine Falcon', 'Common Swift', 'Albatross'],
+    correctAnswer: 1, // Peregrine Falcon
+    hints: [
+      'It hunts by diving from great heights to strike prey.',
+      'It is found on every continent except Antarctica.',
+    ],
+    explanation:
+      'During its hunting stoop (high-speed dive), the Peregrine Falcon can reach speeds of over 320 km/h (200 mph), making it the fastest member of the animal kingdom.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Peregrine_Falcon_launching_from_cliff_2.jpg?width=600',
+      altText: 'Peregrine Falcon in flight',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-062',
+    type: 'exact-match',
+    category: 'Literature',
+    questionText: 'Who wrote the fantasy novel "The Hobbit"?',
+    correctAnswer: 'J.R.R. Tolkien',
+    acceptedVariations: ['Tolkien', 'JRR Tolkien'],
+    hints: [
+      'He was a professor at Oxford University.',
+      'He also wrote "The Lord of the Rings".',
+    ],
+    explanation:
+      'Published in 1937, "The Hobbit" was originally written for Tolkien\'s own children. Its success led the publisher to request a sequel, which became the epic "Lord of the Rings" trilogy.',
   },
 ];
