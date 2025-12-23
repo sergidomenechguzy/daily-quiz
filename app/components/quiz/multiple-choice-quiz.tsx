@@ -2,12 +2,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '~/components/ui/button';
 import type { MultipleChoiceQuestion } from '~/types/quiz-question';
 import { useQuizStore } from '~/stores/quiz-store';
-import { Typography } from '~/components/ui/typography';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
-import { QuizMedia } from '~/components/quiz-media';
 import { Hints } from '~/components/hints';
+import { QuizSolution } from '../quiz-solution';
 
 interface MultipleChoiceQuizProps {
   quizQuestion: MultipleChoiceQuestion;
@@ -28,19 +27,10 @@ export function MultipleChoiceQuiz({ quizQuestion }: MultipleChoiceQuizProps) {
   return (
     <QuizCard>
       <div className="flex flex-col gap-8">
-        {isCompleted && (
-          <>
-            <QuizMedia media={quizQuestion.media} />
-            <div className="flex flex-col gap-2">
-              <Typography variant="large">
-                {quizQuestion.options[quizQuestion.correctAnswer]}
-              </Typography>
-              <Typography variant="small">
-                {quizQuestion.explanation}
-              </Typography>
-            </div>
-          </>
-        )}
+        <QuizSolution
+          quizQuestion={quizQuestion}
+          correctText={quizQuestion.options[quizQuestion.correctAnswer]}
+        />
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             {quizQuestion.options.map((option, index) => {

@@ -16,9 +16,9 @@ import {
 } from '~/components/ui/item';
 import { Typography } from '~/components/ui/typography';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
-import { QuizMedia } from '~/components/quiz-media';
 import { Hints } from '~/components/hints';
 import { AnimatePresence } from 'motion/react';
+import { QuizSolution } from '../quiz-solution';
 
 type FormData = {
   answer: string;
@@ -52,16 +52,7 @@ export function TopFiveQuiz({ quizQuestion }: TopFiveQuizProps) {
   return (
     <QuizCard>
       <div className="flex flex-col gap-8">
-        {isCompleted && (
-          <>
-            <QuizMedia media={quizQuestion.media} />
-            <div className="flex flex-col gap-2">
-              <Typography variant="small">
-                {quizQuestion.explanation}
-              </Typography>
-            </div>
-          </>
-        )}
+        <QuizSolution quizQuestion={quizQuestion} hideCorrect />
         {!isCompleted && (
           <div className="flex flex-col gap-4">
             <form onSubmit={form.handleSubmit(onSubmit)}>

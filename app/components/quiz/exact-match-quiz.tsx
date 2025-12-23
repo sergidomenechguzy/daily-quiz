@@ -5,12 +5,11 @@ import { Input } from '~/components/ui/input';
 import type { ExactMatchQuestion } from '~/types/quiz-question';
 import { Field } from '~/components/ui/field';
 import { useQuizStore } from '~/stores/quiz-store';
-import { Typography } from '~/components/ui/typography';
 import { Answers } from '~/components/answers';
 import { QuizCard } from '~/components/quiz-card';
 import { useDailyIndex } from '~/hooks/useDailyIndex';
-import { QuizMedia } from '~/components/quiz-media';
 import { Hints } from '~/components/hints';
+import { QuizSolution } from '../quiz-solution';
 
 type FormData = {
   answer: string;
@@ -41,19 +40,7 @@ export function ExactMatchQuiz({ quizQuestion }: ExactMatchQuizProps) {
   return (
     <QuizCard>
       <div className="flex flex-col gap-8">
-        {isCompleted && (
-          <>
-            <QuizMedia media={quizQuestion.media} />
-            <div className="flex flex-col gap-2">
-              <Typography variant="large">
-                {quizQuestion.correctAnswer}
-              </Typography>
-              <Typography variant="small">
-                {quizQuestion.explanation}
-              </Typography>
-            </div>
-          </>
-        )}
+        <QuizSolution quizQuestion={quizQuestion} />
         {!isCompleted && (
           <div className="flex flex-col gap-4">
             <form onSubmit={form.handleSubmit(onSubmit)}>
