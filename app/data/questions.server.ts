@@ -160,7 +160,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Paul Allen and Bill Gates founded Microsoft in 1975 in Albuquerque, New Mexico. Allen coined the original name "Micro-Soft" (a combination of microcomputer and software).',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Paul_Allen_in_2011_at_the_Computer_History_Museum.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Paul_G._Allen_(cropped).jpg?width=600',
       altText: 'Paul Allen',
       source: 'Wikimedia Commons',
       attribution: 'Miles Harris / CC BY-SA 3.0',
@@ -311,7 +311,7 @@ export const quizQuestions: QuizQuestion[] = [
       'These are the only cats capable of roaring (except the Snow Leopard). This ability comes from the specialized structure of their hyoid bone.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sibirischer tiger de edit02.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sibirischer_tiger_de_edit02.jpg?width=600',
       altText: 'Siberian Tiger',
       source: 'Wikimedia Commons',
       attribution: 'S. Taheri / CC BY-SA 2.5',
@@ -384,7 +384,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Painted in the early 16th century, the Mona Lisa is famous for her enigmatic smile. It holds the Guinness World Record for the highest known insurance valuation in history.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg?width=600',
       altText: 'The Mona Lisa painting',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
@@ -421,7 +421,7 @@ export const quizQuestions: QuizQuestion[] = [
       'The official height is 8.848,86 meters. The mountain continues to grow roughly 4mm per year due to the collision of the Indian and Eurasian tectonic plates.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Everest, Himalayas.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Everest,_Himalayas.jpg?width=600',
       altText: 'Mount Everest, Nepal, Himalayas',
       source: 'Wikimedia Commons',
       attribution: 'Vyacheslav Argenberg / CC BY 4.0',
@@ -515,7 +515,7 @@ export const quizQuestions: QuizQuestion[] = [
       'James Lord Pierpont published the song in 1857 for Thanksgiving. The lyrics mention snow and sleigh rides, which led to it becoming associated with Christmas over time.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jingle_Bells_sheet_music_cover.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/One_Horse_Open_Sleigh_title_page.jpg?width=600',
       altText: 'Original sheet music cover for "The One Horse Open Sleigh"',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
@@ -537,10 +537,10 @@ export const quizQuestions: QuizQuestion[] = [
       'Germany is credited with starting the Christmas tree tradition as we know it in the 16th century when devout Christians brought decorated trees into their homes. It is said that Martin Luther was the first to add lighted candles to a tree.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Christmas_Tree_at_Rockefeller_Center_2017.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rockefeller_Christmas_Tree_Close-Up_2018.jpg?width=600',
       altText: 'The Rockefeller Center Christmas Tree',
       source: 'Wikimedia Commons',
-      attribution: 'Wb8555 / CC0',
+      attribution: 'Matthew Binebrink / CC BY-SA 4.0',
     },
   },
   {
@@ -560,7 +560,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds, faster than many sports cars. However, they can only maintain this speed for about 30 seconds before overheating.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest animal.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest_animal.jpg?width=600',
       altText: 'A cheetah running at full speed',
       source: 'Wikimedia Commons',
       attribution: 'Srivath / CC BY-SA 4.0',
@@ -676,10 +676,10 @@ export const quizQuestions: QuizQuestion[] = [
       'The first ball drop happened in 1907 to welcome 1908. The ball was designed by Artkraft Strauss, weighed 700 pounds, and was lowered from the flagpole of One Times Square.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Times_Square_Ball_2011.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/New_Years_Crystal_Ball_(6279777660).jpg?width=600',
       altText: 'The Times Square Ball',
       source: 'Wikimedia Commons',
-      attribution: 'Cencored / CC BY 2.0',
+      attribution: 'Erik Drost / CC BY 2.0',
     },
   },
   {
@@ -1027,7 +1027,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Germany shares borders with Denmark to the north, Poland and the Czech Republic to the east, Austria and Switzerland to the south, and France, Luxembourg, Belgium, and the Netherlands to the west.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Europe_map_de.png?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Europe_map_de_2.png?width=600',
       altText: 'Map of Germany in Europe',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
@@ -1211,8 +1211,8 @@ export const quizQuestions: QuizQuestion[] = [
       'On August 28, 1963, Dr. King delivered the speech to over 250,000 supporters. It is considered one of the defining moments of the civil rights movement.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Martin_Luther_King_-_March_on_Washington.jpg?width=600',
-      altText: 'Martin Luther King Jr. waving to the crowd',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dr._Martin_Luther_King_Jr._at_a_civil_rights_march_on_Washington_D.C._in_1963.jpg?width=600',
+      altText: 'Martin Luther King Jr. holding a speech',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
     },
@@ -1237,7 +1237,7 @@ export const quizQuestions: QuizQuestion[] = [
       "Located on the Canada–United States border, they hold 21% of the world's surface fresh water. Lake Superior is the largest by volume and area.",
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Great_Lakes_from_space_crop_labeled.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Great_Lakes_from_space.jpg?width=600',
       altText: 'Satellite view of the Great Lakes',
       source: 'Wikimedia Commons',
       attribution: 'SeaWiFS Project / NASA / Public Domain',
@@ -1304,10 +1304,10 @@ export const quizQuestions: QuizQuestion[] = [
       'During its hunting stoop (high-speed dive), the Peregrine Falcon can reach speeds of over 320 km/h (200 mph), making it the fastest member of the animal kingdom.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Peregrine_Falcon_launching_from_cliff_2.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Peregrine_Falcon_(Falco_peregrinus)_07.jpg?width=600',
       altText: 'Peregrine Falcon in flight',
       source: 'Wikimedia Commons',
-      attribution: 'Public Domain',
+      attribution: "Shiv's fotografia / CC BY-SA 4.0",
     },
   },
   {
@@ -1323,5 +1323,384 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     explanation:
       'Published in 1937, "The Hobbit" was originally written for Tolkien\'s own children. Its success led the publisher to request a sequel, which became the epic "Lord of the Rings" trilogy.',
+  },
+  {
+    id: 'q-063',
+    type: 'top-five',
+    category: 'Science',
+    questionText:
+      'Name the 5 most abundant chemical elements in the human body (by mass).',
+    correctAnswers: [
+      { answer: 'Oxygen', value: '65%' },
+      { answer: 'Carbon', value: '18.5%' },
+      { answer: 'Hydrogen', value: '9.5%' },
+      { answer: 'Nitrogen', value: '3.2%' },
+      { answer: 'Calcium', value: '1.5%' },
+    ],
+    hints: [
+      "The top one is also the most abundant in Earth's crust.",
+      'One is the primary element in organic chemistry (diamonds/coal).',
+    ],
+    explanation:
+      'Oxygen is the most abundant element largely because the body is mostly water. Calcium is the most abundant mineral, found almost entirely in bones and teeth.',
+  },
+  {
+    id: 'q-064',
+    type: 'estimation',
+    category: 'Architecture',
+    questionText:
+      "What is the height of the Burj Khalifa (the world's tallest building)?",
+    correctAnswer: 828,
+    unit: 'meters',
+    tolerance: 20,
+    range: { min: 500, max: 1000 },
+    hints: ['It is located in Dubai.', 'It is over 800 meters tall.'],
+    explanation:
+      'Completed in 2010, the Burj Khalifa in Dubai stands at 828 meters (2,717 feet). It holds the records for the tallest building, tallest free-standing structure, and highest number of stories in the world.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Burj_Khalifa_(16260269606).jpg?width=600',
+      altText: 'The Burj Khalifa skyscraper',
+      source: 'Wikimedia Commons',
+      attribution: 'Laika ac / CC BY-SA 2.0',
+    },
+  },
+  {
+    id: 'q-065',
+    type: 'exact-match',
+    category: 'History',
+    questionText: 'Who was the first woman to travel into space?',
+    correctAnswer: 'Valentina Tereshkova',
+    acceptedVariations: ['Tereshkova', 'Valentina Vladimirovna Tereshkova'],
+    hints: [
+      'She was a Soviet cosmonaut.',
+      'Her mission took place in 1963, two years after Yuri Gagarin.',
+    ],
+    explanation:
+      'Valentina Tereshkova orbited the Earth 48 times in her Vostok 6 capsule on June 16, 1963. She remains the only woman to have been on a solo space mission.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/RIAN_archive_612748_Valentina_Tereshkova.jpg?width=600',
+      altText: 'Valentina Tereshkova in a space suit',
+      source: 'Wikimedia Commons',
+      attribution: 'RIA Novosti / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-066',
+    type: 'multiple-choice',
+    category: 'Geography',
+    questionText: 'What is the capital city of Canada?',
+    options: ['Toronto', 'Vancouver', 'Ottawa', 'Montreal'],
+    correctAnswer: 2, // Ottawa
+    hints: [
+      'It is located in the province of Ontario.',
+      // 'It sits on the border with Quebec.',
+    ],
+    explanation:
+      'Queen Victoria chose Ottawa as the capital in 1857. It was chosen partly because it was far from the American border, making it safer from potential attacks.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Centre_Block_-_Parliament_Hill.jpg?width=600',
+      altText: 'Parliament Hill in Ottawa',
+      source: 'Wikimedia Commons',
+      attribution: 'Saffron Blaze / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-067',
+    type: 'exact-match',
+    category: 'Art',
+    questionText: 'Who painted the famous expressionist work "The Scream"?',
+    correctAnswer: 'Edvard Munch',
+    acceptedVariations: ['Munch'],
+    hints: [
+      'He was a Norwegian painter.',
+      'The painting depicts a figure with an agonized expression against a bloody sky.',
+    ],
+    explanation:
+      'Munch created four versions of "The Scream" between 1893 and 1910. He said the inspiration came while walking at sunset when he "sensed an infinite scream passing through nature."',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg?width=600',
+      altText: 'The Scream by Edvard Munch',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-068',
+    type: 'estimation',
+    category: 'Anatomy',
+    questionText: 'How many bones are there in the average adult human body?',
+    correctAnswer: 206,
+    range: { min: 150, max: 300 },
+    tolerance: 0, // Strict
+    hints: [
+      'Babies are born with about 270, but many fuse together.',
+      'More than half of them are in your hands and feet.',
+    ],
+    explanation:
+      'An adult human has 206 bones. The femur (thigh bone) is the longest and strongest, while the stapes in the ear is the smallest.',
+  },
+  {
+    id: 'q-069',
+    type: 'multiple-choice',
+    category: 'Economics',
+    questionText: 'What is the official currency of Japan?',
+    options: ['Won', 'Yuan', 'Yen', 'Baht'],
+    correctAnswer: 2, // Yen
+    hints: [
+      'Its symbol is ¥.',
+      // 'It is the third most traded currency in the foreign exchange market.',
+    ],
+    explanation:
+      'The Yen was adopted in 1871. The word "yen" means "round object" or "circle" in Japanese, referring to the shape of the coins.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Yen_bills2.jpg?width=600',
+      altText: 'Japanese Yen banknotes',
+      source: 'Wikimedia Commons',
+      attribution: 'Japanexperterna.se / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-070',
+    type: 'top-five',
+    category: 'Geography',
+    questionText: 'Name the 5 Boroughs of New York City.',
+    correctAnswers: [
+      { answer: 'Manhattan' },
+      { answer: 'Brooklyn' },
+      { answer: 'Queens' },
+      { answer: 'The Bronx', acceptedVariations: ['Bronx'] },
+      { answer: 'Staten Island' },
+    ],
+    hints: [
+      'One is an island famous for its ferry.',
+      'One shares its name with a type of cocktail.',
+    ],
+    explanation:
+      'New York City was consolidated into these five boroughs in 1898. Brooklyn alone would be the fourth most populous city in the US if it were independent.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/5_Boroughs_Labels_New_York_City_Map_Julius_Schorzman.png?width=600',
+      altText: 'Map showing the 5 boroughs of NYC',
+      source: 'Wikimedia Commons',
+      attribution: 'Julius Schorzman / CC BY-SA 2.5',
+    },
+  },
+  // --- NEW BATCH (q-071 to q-080) ---
+
+  {
+    id: 'q-071',
+    type: 'multiple-choice',
+    category: 'Geography',
+    questionText: 'What is the capital city of Brazil?',
+    options: ['Rio de Janeiro', 'São Paulo', 'Brasília', 'Salvador'],
+    correctAnswer: 2, // Brasília
+    hints: [
+      'It is a planned city, built in just 41 months from 1956 to 1960.',
+      // 'It is known for its modernist architecture designed by Oscar Niemeyer.',
+    ],
+    explanation:
+      "While Rio de Janeiro was the capital until 1960, the government moved to the newly constructed Brasília to promote the development of the country's interior.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Congresso_do_Brasil.jpg?width=600',
+      altText: 'The National Congress of Brazil in Brasília',
+      source: 'Wikimedia Commons',
+      attribution: 'P - A - S / CC BY-SA 2.0',
+    },
+  },
+  {
+    id: 'q-072',
+    type: 'exact-match',
+    category: 'Literature',
+    questionText: 'Who wrote the novel "Pride and Prejudice"?',
+    correctAnswer: 'Jane Austen',
+    acceptedVariations: ['Austen'],
+    hints: [
+      'She was an English novelist known for her social commentary.',
+      'The book features the character Mr. Darcy.',
+    ],
+    explanation:
+      'Published in 1813, "Pride and Prejudice" is one of the most popular novels in English literature, selling over 20 million copies.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jane_Austen_by_Cassandra_Austen_1870_reduit.jpg?width=600',
+      altText: 'Portrait of Jane Austen',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-073',
+    type: 'estimation',
+    category: 'Science',
+    questionText: 'What is the atomic number of Carbon?',
+    correctAnswer: 6,
+    range: { min: 1, max: 20 },
+    tolerance: 0, // Strict
+    hints: [
+      'It is the basis for all known life.',
+      'It sits between Boron (5) and Nitrogen (7) on the periodic table.',
+    ],
+    explanation:
+      'Carbon has 6 protons in its nucleus. Its ability to form long polymer chains makes it the ideal chemical backbone for life.',
+  },
+  {
+    id: 'q-074',
+    type: 'top-five',
+    category: 'History',
+    questionText: 'Name the 5 Permanent Members of the UN Security Council.',
+    correctAnswers: [
+      { answer: 'China' },
+      { answer: 'France' },
+      { answer: 'Russia', acceptedVariations: ['Russian Federation'] },
+      { answer: 'United Kingdom', acceptedVariations: ['UK', 'Britain'] },
+      { answer: 'United States', acceptedVariations: ['USA', 'US', 'America'] },
+    ],
+    hints: [
+      'They represent the great powers that were the victors of World War II.',
+      'They are the only members with veto power.',
+    ],
+    explanation:
+      "The P5 members have held their seats since the UN's founding in 1945 (with Russia succeeding the USSR and the PRC succeeding the ROC).",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/UN_Security_Council.jpg?width=600',
+      altText: 'The UN Security Council chamber',
+      source: 'Wikimedia Commons',
+      attribution: 'Neptuul / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-075',
+    type: 'multiple-choice',
+    category: 'Nature',
+    questionText: 'Which is the only mammal capable of true, sustained flight?',
+    options: ['Flying Squirrel', 'Bat', 'Sugar Glider', 'Colugo'],
+    correctAnswer: 1, // Bat
+    hints: [
+      'Other "flying" mammals actually just glide.',
+      // 'They use echolocation to navigate.',
+    ],
+    explanation:
+      'Bats are the only mammals that can truly fly. Their wings are actually elongated hands with a membrane of skin stretched between the fingers.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Big-eared-townsend-fledermaus.jpg?width=600',
+      altText: "A Townsend's big-eared bat",
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-076',
+    type: 'exact-match',
+    category: 'Art',
+    questionText: 'Who painted the ceiling of the Sistine Chapel?',
+    correctAnswer: 'Michelangelo',
+    acceptedVariations: ['Michelangelo Buonarroti'],
+    hints: [
+      'He was also a famous sculptor, known for "David".',
+      'It took him four years to complete, painting while standing on scaffolding.',
+    ],
+    explanation:
+      'Painted between 1508 and 1512, the ceiling is a cornerstone of High Renaissance art. The central scene is "The Creation of Adam".',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sistine_Chapel_ceiling_02_(brightened).jpg?width=600',
+      altText: 'The ceiling of the Sistine Chapel',
+      source: 'Wikimedia Commons',
+      attribution: 'Jean-Christophe BENOIST / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-077',
+    type: 'estimation',
+    category: 'Space',
+    questionText:
+      'In what year did the Apollo 11 mission land humans on the Moon?',
+    correctAnswer: 1969,
+    range: { min: 1960, max: 1975 },
+    hints: [
+      'It was the end of the Space Race in the 60s.',
+      'Neil Armstrong took his famous "small step" in July of this year.',
+    ],
+    explanation:
+      "On July 20, 1969, Neil Armstrong and Buzz Aldrin became the first humans to land on the Moon, fulfilling President Kennedy's goal of landing a man on the moon before the decade was out.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aldrin_Apollo_11_original.jpg?width=600',
+      altText: 'Buzz Aldrin on the Moon',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / Public Domain',
+    },
+  },
+  {
+    id: 'q-078',
+    type: 'top-five',
+    category: 'General',
+    questionText:
+      'Name the 5 colors of the Olympic Rings (excluding the white background).',
+    correctAnswers: [
+      { answer: 'Blue' },
+      { answer: 'Yellow' },
+      { answer: 'Black' },
+      { answer: 'Green' },
+      { answer: 'Red' },
+    ],
+    hints: [
+      'Think of the flags of the world; at least one of these colors appears on every national flag.',
+      'Primary colors plus Black and Green.',
+    ],
+    explanation:
+      'Designed by Pierre de Coubertin in 1913, the rings represent the five inhabited continents of the world united by Olympism.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Olympic_rings_with_white_rims.svg?width=600',
+      altText: 'The Olympic Rings',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-079',
+    type: 'multiple-choice',
+    category: 'Science',
+    questionText:
+      'Which gas makes up the majority (approx. 78%) of Earth’s atmosphere?',
+    options: ['Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen'],
+    correctAnswer: 2, // Nitrogen
+    hints: [
+      'It is a colorless, odorless gas.',
+      // 'Oxygen only makes up about 21% of the air.',
+    ],
+    explanation:
+      'While we need oxygen to breathe, our atmosphere is dominated by Nitrogen (N2). The remaining 1% is mostly Argon and other trace gases.',
+  },
+  {
+    id: 'q-080',
+    type: 'estimation',
+    category: 'Games',
+    questionText: 'How many total squares are there on a standard chess board?',
+    correctAnswer: 64,
+    range: { min: 50, max: 100 },
+    tolerance: 0, // Strict
+    hints: [
+      'The board is an 8x8 grid.',
+      'It alternates between light and dark squares.',
+    ],
+    explanation:
+      "A chessboard has 8 ranks (rows) and 8 files (columns), making a total of 64 squares. The squares are always arranged so that a white square is in each player's bottom-right corner.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chess_Board.svg?width=600',
+      altText: 'A standard Chess board layout',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
   },
 ];

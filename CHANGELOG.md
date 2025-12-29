@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.5](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.4...v0.1.5) (2025-12-29)
+
+
+### Features
+
+* add game-feel animations ([41570e6](https://github.com/sergidomenechguzy/daily-quiz/commit/41570e66ce2f2efc45c254fd773c5c90f7a5b5a3))
+* add new fade animations to the solution texts and media and add media loading skeleton ([09a1806](https://github.com/sergidomenechguzy/daily-quiz/commit/09a1806d84fcec3d9c481a2245b10417eb2b0788))
+* enhance animations and state management in quiz components ([0f3fdfd](https://github.com/sergidomenechguzy/daily-quiz/commit/0f3fdfdec0b2f6317ce3b17e5caaaba2f10e2553))
+* new quiz questions for december and january ([c2d9bc8](https://github.com/sergidomenechguzy/daily-quiz/commit/c2d9bc82cfa28b1ab27887eea662f753031ff098))
+* redo local quiz data structure to prepare for stats collection and ui ([407b41e](https://github.com/sergidomenechguzy/daily-quiz/commit/407b41eef31e7eef34e12bd277e04011ccba5566))
+
+
+### Bug Fixes
+
+* correct quiz question fallback type in remaining attempts hook ([82880b0](https://github.com/sergidomenechguzy/daily-quiz/commit/82880b05c898d0e2317f4d474bb7265ab7a40807))
+
 ## [0.1.4](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.3...v0.1.4) (2025-12-22)
 
 
