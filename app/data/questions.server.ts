@@ -160,7 +160,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Paul Allen and Bill Gates founded Microsoft in 1975 in Albuquerque, New Mexico. Allen coined the original name "Micro-Soft" (a combination of microcomputer and software).',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Paul_Allen_in_2011_at_the_Computer_History_Museum.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Paul_G._Allen_(cropped).jpg?width=600',
       altText: 'Paul Allen',
       source: 'Wikimedia Commons',
       attribution: 'Miles Harris / CC BY-SA 3.0',
@@ -311,7 +311,7 @@ export const quizQuestions: QuizQuestion[] = [
       'These are the only cats capable of roaring (except the Snow Leopard). This ability comes from the specialized structure of their hyoid bone.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sibirischer tiger de edit02.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sibirischer_tiger_de_edit02.jpg?width=600',
       altText: 'Siberian Tiger',
       source: 'Wikimedia Commons',
       attribution: 'S. Taheri / CC BY-SA 2.5',
@@ -384,7 +384,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Painted in the early 16th century, the Mona Lisa is famous for her enigmatic smile. It holds the Guinness World Record for the highest known insurance valuation in history.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg?width=600',
       altText: 'The Mona Lisa painting',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
@@ -421,7 +421,7 @@ export const quizQuestions: QuizQuestion[] = [
       'The official height is 8.848,86 meters. The mountain continues to grow roughly 4mm per year due to the collision of the Indian and Eurasian tectonic plates.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Everest, Himalayas.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Everest,_Himalayas.jpg?width=600',
       altText: 'Mount Everest, Nepal, Himalayas',
       source: 'Wikimedia Commons',
       attribution: 'Vyacheslav Argenberg / CC BY 4.0',
@@ -515,7 +515,7 @@ export const quizQuestions: QuizQuestion[] = [
       'James Lord Pierpont published the song in 1857 for Thanksgiving. The lyrics mention snow and sleigh rides, which led to it becoming associated with Christmas over time.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jingle_Bells_sheet_music_cover.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/One_Horse_Open_Sleigh_title_page.jpg?width=600',
       altText: 'Original sheet music cover for "The One Horse Open Sleigh"',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
@@ -537,10 +537,10 @@ export const quizQuestions: QuizQuestion[] = [
       'Germany is credited with starting the Christmas tree tradition as we know it in the 16th century when devout Christians brought decorated trees into their homes. It is said that Martin Luther was the first to add lighted candles to a tree.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Christmas_Tree_at_Rockefeller_Center_2017.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rockefeller_Christmas_Tree_Close-Up_2018.jpg?width=600',
       altText: 'The Rockefeller Center Christmas Tree',
       source: 'Wikimedia Commons',
-      attribution: 'Wb8555 / CC0',
+      attribution: 'Matthew Binebrink / CC BY-SA 4.0',
     },
   },
   {
@@ -560,7 +560,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Cheetahs can accelerate from 0 to 100 km/h in just 3 seconds, faster than many sports cars. However, they can only maintain this speed for about 30 seconds before overheating.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest animal.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Fastest_animal.jpg?width=600',
       altText: 'A cheetah running at full speed',
       source: 'Wikimedia Commons',
       attribution: 'Srivath / CC BY-SA 4.0',
@@ -676,10 +676,10 @@ export const quizQuestions: QuizQuestion[] = [
       'The first ball drop happened in 1907 to welcome 1908. The ball was designed by Artkraft Strauss, weighed 700 pounds, and was lowered from the flagpole of One Times Square.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Times_Square_Ball_2011.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/New_Years_Crystal_Ball_(6279777660).jpg?width=600',
       altText: 'The Times Square Ball',
       source: 'Wikimedia Commons',
-      attribution: 'Cencored / CC BY 2.0',
+      attribution: 'Erik Drost / CC BY 2.0',
     },
   },
   {
@@ -1027,7 +1027,7 @@ export const quizQuestions: QuizQuestion[] = [
       'Germany shares borders with Denmark to the north, Poland and the Czech Republic to the east, Austria and Switzerland to the south, and France, Luxembourg, Belgium, and the Netherlands to the west.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Europe_map_de.png?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Europe_map_de_2.png?width=600',
       altText: 'Map of Germany in Europe',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
@@ -1211,8 +1211,8 @@ export const quizQuestions: QuizQuestion[] = [
       'On August 28, 1963, Dr. King delivered the speech to over 250,000 supporters. It is considered one of the defining moments of the civil rights movement.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Martin_Luther_King_-_March_on_Washington.jpg?width=600',
-      altText: 'Martin Luther King Jr. waving to the crowd',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dr._Martin_Luther_King_Jr._at_a_civil_rights_march_on_Washington_D.C._in_1963.jpg?width=600',
+      altText: 'Martin Luther King Jr. holding a speech',
       source: 'Wikimedia Commons',
       attribution: 'Public Domain',
     },
@@ -1237,7 +1237,7 @@ export const quizQuestions: QuizQuestion[] = [
       "Located on the Canada–United States border, they hold 21% of the world's surface fresh water. Lake Superior is the largest by volume and area.",
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Great_Lakes_from_space_crop_labeled.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Great_Lakes_from_space.jpg?width=600',
       altText: 'Satellite view of the Great Lakes',
       source: 'Wikimedia Commons',
       attribution: 'SeaWiFS Project / NASA / Public Domain',
@@ -1304,10 +1304,10 @@ export const quizQuestions: QuizQuestion[] = [
       'During its hunting stoop (high-speed dive), the Peregrine Falcon can reach speeds of over 320 km/h (200 mph), making it the fastest member of the animal kingdom.',
     media: {
       type: 'image',
-      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Peregrine_Falcon_launching_from_cliff_2.jpg?width=600',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Peregrine_Falcon_(Falco_peregrinus)_07.jpg?width=600',
       altText: 'Peregrine Falcon in flight',
       source: 'Wikimedia Commons',
-      attribution: 'Public Domain',
+      attribution: "Shiv's fotografia / CC BY-SA 4.0",
     },
   },
   {
