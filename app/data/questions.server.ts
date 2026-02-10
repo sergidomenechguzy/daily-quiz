@@ -1703,4 +1703,1244 @@ export const quizQuestions: QuizQuestion[] = [
       attribution: 'Public Domain',
     },
   },
+  {
+    id: 'q-081',
+    type: 'multiple-choice',
+    category: 'Space',
+    questionText: 'Which planet in our solar system is the hottest?',
+    options: ['Mercury', 'Venus', 'Mars', 'Jupiter'],
+    correctAnswer: 1, // Venus
+    hints: ['Its thick atmosphere traps heat in a runaway greenhouse effect.'],
+    explanation:
+      'Even though Mercury is closer to the Sun, Venus is hotter due to its thick atmosphere of carbon dioxide. Surface temperatures can reach 475°C (900°F).',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Venus-real_color.jpg?width=600',
+      altText: 'Real color image of Venus',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / Public Domain',
+    },
+  },
+  {
+    id: 'q-082',
+    type: 'estimation',
+    category: 'History',
+    questionText: 'In what year did the Berlin Wall fall?',
+    correctAnswer: 1989,
+    range: { min: 1950, max: 2000 },
+    tolerance: 0, // Strict
+    hints: [
+      'It happened in November, marking the end of the Cold War era.',
+      'It was two years before the dissolution of the Soviet Union.',
+    ],
+    explanation:
+      'On November 9, 1989, the head of the East German Communist Party announced that citizens could cross the border whenever they pleased. Crowds swarmed the wall and began chipping away at it.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg?width=600',
+      altText: 'Germans at the Brandenburg Gate in 1989',
+      source: 'Wikimedia Commons',
+      attribution: 'Lear 21 / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-083',
+    type: 'exact-match',
+    category: 'Chemistry',
+    questionText: 'What is the chemical symbol for Gold?',
+    correctAnswer: 'Au',
+    acceptedVariations: ['AU', 'au'],
+    hints: [
+      'It comes from the Latin word "Aurum".',
+      'It consists of two letters, the first is "A".',
+    ],
+    explanation:
+      'Gold is a noble metal, meaning it is resistant to corrosion and oxidation. Its symbol "Au" is derived from the Latin word for shining dawn.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Native_gold_nuggets.jpg?width=600',
+      altText: 'Native gold nuggets',
+      source: 'Wikimedia Commons',
+      attribution: 'Aram Dulyan / Public Domain',
+    },
+  },
+  {
+    id: 'q-084',
+    type: 'top-five',
+    category: 'Pop Culture',
+    questionText: 'Name the 5 members of "The Simpsons" immediate family.',
+    correctAnswers: [
+      { answer: 'Homer' },
+      { answer: 'Marge' },
+      { answer: 'Bart', acceptedVariations: ['Bartholomew'] },
+      { answer: 'Lisa' },
+      { answer: 'Maggie', acceptedVariations: ['Margaret'] },
+    ],
+    hints: [
+      'The father works at a nuclear power plant.',
+      'The youngest is a baby who rarely speaks.',
+    ],
+    explanation:
+      'Created by Matt Groening, the family first appeared as shorts on The Tracey Ullman Show in 1987 before getting their own series in 1989.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/The_logo_simpsons_yellow.png?width=600',
+      altText: 'The Simpsons logo',
+      source: 'Wikimedia Commons',
+      attribution: '20th Century Studios / CC BY-SA 4.0',
+    },
+  },
+  {
+    id: 'q-085',
+    type: 'multiple-choice',
+    category: 'Economics',
+    questionText: 'What is the official currency of the United Kingdom?',
+    options: ['Euro', 'Dollar', 'Pound Sterling', 'Franc'],
+    correctAnswer: 2, // Pound
+    hints: ['Its symbol is £.'],
+    explanation:
+      "The Pound Sterling is the world's oldest currency still in use. While the UK was part of the EU, it never adopted the Euro.",
+  },
+  {
+    id: 'q-086',
+    type: 'estimation',
+    category: 'History',
+    questionText:
+      'How many stripes are there on the flag of the United States?',
+    correctAnswer: 13,
+    range: { min: 10, max: 50 },
+    tolerance: 0, // Strict
+    hints: [
+      'They represent the original colonies.',
+      'It is an odd number between 10 and 15.',
+    ],
+    explanation:
+      'The 13 horizontal stripes represent the original 13 colonies that declared independence from Great Britain. The 50 stars represent the current 50 states.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_States.svg?width=600',
+      altText: 'Flag of the United States',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-087',
+    type: 'exact-match',
+    category: 'Literature',
+    questionText: 'Who wrote the "Harry Potter" book series?',
+    correctAnswer: 'J.K. Rowling',
+    acceptedVariations: ['JK Rowling', 'Rowling', 'Joanne Rowling'],
+    hints: [
+      'She wrote the first book in cafes in Edinburgh.',
+      'Her first name is Joanne.',
+    ],
+    explanation:
+      'Rowling conceived the idea for Harry Potter in 1990 while on a delayed train from Manchester to London. The seven-book series has sold over 500 million copies worldwide.',
+  },
+  {
+    id: 'q-088',
+    type: 'top-five',
+    category: 'Science',
+    questionText:
+      'Name 5 distinct colors found in a natural rainbow (ROYGBIV).',
+    correctAnswers: [
+      { answer: 'Red' },
+      { answer: 'Orange' },
+      { answer: 'Yellow' },
+      { answer: 'Green' },
+      { answer: 'Blue' },
+    ],
+    otherOptions: [
+      { answer: 'Indigo' },
+      { answer: 'Violet', acceptedVariations: ['Purple'] },
+    ],
+    hints: [
+      'Think of the acronym ROY G. BIV.',
+      'It starts with Red and ends with Violet.',
+    ],
+    explanation:
+      'Sir Isaac Newton originally identified five primary colors: red, yellow, green, blue, and violet. He later added orange and indigo to match the number of notes in a musical scale (7).',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Double-alaskan-rainbow.jpg?width=600',
+      altText: 'A double rainbow',
+      source: 'Wikimedia Commons',
+      attribution: 'Eric Rolph / CC BY-SA 2.5',
+    },
+  },
+  {
+    id: 'q-089',
+    type: 'multiple-choice',
+    category: 'Movies',
+    questionText:
+      'What was the first feature-length animated movie released by Disney?',
+    options: [
+      'Cinderella',
+      'Snow White and the Seven Dwarfs',
+      'Fantasia',
+      'Bambi',
+    ],
+    correctAnswer: 1, // Snow White
+    hints: ['It was released in 1937.'],
+    explanation:
+      'Critics at the time called it "Disney\'s Folly," believing audiences wouldn\'t sit through a full-length cartoon. It became a massive success and launched the Golden Age of Animation.',
+  },
+  {
+    id: 'q-090',
+    type: 'estimation',
+    category: 'Science',
+    questionText: 'How many elements are currently in the Periodic Table?',
+    correctAnswer: 118,
+    range: { min: 100, max: 130 },
+    tolerance: 0, // Strict
+    hints: ['The last element is Oganesson.', 'It is just under 120.'],
+    explanation:
+      'As of 2024, there are 118 confirmed elements. The first 94 occur naturally on Earth, while the rest are synthetic elements created in laboratories.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Simple_Periodic_Table_Chart-en.svg?width=600',
+      altText: 'The Periodic Table of Elements',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-091',
+    type: 'exact-match',
+    category: 'Physics',
+    questionText: 'Who developed the theory of relativity (E = mc²)?',
+    correctAnswer: 'Albert Einstein',
+    acceptedVariations: ['Einstein'],
+    hints: [
+      'He was a German-born theoretical physicist.',
+      'He won the Nobel Prize for his work on the photoelectric effect.',
+    ],
+    explanation:
+      "Einstein's formula E=mc² is the world's most famous equation. It states that energy equals mass times the speed of light squared.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Albert_Einstein_Head.jpg?width=600',
+      altText: 'Portrait of Albert Einstein',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-092',
+    type: 'multiple-choice',
+    category: 'Geography',
+    questionText: 'Which is the longest river in Europe?',
+    options: ['Danube', 'Rhine', 'Volga', 'Thames'],
+    correctAnswer: 2, // Volga
+    hints: ['It flows entirely through Russia.'],
+    explanation:
+      'The Volga is the longest river in Europe, flowing 3,531 km (2,194 mi) into the Caspian Sea. It is widely viewed as the national river of Russia.',
+  },
+  {
+    id: 'q-093',
+    type: 'estimation',
+    category: 'Math',
+    questionText: 'How many degrees are in a right angle?',
+    correctAnswer: 90,
+    unit: '°',
+    tolerance: 0, // Strict
+    range: { min: 0, max: 180 },
+    hints: [
+      'It is a quarter of a full circle.',
+      'It is the angle found in a square corner.',
+    ],
+    explanation:
+      'A right angle is exactly 90 degrees, corresponding to one quarter of a turn. It is denoted by a small square symbol in geometry diagrams.',
+  },
+  {
+    id: 'q-094',
+    type: 'top-five',
+    category: 'Space',
+    questionText: 'Name the 5 "Dwarf Planets" currently recognized by the IAU.',
+    correctAnswers: [
+      { answer: 'Pluto' },
+      { answer: 'Eris' },
+      { answer: 'Ceres' },
+      { answer: 'Haumea' },
+      { answer: 'Makemake' },
+    ],
+    hints: [
+      'Pluto is the most famous one.',
+      'Ceres is located in the asteroid belt, while the others are beyond Neptune.',
+    ],
+    explanation:
+      'The IAU defined the term "dwarf planet" in 2006. Ceres is the only one in the inner solar system; the rest are Trans-Neptunian Objects.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ceres_-_RC3_-_Haulani_Crater_(22381131691)_(cropped).jpg?width=600',
+      altText: 'The dwarf planet Ceres',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA/JPL-Caltech / Public Domain',
+    },
+  },
+  {
+    id: 'q-095',
+    type: 'multiple-choice',
+    category: 'Geography',
+    questionText:
+      'As of 2023/2024, which country has the largest population in the world?',
+    options: ['China', 'United States', 'India', 'Indonesia'],
+    correctAnswer: 2, // India
+    hints: ['It surpassed China recently.'],
+    explanation:
+      "According to UN estimates, India overtook China as the world's most populous nation in April 2023, with a population exceeding 1.428 billion people.",
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_India.svg?width=600',
+      altText: 'Flag of India',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-096',
+    type: 'exact-match',
+    category: 'Geography',
+    questionText: 'What is the capital city of Italy?',
+    correctAnswer: 'Rome',
+    acceptedVariations: ['Roma'],
+    hints: [
+      'It is home to the Colosseum.',
+      'It is often called the "Eternal City".',
+    ],
+    explanation:
+      'Rome has been a major human settlement for almost three millennia. It is the only city in the world that contains an entire independent country (Vatican City) inside its boundaries.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Colosseum_in_Rome,_Italy_-_April_2007.jpg?width=600',
+      altText: 'The Colosseum in Rome',
+      source: 'Wikimedia Commons',
+      attribution: 'Diliff / CC BY-SA 2.5',
+    },
+  },
+  {
+    id: 'q-097',
+    type: 'estimation',
+    category: 'Games',
+    questionText:
+      'How many individual small squares (cells) are there on a standard Sudoku board?',
+    correctAnswer: 81,
+    range: { min: 50, max: 100 },
+    tolerance: 0, // Strict
+    hints: ['The board is a 9x9 grid.', 'It is made of 9 smaller 3x3 boxes.'],
+    explanation:
+      'A standard Sudoku grid consists of 9 rows and 9 columns, resulting in 81 total cells. The goal is to fill them so that each column, row, and 3x3 subgrid contains all digits from 1 to 9.',
+  },
+  {
+    id: 'q-098',
+    type: 'top-five',
+    category: 'Language',
+    questionText: 'Name the first 5 letters of the Greek Alphabet.',
+    correctAnswers: [
+      { answer: 'Alpha' },
+      { answer: 'Beta' },
+      { answer: 'Gamma' },
+      { answer: 'Delta' },
+      { answer: 'Epsilon' },
+    ],
+    hints: [
+      'The word "Alphabet" comes from the first two.',
+      'They are often used in math and science equations.',
+    ],
+    explanation:
+      'The Greek alphabet has been used to write the Greek language since the late 9th or early 8th century BC. It is the ancestor of the Latin and Cyrillic scripts.',
+  },
+  {
+    id: 'q-099',
+    type: 'multiple-choice',
+    category: 'Chemistry',
+    questionText: 'What is the chemical formula for water?',
+    options: ['CO2', 'H2O', 'NaCl', 'O2'],
+    correctAnswer: 1, // H2O
+    hints: ['It contains two Hydrogen atoms and one Oxygen atom.'],
+    explanation:
+      'Water is essential for all known forms of life. Despite being a simple molecule, it has unique properties like expanding when it freezes, which is why ice floats.',
+  },
+  {
+    id: 'q-100',
+    type: 'exact-match',
+    category: 'Philosophy',
+    questionText:
+      'Which philosopher is famous for the quote "I think, therefore I am"?',
+    correctAnswer: 'René Descartes',
+    acceptedVariations: ['Descartes', 'Rene Descartes'],
+    hints: ['He was French.', 'The Latin version is "Cogito, ergo sum".'],
+    explanation:
+      'Descartes argued that because he was doubting his own existence, he must exist as a thinking entity. This became a foundational element of Western philosophy.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg?width=600',
+      altText: 'Portrait of René Descartes',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-101',
+    type: 'multiple-choice',
+    category: 'History',
+    questionText: 'The Statue of Liberty was a gift to the United States from which country?',
+    options: ['Great Britain', 'France', 'Spain', 'Germany'],
+    correctAnswer: 1, // France
+    hints: [
+      'It was dedicated in 1886 to commemorate the centennial of the Declaration of Independence.',
+    ],
+    explanation:
+      'Designed by French sculptor Frédéric Auguste Bartholdi, the statue was a gift from the people of France. The metal framework was built by Gustave Eiffel.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Statue_of_Liberty,_NY_(cropped).jpg?width=600',
+      altText: 'The Statue of Liberty',
+      source: 'Wikimedia Commons',
+      attribution: 'William Warby / CC BY 2.0',
+    },
+  },
+  {
+    id: 'q-102',
+    type: 'estimation',
+    category: 'History',
+    questionText: 'In what year did the Wright Brothers achieve the first powered flight?',
+    correctAnswer: 1903,
+    range: { min: 1890, max: 1920 },
+    tolerance: 0, // Strict
+    hints: [
+      'It happened on December 17th in Kitty Hawk, North Carolina.',
+      'It was the same year the first Teddy Bear was introduced.',
+    ],
+    explanation:
+      'Orville and Wilbur Wright made four brief flights at Kitty Hawk with their first powered aircraft. The first flight lasted 12 seconds and covered 120 feet.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Firstflight_2_cropped.jpg?width=600',
+      altText: 'First successful flight of the Wright Flyer',
+      source: 'Wikimedia Commons',
+      attribution: 'John T. Daniels / Public Domain',
+    },
+  },
+  {
+    id: 'q-103',
+    type: 'exact-match',
+    category: 'Literature',
+    questionText: 'Who created the fictional detective Sherlock Holmes?',
+    correctAnswer: 'Arthur Conan Doyle',
+    acceptedVariations: ['Conan Doyle', 'Sir Arthur Conan Doyle'],
+    hints: [
+      'He was a British writer and physician.',
+      'He tried to kill off the character in "The Final Problem" but brought him back due to public demand.',
+    ],
+    explanation:
+      'Sherlock Holmes first appeared in 1887 in "A Study in Scarlet". Doyle wrote four novels and 56 short stories featuring the character.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Arthur_Conan_Doyle_by_Herbert_Rose_Barraud_1893.jpg?width=600',
+      altText: 'Portrait of Arthur Conan Doyle',
+      source: 'Wikimedia Commons',
+      attribution: 'Herbert Rose Barraud / Public Domain',
+    },
+  },
+  {
+    id: 'q-104',
+    type: 'top-five',
+    category: 'Geography',
+    questionText: 'Name the 5 largest deserts in the world (by area).',
+    correctAnswers: [
+      { answer: 'Antarctic Desert', acceptedVariations: ['Antarctic', 'Antarctica'] },
+      { answer: 'Arctic Desert', acceptedVariations: ['Arctic'] },
+      { answer: 'Sahara Desert', acceptedVariations: ['Sahara'] },
+      { answer: 'Arabian Desert', acceptedVariations: ['Arabian'] },
+      { answer: 'Gobi Desert', acceptedVariations: ['Gobi'] },
+    ],
+    hints: [
+      'The top two are "polar deserts" (ice sheets).',
+      'The Sahara is only the third largest overall, but the largest hot desert.',
+    ],
+    explanation:
+      'A desert is defined by low precipitation, not heat. Therefore, the polar ice caps of Antarctica and the Arctic qualify as the largest deserts on Earth.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sand_dune_in_the_desert,_Sahara_Desert,_Egypt.jpg?width=600',
+      altText: 'Sand dunes in the Sahara Desert',
+      source: 'Wikimedia Commons',
+      attribution: 'Vyacheslav Argenberg / CC BY 4.0',
+    },
+  },
+  {
+    id: 'q-105',
+    type: 'multiple-choice',
+    category: 'Biology',
+    questionText: 'What is the primary function of mitochondria in a cell?',
+    options: ['Digestion', 'Energy Production', 'Cell Division', 'Photosynthesis'],
+    correctAnswer: 1, // Energy
+    hints: [
+      'They are often called the "powerhouse" of the cell.',
+    ],
+    explanation:
+      'Mitochondria generate most of the cell\'s supply of adenosine triphosphate (ATP), which is used as a source of chemical energy.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Drawing_of_Mitochondria.jpg?width=600',
+      altText: 'Drawing of a Mitochondrion',
+      source: 'Wikimedia Commons',
+      attribution: 'Captain MarcusL / CC BY-SA 4.0',
+    },
+  },
+  {
+    id: 'q-106',
+    type: 'estimation',
+    category: 'Anatomy',
+    questionText: 'How many chambers does the human heart have?',
+    correctAnswer: 4,
+    range: { min: 1, max: 10 },
+    tolerance: 0, // Strict
+    hints: [
+      'They are divided into two atria and two ventricles.',
+      'Frogs only have 3, but humans have one more.',
+    ],
+    explanation:
+      'The human heart has four chambers: the right atrium, left atrium, right ventricle, and left ventricle. This separation allows for efficient circulation of oxygenated and deoxygenated blood.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Heart_diagram-en.svg?width=600',
+      altText: 'Diagram of the human heart',
+      source: 'Wikimedia Commons',
+      attribution: 'ZooFari / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-107',
+    type: 'exact-match',
+    category: 'Chemistry',
+    questionText: 'What is the chemical symbol for Sodium?',
+    correctAnswer: 'Na',
+    acceptedVariations: ['NA', 'na'],
+    hints: [
+      'It comes from the Latin word "Natrium".',
+      'It forms table salt when combined with Chlorine.',
+    ],
+    explanation:
+      'Sodium is a highly reactive metal. Its symbol Na reflects its historical name, distinct from the English word.',
+  },
+  {
+    id: 'q-108',
+    type: 'top-five',
+    category: 'Geography',
+    questionText: 'Name the 5 longest rivers in the world.',
+    correctAnswers: [
+      { answer: 'Nile' },
+      { answer: 'Amazon' },
+      { answer: 'Yangtze', acceptedVariations: ['Yangtse'] },
+      { answer: 'Mississippi', acceptedVariations: ['Mississippi-Missouri'] },
+      { answer: 'Yenisei', acceptedVariations: ['Yenisey'] },
+    ],
+    hints: [
+      'The Nile and Amazon are the top two.',
+      'One flows through China, one through the USA, and one through Russia.',
+    ],
+    explanation:
+      'The exact order of the Nile and Amazon is debated, but they are universally recognized as the top two. The Yangtze is the longest in Asia.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Satellite_picture_of_the_Amazon_River.jpg?width=600',
+      altText: 'Satellite view of the Amazon River',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / Public Domain',
+    },
+  },
+  {
+    id: 'q-109',
+    type: 'multiple-choice',
+    category: 'Art',
+    questionText: 'Who painted the masterpiece "Girl with a Pearl Earring"?',
+    options: ['Rembrandt', 'Johannes Vermeer', 'Frans Hals', 'Van Gogh'],
+    correctAnswer: 1, // Vermeer
+    hints: [
+      'He was a Dutch Baroque painter who specialized in domestic interior scenes.',
+    ],
+    explanation:
+      'Painted around 1665, the girl\'s gaze and the enigmatic expression have led to it being known as the "Mona Lisa of the North".',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_-_Girl_with_a_Pearl_Earring_-_WGA24666.jpg?width=600',
+      altText: 'Girl with a Pearl Earring painting',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-110',
+    type: 'estimation',
+    category: 'Music',
+    questionText: 'How many strings does a standard violin have?',
+    correctAnswer: 4,
+    range: { min: 1, max: 10 },
+    tolerance: 0, // Strict
+    hints: [
+      'They are tuned to perfect fifths: G, D, A, and E.',
+      'It is the same number of strings as a bass guitar.',
+    ],
+    explanation:
+      'A standard violin has four strings. The bow is typically strung with horsehair.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Violin_front_view.jpg?width=600',
+      altText: 'Front view of a Violin',
+      source: 'Wikimedia Commons',
+      attribution: 'LJ / Public Domain',
+    },
+  },
+  {
+    id: 'q-111',
+    type: 'exact-match',
+    category: 'Geography',
+    questionText: 'What is the capital city of Egypt?',
+    correctAnswer: 'Cairo',
+    acceptedVariations: ['Al-Qahirah'],
+    hints: [
+      'It is located near the Giza pyramid complex.',
+      'It lies on the banks of the Nile River.',
+    ],
+    explanation:
+      'Cairo is the largest city in the Arab world. Its name means "The Victorious".',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Giza-pyramids.JPG?width=600',
+      altText: 'The Pyramids of Giza near Cairo',
+      source: 'Wikimedia Commons',
+      attribution: 'Robster1983 / CC0',
+    },
+  },
+  {
+    id: 'q-112',
+    type: 'top-five',
+    category: 'Demographics',
+    questionText: 'Name the 5 most populous countries in the world (as of 2024).',
+    correctAnswers: [
+      { answer: 'India' },
+      { answer: 'China' },
+      { answer: 'United States', acceptedVariations: ['USA', 'US'] },
+      { answer: 'Indonesia' },
+      { answer: 'Pakistan' },
+    ],
+    hints: [
+      'India recently surpassed China for the #1 spot.',
+      'Nigeria and Brazil are #6 and #7, just missing the list.',
+    ],
+    explanation:
+      'Asia dominates this list, with four of the top five countries located on the continent. The US is the only non-Asian country in the top 5.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_India.svg?width=600',
+      altText: 'Flag of India',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-113',
+    type: 'multiple-choice',
+    category: 'Nature',
+    questionText: 'In which hemisphere do penguins primarily live?',
+    options: ['Northern Hemisphere', 'Southern Hemisphere', 'Both Equally', 'None'],
+    correctAnswer: 1, // Southern
+    hints: [
+      'You will generally not find them at the North Pole.',
+    ],
+    explanation:
+      'Almost all penguin species live in the Southern Hemisphere. The Galapagos Penguin is the only species found north of the equator.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Single_Emperor_penguin.jpg?width=600',
+      altText: 'An Emperor Penguin',
+      source: 'Wikimedia Commons',
+      attribution: 'Rsperberg / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-114',
+    type: 'estimation',
+    category: 'Nature',
+    questionText: 'How many legs does a spider have?',
+    correctAnswer: 8,
+    range: { min: 0, max: 20 },
+    tolerance: 0, // Strict
+    hints: [
+      'Insects have 6, but arachnids have more.',
+      'It is an even number.',
+    ],
+    explanation:
+      'All arachnids, including spiders, scorpions, mites, and ticks, have eight legs. Insects have six.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Jumping_Spider.jpg?width=600',
+      altText: 'A jumping spider',
+      source: 'Wikimedia Commons',
+      attribution: 'Kilarin / CC BY 2.0',
+    },
+  },
+  {
+    id: 'q-115',
+    type: 'exact-match',
+    category: 'Invention',
+    questionText: 'Who is credited with patenting the first practical telephone?',
+    correctAnswer: 'Alexander Graham Bell',
+    acceptedVariations: ['Bell', 'Graham Bell'],
+    hints: [
+      'He made the first call to his assistant, Mr. Watson.',
+      'He was Scottish-born.',
+    ],
+    explanation:
+      'Bell was awarded the first US patent for the telephone in 1876. His first words were "Mr. Watson, come here, I want to see you."',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/First_Bell_telephone_1875.png?width=600',
+      altText: 'Model of the first Bell telephone',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-116',
+    type: 'top-five',
+    category: 'Music',
+    questionText: 'Name the 4 members of The Beatles (plus their manager Brian Epstein for a 5th slot!).',
+    correctAnswers: [
+      { answer: 'John Lennon', acceptedVariations: ['Lennon'] },
+      { answer: 'Paul McCartney', acceptedVariations: ['McCartney'] },
+      { answer: 'George Harrison', acceptedVariations: ['Harrison'] },
+      { answer: 'Ringo Starr', acceptedVariations: ['Starr', 'Richard Starkey'] },
+      { answer: 'Brian Epstein', value: '(Manager)' },
+    ],
+    otherOptions: [
+      { answer: 'George Martin', value: '(Producer)' },
+      { answer: 'Pete Best', value: '(Original Drummer)' },
+    ],
+    hints: [
+      'They are the "Fab Four" from Liverpool.',
+      'The manager was often called the "Fifth Beatle".',
+    ],
+    explanation:
+      'The principal lineup consisted of Lennon, McCartney, Harrison, and Starr. Brian Epstein managed them from 1962 until his death in 1967.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/The_Beatles_Ed_Sullivan_1964.jpg?width=600',
+      altText: 'The Beatles on the Ed Sullivan Show',
+      source: 'Wikimedia Commons',
+      attribution: 'Bernard Gotfryd / Public Domain',
+    },
+  },
+  {
+    id: 'q-117',
+    type: 'multiple-choice',
+    category: 'Space',
+    questionText: 'Is the Great Wall of China visible from space with the naked eye?',
+    options: ['Yes, easily', 'No', 'Only at night', 'Yes, but only in summer'],
+    correctAnswer: 1, // No
+    hints: [
+      'This is a very common myth.',
+    ],
+    explanation:
+      'NASA confirms that the Great Wall is generally not visible to the naked eye from low Earth orbit, and certainly not from the Moon. It is too narrow and blends in with the natural colors of the terrain.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Great_Wall_of_China,_Satellite_image.jpeg?width=600',
+      altText: 'Satellite image of the Great Wall',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / Public Domain',
+    },
+  },
+  {
+    id: 'q-118',
+    type: 'estimation',
+    category: 'Sports',
+    questionText: 'How many years apart are the Summer Olympic Games typically held?',
+    correctAnswer: 4,
+    range: { min: 1, max: 10 },
+    tolerance: 0, // Strict
+    hints: [
+      'It follows the "Olympiad" cycle.',
+      'The same interval applies to the Winter Olympics (though they are offset by 2 years).',
+    ],
+    explanation:
+      'The ancient Olympic Games were held every four years, a period known as an Olympiad. The modern games continue this tradition.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Olympic_rings_with_white_rims.svg?width=600',
+      altText: 'The Olympic Rings',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-119',
+    type: 'exact-match',
+    category: 'Science',
+    questionText: 'Who proposed the theory of evolution by natural selection?',
+    correctAnswer: 'Charles Darwin',
+    acceptedVariations: ['Darwin'],
+    hints: [
+      'He sailed on the HMS Beagle.',
+      'He wrote "On the Origin of Species".',
+    ],
+    explanation:
+      'Darwin\'s book, published in 1859, introduced the scientific theory that populations evolve over the course of generations through a process of natural selection.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Charles_Darwin_photograph_by_Julia_Margaret_Cameron,_1868.jpg?width=600',
+      altText: 'Photograph of Charles Darwin',
+      source: 'Wikimedia Commons',
+      attribution: 'Julia Margaret Cameron / Public Domain',
+    },
+  },
+  {
+    id: 'q-120',
+    type: 'top-five',
+    category: 'Games',
+    questionText: 'Name 5 of the 6 distinct chess piece types.',
+    correctAnswers: [
+      { answer: 'King' },
+      { answer: 'Queen' },
+      { answer: 'Rook', acceptedVariations: ['Castle'] },
+      { answer: 'Bishop' },
+      { answer: 'Knight', acceptedVariations: ['Horse'] },
+    ],
+    otherOptions: [
+      { answer: 'Pawn' },
+    ],
+    hints: [
+      'One is the most powerful piece, one is the most important.',
+      'One moves in an L-shape.',
+    ],
+    explanation:
+      'Each player starts with 16 pieces: 1 King, 1 Queen, 2 Rooks, 2 Bishops, 2 Knights, and 8 Pawns.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chess_Set.jpg?width=600',
+      altText: 'A standard Chess set',
+      source: 'Wikimedia Commons',
+      attribution: 'Jeff Dahl / CC BY-SA 3.0',
+    },
+  },
+  // --- NEW BATCH (q-121 to q-140) ---
+
+  {
+    id: 'q-121',
+    type: 'multiple-choice',
+    category: 'History',
+    questionText: 'Which ancient artifact allowed scholars to finally decipher Egyptian hieroglyphs?',
+    options: ['The Sphinx', 'The Rosetta Stone', 'King Tut’s Mask', 'The Dead Sea Scrolls'],
+    correctAnswer: 1, // Rosetta Stone
+    hints: [
+      'It contained the same text written in three scripts: Hieroglyphic, Demotic, and Greek.',
+    ],
+    explanation:
+      'Discovered in 1799, the Rosetta Stone provided the key to understanding Egyptian hieroglyphs. It is currently held in the British Museum.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rosetta_Stone.JPG?width=600',
+      altText: 'The Rosetta Stone',
+      source: 'Wikimedia Commons',
+      attribution: 'Hans Hillewaert / CC BY-SA 4.0',
+    },
+  },
+  {
+    id: 'q-122',
+    type: 'estimation',
+    category: 'Nature',
+    questionText: 'How many hearts does an octopus have?',
+    correctAnswer: 3,
+    range: { min: 1, max: 5 },
+    tolerance: 0, // Strict
+    hints: [
+      'One pumps blood to the body, while the other two pump blood to the gills.',
+      'It is an odd number.',
+    ],
+    explanation:
+      'Octopuses have three hearts. Two branchial hearts pump blood through the gills, while a third systemic heart circulates it to the rest of the body.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Octopus_vulgaris_2.jpg?width=600',
+      altText: 'Common Octopus',
+      source: 'Wikimedia Commons',
+      attribution: 'Albert Kok / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-123',
+    type: 'exact-match',
+    category: 'Pop Culture',
+    questionText: 'What is the name of the fictional continent in "Game of Thrones" where most of the story takes place?',
+    correctAnswer: 'Westeros',
+    hints: [
+      'It is separated from Essos by the Narrow Sea.',
+      'It is home to the Seven Kingdoms.',
+    ],
+    explanation:
+      'Westeros is the primary setting for George R.R. Martin\'s "A Song of Ice and Fire" series. It is roughly the size of South America.',
+  },
+  {
+    id: 'q-124',
+    type: 'top-five',
+    category: 'Food',
+    questionText: 'Name 5 major types of pasta shapes.',
+    correctAnswers: [
+      { answer: 'Spaghetti' },
+      { answer: 'Penne' },
+      { answer: 'Fusilli', acceptedVariations: ['Rotini'] },
+      { answer: 'Ravioli' },
+      { answer: 'Macaroni', acceptedVariations: ['Elbows'] },
+    ],
+    otherOptions: [
+      { answer: 'Lasagna' },
+      { answer: 'Fettuccine' },
+      { answer: 'Linguine' },
+      { answer: 'Rigatoni' },
+      { answer: 'Farfalle', acceptedVariations: ['Bowtie'] },
+    ],
+    hints: [
+      'Think of long strands, tubes, and spirals.',
+      'One is famous for being filled with cheese or meat.',
+    ],
+    explanation:
+      'There are over 350 different shapes of pasta. The shape often dictates which sauce pairs best with it (e.g., tube pasta for thick sauces).',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pasta_2006_1.jpg?width=600',
+      altText: 'Various types of pasta',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-125',
+    type: 'multiple-choice',
+    category: 'Science',
+    questionText: 'What is the closest star to Earth (after the Sun)?',
+    options: ['Sirius', 'Alpha Centauri A', 'Proxima Centauri', 'Betelgeuse'],
+    correctAnswer: 2, // Proxima Centauri
+    hints: [
+      'It is a red dwarf star about 4.2 light-years away.',
+    ],
+    explanation:
+      'Proxima Centauri is part of the Alpha Centauri star system. It is slightly closer to us than the other two stars in the system.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/New_shot_of_Proxima_Centauri,_our_nearest_neighbour.jpg?width=600',
+      altText: 'Hubble image of Proxima Centauri',
+      source: 'Wikimedia Commons',
+      attribution: 'ESA/Hubble & NASA / CC BY 4.0',
+    },
+  },
+  {
+    id: 'q-126',
+    type: 'estimation',
+    category: 'Geography',
+    questionText: 'How many states does the United States of America have?',
+    correctAnswer: 50,
+    range: { min: 40, max: 60 },
+    tolerance: 0, // Strict
+    hints: [
+      'The last two to join were Alaska and Hawaii in 1959.',
+      'It corresponds to the number of stars on the flag.',
+    ],
+    explanation:
+      'There are 50 states. Washington D.C. is a federal district, not a state, and Puerto Rico is a territory.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Map_of_USA_with_state_names_2.svg?width=600',
+      altText: 'Map of the 50 US States',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-127',
+    type: 'exact-match',
+    category: 'Music',
+    questionText: 'Who is known as the "King of Pop"?',
+    correctAnswer: 'Michael Jackson',
+    acceptedVariations: ['MJ', 'Jackson'],
+    hints: [
+      'He released the best-selling album of all time, "Thriller".',
+      'He popularized the "Moonwalk".',
+    ],
+    explanation:
+      'Michael Jackson is one of the most significant cultural figures of the 20th century. "Thriller" (1982) remains the best-selling album in history.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Jackson_in_1988.jpg?width=600',
+      altText: 'Michael Jackson performing in 1988',
+      source: 'Wikimedia Commons',
+      attribution: 'Zoran Veselinovic / CC BY-SA 2.0',
+    },
+  },
+  {
+    id: 'q-128',
+    type: 'top-five',
+    category: 'Technology',
+    questionText: 'Name the 5 largest tech companies (Big Tech / GAFAM).',
+    correctAnswers: [
+      { answer: 'Apple' },
+      { answer: 'Microsoft' },
+      { answer: 'Alphabet', acceptedVariations: ['Google'] },
+      { answer: 'Amazon' },
+      { answer: 'Meta', acceptedVariations: ['Facebook'] },
+    ],
+    hints: [
+      'One started as a bookstore, another as a search engine.',
+      'The list includes the makers of the iPhone and Windows.',
+    ],
+    explanation:
+      'These five companies dominate the global technology industry. They have a combined market capitalization in the trillions of dollars.',
+  },
+  {
+    id: 'q-129',
+    type: 'multiple-choice',
+    category: 'Literature',
+    questionText: 'Which famous detective lives at 221B Baker Street?',
+    options: ['Hercule Poirot', 'Sherlock Holmes', 'Miss Marple', 'Philip Marlowe'],
+    correctAnswer: 1, // Sherlock Holmes
+    hints: [
+      'He has a friend and assistant named Dr. John Watson.',
+    ],
+    explanation:
+      '221B Baker Street is perhaps the most famous address in literature. In reality, the address did not exist when the stories were written.',
+  },
+  {
+    id: 'q-130',
+    type: 'estimation',
+    category: 'Sports',
+    questionText: 'How many players are on a standard soccer (football) team on the field?',
+    correctAnswer: 11,
+    range: { min: 5, max: 15 },
+    tolerance: 0, // Strict
+    hints: [
+      'This includes the goalkeeper.',
+      'It is an odd number.',
+    ],
+    explanation:
+      'A standard match is played by two teams, each with 11 players. One must be the goalkeeper.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Soccer_formation_3-4-3.svg?width=600',
+      altText: 'Diagram of a football pitch',
+      source: 'Wikimedia Commons',
+      attribution: 'Mario Ortegon / CC BY-SA 4.0',
+    },
+  },
+  {
+    id: 'q-131',
+    type: 'exact-match',
+    category: 'History',
+    questionText: 'Who was the first female Prime Minister of the United Kingdom?',
+    correctAnswer: 'Margaret Thatcher',
+    acceptedVariations: ['Thatcher', 'Baroness Thatcher'],
+    hints: [
+      'She was known as the "Iron Lady".',
+      'She served from 1979 to 1990.',
+    ],
+    explanation:
+      'Margaret Thatcher was the longest-serving British Prime Minister of the 20th century and the first woman to hold the office.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Margaret_Thatcher_cropped.jpg?width=600',
+      altText: 'Margaret Thatcher',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-132',
+    type: 'multiple-choice',
+    category: 'Science',
+    questionText: 'What is the hardest mineral on the Mohs scale?',
+    options: ['Quartz', 'Topaz', 'Corundum', 'Diamond'],
+    correctAnswer: 3, // Diamond
+    hints: [
+      'It scores a perfect 10 on the scale.',
+    ],
+    explanation:
+      'Diamond is the hardest known natural material. It can only be scratched by another diamond.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Rough_Diamond.jpg?width=600',
+      altText: 'A rough uncut diamond',
+      source: 'Wikimedia Commons',
+      attribution: 'USGS / Public Domain',
+    },
+  },
+  {
+    id: 'q-133',
+    type: 'estimation',
+    category: 'Anatomy',
+    questionText: 'What is the normal body temperature for a human in degrees Celsius?',
+    correctAnswer: 37,
+    unit: '°C',
+    tolerance: 0.5,
+    range: { min: 35, max: 40 },
+    hints: [
+      'It is equivalent to 98.6°F.',
+      'It is slightly less than 40.',
+    ],
+    explanation:
+      'While 37°C is the standard average, individual body temperature can vary slightly based on time of day and activity level.',
+  },
+  {
+    id: 'q-134',
+    type: 'top-five',
+    category: 'Geography',
+    questionText: 'Name the 5 boroughs of London (Inner London).',
+    correctAnswers: [
+      { answer: 'Westminster', acceptedVariations: ['City of Westminster'] },
+      { answer: 'Camden' },
+      { answer: 'Greenwich' },
+      { answer: 'Hackney' },
+      { answer: 'Islington' },
+    ],
+    otherOptions: [
+      { answer: 'Lambeth' },
+      { answer: 'Southwark' },
+      { answer: 'Kensington and Chelsea' },
+      { answer: 'Tower Hamlets' },
+      { answer: 'Wandsworth' },
+    ],
+    hints: [
+      'Westminster is home to the Parliament.',
+      'Greenwich is famous for timekeeping.',
+    ],
+    explanation:
+      'London is divided into 32 boroughs plus the City of London. "Inner London" typically refers to the boroughs that form the central part of the metropolis.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Outer_Inner_London_Boroughs.png?width=600',
+      altText: 'Map of London Boroughs',
+      source: 'Wikimedia Commons',
+      attribution: 'Peter Fitzgerald / CC BY-SA 4.0',
+    },
+  },
+  {
+    id: 'q-135',
+    type: 'multiple-choice',
+    category: 'Animals',
+    questionText: 'Which animal has the longest gestation period (pregnancy)?',
+    options: ['Blue Whale', 'African Elephant', 'Giraffe', 'Rhinoceros'],
+    correctAnswer: 1, // Elephant
+    hints: [
+      'It lasts nearly 22 months (almost 2 years).',
+    ],
+    explanation:
+      'African elephants have the longest pregnancy of any mammal, lasting about 645 days. This long development allows the calf to be born with a highly developed brain.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/African_Bush_Elephant.jpg?width=600',
+      altText: 'African Bush Elephant',
+      source: 'Wikimedia Commons',
+      attribution: 'Amoghavarsha JS / CC BY-SA 3.0',
+    },
+  },
+  {
+    id: 'q-136',
+    type: 'exact-match',
+    category: 'Art',
+    questionText: 'Who painted "The Last Supper"?',
+    correctAnswer: 'Leonardo da Vinci',
+    acceptedVariations: ['Leonardo', 'Da Vinci'],
+    hints: [
+      'It is a mural painted in Milan in the late 15th century.',
+      'He also painted the Mona Lisa.',
+    ],
+    explanation:
+      'The mural covers the end wall of the dining hall at the monastery of Santa Maria delle Grazie in Milan. It represents the scene of the Last Supper of Jesus with his apostles.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_The_Last_Supper_high_res.jpg?width=600',
+      altText: 'The Last Supper by Leonardo da Vinci',
+      source: 'Wikimedia Commons',
+      attribution: 'Public Domain',
+    },
+  },
+  {
+    id: 'q-137',
+    type: 'estimation',
+    category: 'Chemistry',
+    questionText: 'What is the pH level of pure water?',
+    correctAnswer: 7,
+    range: { min: 0, max: 14 },
+    tolerance: 0.1,
+    hints: [
+      'It is considered "neutral".',
+      'The scale ranges from 0 (acidic) to 14 (basic).',
+    ],
+    explanation:
+      'Pure water is neutral, meaning it is neither acidic nor basic. Acids have a pH less than 7, while bases have a pH greater than 7.',
+  },
+  {
+    id: 'q-138',
+    type: 'top-five',
+    category: 'Games',
+    questionText: 'Name the 5 standard colors in the game of Risk.',
+    correctAnswers: [
+      { answer: 'Red' },
+      { answer: 'Green' },
+      { answer: 'Yellow' },
+      { answer: 'Blue' },
+      { answer: 'Black' },
+    ],
+    otherOptions: [
+      { answer: 'Grey', value: '(In some newer editions)' },
+      { answer: 'Purple', value: '(In some editions)' },
+    ],
+    hints: [
+      'They are mostly primary colors.',
+      'Think of classic board game pieces.',
+    ],
+    explanation:
+      'Risk is a strategy board game of diplomacy, conflict, and conquest. The classic version typically features these five army colors.',
+  },
+  {
+    id: 'q-139',
+    type: 'multiple-choice',
+    category: 'Space',
+    questionText: 'Which Apollo mission was the first to land humans on the Moon?',
+    options: ['Apollo 8', 'Apollo 11', 'Apollo 13', 'Apollo 17'],
+    correctAnswer: 1, // Apollo 11
+    hints: [
+      'It happened in 1969.',
+    ],
+    explanation:
+      'Apollo 11 landed Neil Armstrong and Buzz Aldrin on the moon on July 20, 1969. Apollo 13 is famous for its "successful failure," and Apollo 17 was the final moon landing.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Aldrin_Apollo_11_original.jpg?width=600',
+      altText: 'Buzz Aldrin on the Moon',
+      source: 'Wikimedia Commons',
+      attribution: 'NASA / Public Domain',
+    },
+  },
+  {
+    id: 'q-140',
+    type: 'exact-match',
+    category: 'History',
+    questionText: 'What was the name of the ship that brought the Pilgrims to America in 1620?',
+    correctAnswer: 'Mayflower',
+    acceptedVariations: ['The Mayflower'],
+    hints: [
+      'It is named after a flower.',
+      'It landed at Plymouth Rock.',
+    ],
+    explanation:
+      'The Mayflower transported 102 passengers (the Pilgrims) from Plymouth, England, to the New World in 1620. They established the Plymouth Colony.',
+    media: {
+      type: 'image',
+      url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mayflower_in_Plymouth_Harbor,_by_William_Halsall.jpg?width=600',
+      altText: 'Painting of the Mayflower',
+      source: 'Wikimedia Commons',
+      attribution: 'William Halsall / Public Domain',
+    },
+  },
 ];
