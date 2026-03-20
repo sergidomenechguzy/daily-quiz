@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.8](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.7...v0.1.8) (2026-03-20)
+
+
+### Bug Fixes
+
+* statistics dialog scroll bug on mobile ([460b303](https://github.com/sergidomenechguzy/daily-quiz/commit/460b3030e6e034ad58b014906541b200dbc06d30))
+
 ## [0.1.7](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.6...v0.1.7) (2026-03-20)
 
 

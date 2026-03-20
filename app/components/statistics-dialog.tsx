@@ -147,7 +147,7 @@ export function StatisticsDialog() {
         </DialogDescription>
       </DialogHeader>
 
-      <div className="overflow-y-auto min-h-0 flex flex-col gap-6">
+      <div className="overflow-y-auto flex-1 flex flex-col gap-6">
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         <StatCard label="Played" value={totalPlayed} />
         <StatCard label="Completed" value={completed} />
