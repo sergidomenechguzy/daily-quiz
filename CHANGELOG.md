@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.7](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.6...v0.1.7) (2026-03-20)
+
+
+### Features
+
+* implement statistics dialog component and integrate into layout ([59e6e5a](https://github.com/sergidomenechguzy/daily-quiz/commit/59e6e5ac5c08da5eabc447351ae1762ccff9b170))
+
 ## [0.1.6](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.5...v0.1.6) (2026-02-10)
 
 ## [0.1.5](https://github.com/sergidomenechguzy/daily-quiz/compare/v0.1.4...v0.1.5) (2025-12-29)
