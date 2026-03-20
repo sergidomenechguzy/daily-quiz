@@ -116,7 +116,7 @@ export function Layout({
                   <BarChart2Icon />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-lg max-h-[85dvh] overflow-hidden">
+              <DialogContent className="sm:max-w-lg max-h-[85dvh] overflow-hidden flex flex-col">
                 <StatisticsDialog />
               </DialogContent>
             </Dialog>
