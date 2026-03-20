@@ -8,6 +8,12 @@ import { Calendar } from '~/components/ui/calendar';
 import { Link, useSearchParams } from 'react-router';
 import type { Matcher } from 'react-day-picker';
 import { Button } from '../ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from '~/components/ui/dialog';
+import { StatisticsDialog } from '~/components/statistics-dialog';
 
 interface LayoutProps {
   dayNumber?: number;
@@ -104,9 +110,16 @@ export function Layout({
               </Popover>
             ) : null}
 
-            <Button variant="ghost" size="icon" aria-label="Statistics">
-              <BarChart2Icon />
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label="Statistics">
+                  <BarChart2Icon />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-lg max-h-[85dvh] overflow-hidden">
+                <StatisticsDialog />
+              </DialogContent>
+            </Dialog>
           </div>
         </header>
         <div className="max-w-[800px] w-full space-y-3 px-0 sm:px-4">
