@@ -93,6 +93,23 @@ export function validateMultipleChoiceAnswer(
   };
 }
 
+function matchesTopFiveAnswer(
+  normalized: string,
+  answerData: TopFiveQuestion['correctAnswers'][number]
+) {
+  const correctAnswer = answerData.answer.toLowerCase().trim();
+
+  if (normalized === correctAnswer) {
+    return true;
+  }
+
+  return (
+    answerData.acceptedVariations?.some(
+      variation => variation.toLowerCase().trim() === normalized
+    ) ?? false
+  );
+}
+
 export function validateTopFiveAnswerWithIndex(
   answer: string,
   quizQuestion: TopFiveQuestion
@@ -101,27 +118,22 @@ export function validateTopFiveAnswerWithIndex(
 
   for (let i = 0; i < quizQuestion.correctAnswers.length; i++) {
     const correctAnswerData = quizQuestion.correctAnswers[i];
-    const correctAnswer = correctAnswerData.answer.toLowerCase().trim();
 
-    if (normalized === correctAnswer) {
+    if (matchesTopFiveAnswer(normalized, correctAnswerData)) {
       return {
         scorePercent: 100,
         isCorrect: true,
         index: i,
       };
     }
+  }
 
-    if (correctAnswerData.acceptedVariations) {
-      const matchesVariation = correctAnswerData.acceptedVariations.some(
-        variation => variation.toLowerCase().trim() === normalized
-      );
-      if (matchesVariation) {
-        return {
-          scorePercent: 100,
-          isCorrect: true,
-          index: i,
-        };
-      }
+  for (const otherOption of quizQuestion.otherOptions ?? []) {
+    if (matchesTopFiveAnswer(normalized, otherOption)) {
+      return {
+        scorePercent: 100,
+        isCorrect: true,
+      };
     }
   }
 
