@@ -1,5 +1,11 @@
-import { useState, type PropsWithChildren } from 'react';
-import { differenceInCalendarDays, format, startOfDay } from 'date-fns';
+import { useMemo, useState, type PropsWithChildren } from 'react';
+import {
+  differenceInCalendarDays,
+  format,
+  isSameDay,
+  parseISO,
+  startOfDay,
+} from 'date-fns';
 import { BarChart2Icon, CalendarIcon } from 'lucide-react';
 import { Typography } from '~/components/ui/typography';
 import { Popover } from '~/components/ui/popover';
@@ -14,6 +20,7 @@ import {
   DialogTrigger,
 } from '~/components/ui/dialog';
 import { StatisticsDialog } from '~/components/statistics-dialog';
+import { useQuizStore } from '~/stores/quiz-store';
 
 interface LayoutProps {
   dayNumber?: number;
@@ -31,6 +38,37 @@ export function Layout({
 }: PropsWithChildren<LayoutProps>) {
   const [, setSearchParams] = useSearchParams();
   const [open, setOpen] = useState(false);
+  const quizState = useQuizStore(s => s.quizState);
+  const { completedCorrect, completedWrong } = useMemo(() => {
+    const correct: Date[] = [];
+    const wrong: Date[] = [];
+    for (const [dateString, data] of Object.entries(quizState)) {
+      if (!data.isCompleted) continue;
+      const d = startOfDay(parseISO(dateString));
+      if (data.scorePercent === 100) {
+        correct.push(d);
+      } else {
+        wrong.push(d);
+      }
+    }
+    return { completedCorrect: correct, completedWrong: wrong };
+  }, [quizState]);
+
+  const { completedCorrectShown, completedWrongShown } = useMemo(() => {
+    if (!gameDate) {
+      return {
+        completedCorrectShown: completedCorrect,
+        completedWrongShown: completedWrong,
+      };
+    }
+    const selected = startOfDay(gameDate);
+    return {
+      completedCorrectShown: completedCorrect.filter(
+        d => !isSameDay(d, selected)
+      ),
+      completedWrongShown: completedWrong.filter(d => !isSameDay(d, selected)),
+    };
+  }, [completedCorrect, completedWrong, gameDate]);
 
   const dateRange: Matcher[] = [];
   if (firstDate) {
@@ -85,9 +123,8 @@ export function Layout({
                     reverseYears
                     disabled={dateRange}
                     modifiers={{
-                      // TODO: create server side stats route that returns this data
-                      completedCorrect: [],
-                      completedWrong: [],
+                      completedCorrect: completedCorrectShown,
+                      completedWrong: completedWrongShown,
                     }}
                     modifiersClassNames={{
                       completedCorrect:
