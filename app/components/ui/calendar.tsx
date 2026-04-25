@@ -12,6 +12,7 @@ import {
   ChevronRightIcon,
   ChevronDownIcon,
 } from 'lucide-react';
+import { type MotionProps } from 'motion/react';
 
 function Calendar({
   className,
@@ -187,11 +188,21 @@ function CalendarDayButton({
   ...props
 }: React.ComponentProps<typeof DayButton>) {
   const defaultClassNames = getDefaultClassNames();
+  const buttonProps = props as Omit<typeof props, keyof MotionProps>;
 
   const ref = React.useRef<HTMLButtonElement>(null);
   React.useEffect(() => {
     if (modifiers.focused) ref.current?.focus();
   }, [modifiers.focused]);
+
+  const completedCorrect = Boolean(
+    (modifiers as { completedCorrect?: boolean }).completedCorrect
+  );
+  const completedWrong = Boolean(
+    (modifiers as { completedWrong?: boolean }).completedWrong
+  );
+  const useCompletionStyle =
+    (completedCorrect || completedWrong) && !modifiers.selected;
 
   return (
     <Button
@@ -209,11 +220,19 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        'data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 dark:hover:text-foreground relative isolate z-10 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 border-0 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) [&>span]:text-xs [&>span]:opacity-70',
+        'group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 dark:hover:text-foreground relative isolate z-10 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 border-0 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) [&>span]:text-xs [&>span]:opacity-70',
+        !useCompletionStyle &&
+          'data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground',
+        useCompletionStyle &&
+          completedCorrect &&
+          'hover:bg-green-200 dark:hover:bg-green-900 data-[selected-single=true]:bg-green-100 data-[selected-single=true]:text-green-800 data-[selected-single=true]:hover:bg-green-200 dark:data-[selected-single=true]:bg-green-950 dark:data-[selected-single=true]:text-green-200 dark:data-[selected-single=true]:hover:bg-green-900 data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:bg-green-100 data-[range-start=true]:text-green-800 dark:data-[range-start=true]:bg-green-950 dark:data-[range-start=true]:text-green-200 data-[range-end=true]:bg-green-100 data-[range-end=true]:text-green-800 dark:data-[range-end=true]:bg-green-950 dark:data-[range-end=true]:text-green-200',
+        useCompletionStyle &&
+          completedWrong &&
+          'hover:bg-red-200 dark:hover:bg-red-900 data-[selected-single=true]:bg-red-100 data-[selected-single=true]:text-red-800 data-[selected-single=true]:hover:bg-red-200 dark:data-[selected-single=true]:bg-red-950 dark:data-[selected-single=true]:text-red-200 dark:data-[selected-single=true]:hover:bg-red-900 data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:bg-red-100 data-[range-start=true]:text-red-800 dark:data-[range-start=true]:bg-red-950 dark:data-[range-start=true]:text-red-200 data-[range-end=true]:bg-red-100 data-[range-end=true]:text-red-800 dark:data-[range-end=true]:bg-red-950 dark:data-[range-end=true]:text-red-200',
         defaultClassNames.day,
         className
       )}
-      {...props}
+      {...buttonProps}
     />
   );
 }
